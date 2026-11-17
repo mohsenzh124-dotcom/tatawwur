@@ -1,6 +1,6 @@
 /* نظام التطوّر اليومي — service worker: يعمل التطبيق كاملاً بدون إنترنت */
 const FONT_CSS = "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Reem+Kufi:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap";
-const VERSION = "tatawwur-pwa-v1";
+const VERSION = "tatawwur-pwa-v4";
 const DATA = "tatawwur-data";
 const SHELL = ["./", "./index.html", "./manifest.webmanifest",
   "./icon-192.png", "./icon-512.png", "./maskable-512.png", "./badge-96.png", "./apple-180.png"];
@@ -38,7 +38,8 @@ self.addEventListener("fetch", e => {
 /* reminders */
 self.addEventListener("notificationclick", e => {
   e.notification.close();
-  const target = (e.notification.data && e.notification.data.url) || "./";
+  const nd = e.notification.data || {};
+  const target = (e.action && nd.urls && nd.urls[e.action]) || nd.url || "./";
   e.waitUntil(self.clients.matchAll({type: "window", includeUncontrolled: true}).then(list => {
     for (const c of list) { if ("focus" in c) { c.postMessage({goto: target}); return c.focus(); } }
     return self.clients.openWindow(target);

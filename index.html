@@ -303,6 +303,67 @@ nav.tabs button{min-height:44px}
 .inapp b{font-size:.95rem} .inapp span{font-size:.84rem;opacity:.85}
 .wbar .box{flex:1;width:100%;display:flex;align-items:flex-end;justify-content:center;min-height:0}
 .big .num{white-space:nowrap}
+/* v1.1 */
+:root{--trunk:#7A5A3A;--soil:rgba(90,107,120,.28)}
+#fchip{border:0;cursor:pointer;font:600 .8rem var(--f-mono);padding:4px 10px;direction:ltr}
+.qbar{margin-bottom:16px}.qbar .btn{flex:1;padding:11px 12px;font-size:.95rem}
+.chipb{border-radius:99px}.chipb.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.chipb.on.good{background:var(--good);border-color:var(--good);color:#fff}
+.fnow{text-align:center;border-top:4px solid var(--cat)}
+.ftree{display:grid;place-items:center;margin:6px 0}
+.ftree svg{transition:transform .4s}
+.ftime{font:600 3rem var(--f-mono);line-height:1.1;margin-bottom:10px;display:block}
+.grove{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:flex-end;margin-top:10px;padding:10px;border-radius:10px;min-height:92px;background:linear-gradient(to top,color-mix(in srgb,var(--good) 16%,transparent),transparent 70%)}
+.grove.empty{align-items:center;justify-content:center}
+.gt{display:flex;flex-direction:column;align-items:center;font-size:.68rem;color:var(--muted)}
+.frow{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;padding:6px 0;border-bottom:1px dashed var(--line);font-size:.9rem}
+.frow:last-of-type{border-bottom:0}.frow small{display:block;color:var(--muted);font-size:.76rem}
+.expf{display:grid;grid-template-columns:110px 1fr;gap:6px}.expf #ex-n{grid-column:1/2;grid-column:span 1}.expf input,.expf select{width:100%}
+.chk{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line)}
+.chk:last-child{border-bottom:0}.chk small{display:block;color:var(--muted);font-size:.76rem}
+.cblk{display:grid;grid-template-columns:auto 4px 1fr 30px;gap:10px;align-items:center;width:100%;text-align:start;font:inherit;color:var(--ink);background:none;border:0;border-bottom:1px solid var(--line);padding:10px 2px;cursor:pointer}
+.cblk:last-child{border-bottom:0}
+.cblk .t{font:500 .8rem var(--f-mono);color:var(--muted);direction:ltr}.cblk .bar{align-self:stretch;border-radius:2px;background:var(--cat)}
+.cblk .tk{width:28px;height:28px;border-radius:7px;border:2px solid var(--line);display:grid;place-items:center;font-size:.85rem}
+.cblk.on .tk{background:var(--good);border-color:var(--good);color:#fff}.cblk.on .ttl{color:var(--muted);text-decoration:line-through}
+.goal select{max-width:100%}
+/* v1.2 */
+.grove{position:relative;overflow:hidden}
+.grove.s-winter{background:radial-gradient(circle,#fff 1.2px,transparent 1.6px) 0 0/26px 22px,radial-gradient(circle,#fff 1px,transparent 1.4px) 13px 11px/26px 22px,linear-gradient(to top,#E3ECF3 0 16%,color-mix(in srgb,#9DB7CC 22%,transparent) 16%,transparent 90%)}
+.grove.s-spring{background:radial-gradient(circle,#F3A6C0 1.4px,transparent 1.8px) 4px 6px/34px 28px,linear-gradient(to top,color-mix(in srgb,var(--good) 22%,transparent),transparent 75%)}
+.grove.s-summer{background:linear-gradient(to top,color-mix(in srgb,var(--good) 26%,transparent),color-mix(in srgb,#F5C542 8%,transparent) 80%)}
+.grove.s-autumn{background:radial-gradient(circle,#D98A2B 1.5px,transparent 1.9px) 6px 4px/38px 30px,linear-gradient(to top,color-mix(in srgb,#C9812B 24%,transparent),transparent 78%)}
+.grove.night{background:radial-gradient(circle,#fff 1px,transparent 1.4px) 0 0/44px 36px,radial-gradient(circle,#cfe0ff .8px,transparent 1.2px) 20px 16px/52px 40px,linear-gradient(#0B1530,#1B2A4A 72%,#243652);color:#C9D6E8}
+.grove.night .gt,.grove.night .legend{color:#C9D6E8}
+.grove .moon{position:absolute;top:10px;inset-inline-start:14px;width:26px;height:26px;border-radius:50%;box-shadow:inset -7px 3px 0 0 #F3E3A2}
+.grove .crt{font-size:1.5rem;line-height:1;align-self:flex-end;margin-inline-start:4px;animation:bob 3s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-4px)}}
+@media (prefers-reduced-motion:reduce){.grove .crt{animation:none}}
+.spl{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px;margin-top:8px}
+.spl span{display:grid;grid-template-columns:auto 1fr;gap:0 8px;align-items:center;background:var(--sunk);border-radius:8px;padding:6px 8px}
+.spl svg{grid-row:1/3}.spl b{font-size:.95rem;text-align:start}.spl small{color:var(--muted);font-size:.72rem}
+.rword{margin:8px 0 0;font-size:1rem}.rword b{font-size:1.25rem;color:var(--accent)}.rword small{display:block;color:var(--muted);font-size:.76rem}
+.gart{background:var(--sunk);border-radius:10px;padding:8px 8px 6px}
+.roadp{display:grid;grid-template-columns:72px 1fr;gap:10px;margin-top:10px;direction:rtl}
+.rst{display:flex;flex-direction:column;justify-content:flex-start;padding-top:14px;gap:2px;min-width:0}
+.rst small{color:var(--muted);font-size:.78rem}.rst .pbar{max-width:220px;height:6px;margin-top:3px}
+.rst.cur b{color:var(--accent)}
+.capsule{background:color-mix(in srgb,var(--c-routine) 12%,var(--surface));border-inline-start:4px solid var(--c-routine);margin-bottom:16px}
+.letter{background:var(--accent-soft);border-inline-start:4px solid var(--accent);margin-bottom:16px}
+.capsule p,.letter p{margin:6px 0 0;font-size:1.05rem;font-weight:500;line-height:1.75;white-space:pre-wrap}
+.moonc{display:inline-flex;align-items:center;gap:6px;font-size:.84rem;color:var(--muted);background:var(--sunk);border-radius:99px;padding:3px 12px 3px 6px}
+#dusk{position:fixed;inset:0;z-index:40;pointer-events:none;background:#081a4d;mix-blend-mode:multiply;opacity:0;transition:opacity 2s}
+/* v1.3 */
+.hk{display:grid;grid-template-columns:44px 1fr auto;gap:10px;align-items:center;padding:10px 6px;border-bottom:1px solid var(--line);border-radius:8px}
+.hk:last-child{border-bottom:0}.hk.now{background:var(--accent-soft)}
+.hk .hi{font-size:1.7rem;line-height:1;display:grid;place-items:center}
+.hk small{display:block;color:var(--muted);font-size:.78rem;line-height:1.5}
+.hk .crt{animation:bob 3s ease-in-out infinite}
+.albg{display:grid;grid-template-columns:repeat(auto-fill,minmax(76px,1fr));gap:6px;margin-top:6px}
+.alb{display:flex;flex-direction:column;align-items:center;gap:1px;background:var(--sunk);border-radius:8px;padding:8px 4px;text-align:center;min-width:0}
+.alb i{font-style:normal;font-size:1.6rem;line-height:1.2;min-height:34px;display:grid;place-items:center}
+.alb b{font-size:.76rem}.alb small{font-size:.66rem;color:var(--muted)}
+.alb.no{opacity:.45}.alb.no i{color:var(--muted)}
 </style>
 </head>
 <body>
@@ -311,10 +372,12 @@ nav.tabs button{min-height:44px}
   <div class="wrap">
     <div class="brand">
       <h1>نظام <span>التطوّر</span> اليومي</h1>
-      <span class="sync" id="sync" data-mode="on">محفوظ على هذا الجهاز</span>
+      <span class="row" style="gap:8px"><button id="fchip" class="chip focus" hidden aria-label="المؤقّت"></button><span class="sync" id="sync" data-mode="on">محفوظ على هذا الجهاز</span></span>
     </div>
     <nav class="tabs" role="tablist" id="tabs">
       <button role="tab" data-tab="today">اليوم</button>
+      <button role="tab" data-tab="checkin">تسجيل سريع</button>
+      <button role="tab" data-tab="forest">الغابة</button>
       <button role="tab" data-tab="week">الأسبوع والمحاضرات</button>
       <button role="tab" data-tab="habits">متتبع العادات</button>
       <button role="tab" data-tab="stats">الإحصائيات</button>
@@ -441,6 +504,7 @@ function defaults(){
     ],
     notif:{on:false, sleep:true, sleepLead:30, leave:true, leaveLead:10, blocks:true, lead:5,
       habits:true, habitT:"21:00", weekly:true, weeklyT:"18:00", due:true, money:true},
+    exp:[], letters:[], dusk:true, focus:{cur:null, trees:[], dur:25, wake:false, ru:true, wi:0, known:0, best:0, quiz:null},
     logs:{}
   };
 }
@@ -466,6 +530,10 @@ function norm(x){
   if (!Array.isArray(x.big)) x.big = defaults().big;
   x.big.forEach(g => { if (!Array.isArray(g.log)) g.log = []; });
   x.logs = x.logs || {}; x.days = x.days || {}; x.lectures = x.lectures || {};
+  if (!Array.isArray(x.exp)) x.exp = [];
+  if (!Array.isArray(x.letters)) x.letters = [];
+  x.focus = Object.assign({cur:null, trees:[], dur:25, wake:false, ru:true, wi:0, known:0, best:0, quiz:null}, x.focus || {});
+  if (!Array.isArray(x.focus.trees)) x.focus.trees = [];
   return x;
 }
 try { const raw = localStorage.getItem(LS); if (raw) state = norm(JSON.parse(raw)); } catch(e) {}
@@ -473,6 +541,7 @@ try { const raw = localStorage.getItem(LS); if (raw) state = norm(JSON.parse(raw
 function setSync(t, mode){ const el = $("#sync"); if (el) { el.textContent = t; el.dataset.mode = mode || ""; } }
 function save(){
   try { snapToday(); } catch(e) {}
+  try { checkMission(); } catch(e) {}
   try { localStorage.setItem(LS, JSON.stringify(state)); setSync(navigator.onLine === false ? "بدون إنترنت · محفوظ على هذا الجهاز" : "محفوظ على هذا الجهاز", "on"); }
   catch(e) { setSync("تعذّر الحفظ: مساحة التخزين ممتلئة", "off"); }
   try { planReminders(); } catch(e) {}
@@ -842,6 +911,7 @@ function vToday(){
   return `
   ${lectureBanner(d)}
   ${pwaBanner()}
+  ${quickBar()}
   ${reviewBox(latestReview(), "مراجعة الأسبوع الماضي", false)}
   <div class="today-head">
     <div><div class="row">${kindChip(g.sub)}<span class="legend">غداً: ${KIND[tk]}</span></div>
@@ -1167,6 +1237,7 @@ function vMoney(){
   <h2>المال والأصول</h2>
   <p class="lead">كل ما تملكه وما عليك في مكان واحد. القيم بالعملات الأجنبية تُحوَّل إلى الروبل بالأسعار التي تكتبها أنت. سجّل لقطة في آخر كل شهر لتتابع التطوّر.</p>
   <div class="kpis" id="m-kpi" style="margin:0 0 16px">${moneyKpis(c)}</div>
+  ${vExp()}
   <div class="grid2">
     <section class="panel">
       <h3>الأصول</h3>
@@ -1270,7 +1341,7 @@ function vGoals(){
       return `<div class="goal" data-id="${g.id}">
         <div class="row" style="flex-wrap:nowrap"><input class="gt" type="text" id="gt-${g.id}" data-bind="gt" value="${esc(g.t)}" aria-label="الهدف"><button class="btn ghost del" data-act="delg" data-id="${g.id}" aria-label="حذف">✕</button></div>
         <div class="pbar"><i style="width:${p}%"></i></div>
-        <div class="gfields">الحالي <input type="number" id="gc-${g.id}" data-bind="gc" value="${esc(g.cur)}"> من <input type="number" id="gg-${g.id}" data-bind="gg" value="${esc(g.tgt)}"> <input class="u" type="text" id="gu-${g.id}" data-bind="gu" value="${esc(g.u)}" aria-label="الوحدة"> الموعد <input type="date" id="gd-${g.id}" data-bind="gd" value="${esc(g.d)}"> <b class="num">${p}%</b></div>
+        <div class="gfields">الحالي <input type="number" id="gc-${g.id}" data-bind="gc" value="${esc(g.cur)}"> من <input type="number" id="gg-${g.id}" data-bind="gg" value="${esc(g.tgt)}"> <input class="u" type="text" id="gu-${g.id}" data-bind="gu" value="${esc(g.u)}" aria-label="الوحدة"> الموعد <input type="date" id="gd-${g.id}" data-bind="gd" value="${esc(g.d)}"> ${goalLink(g)} <b class="num">${p}%</b></div>
       </div>`; }).join("")}
     <div class="row" style="margin-top:12px"><button class="btn primary" data-act="addg">+ إضافة هدف</button></div>
   </section>`;
@@ -1280,6 +1351,7 @@ function vRoadmap(){
   return `
   <h2>خارطة الطريق</h2>
   <p class="lead">من الصفر في البرمجة إلى الحرية المالية. كل المصادر في المراحل الأولى مجانية. ركّز على المرحلة الحالية فقط، وعدّل البنود كما تشاء.</p>
+  ${roadArt()}
   <section class="panel">${state.roadmap.map(p => { const dn = p.items.filter(i => i.d).length;
     return `<div class="phase" data-pid="${p.id}"><div class="when">${esc(p.w)}<small>${esc(p.s)} · <span class="num">${dn}/${p.items.length}</span></small></div>
       <div>${p.items.map(it => `<div class="item${it.d?" done":""}" data-id="${it.id}">
@@ -1320,7 +1392,7 @@ function vResources(){
   <div class="grid2">${RES.map(sec => `<section class="panel"><h3 style="margin-bottom:4px">${sec.s}</h3>${sec.l.map(r => `<div class="res"><a href="${r[1]}" target="_blank" rel="noopener">${esc(r[0])}</a><p>${esc(r[2])}</p></div>`).join("")}</section>`).join("")}</div>`;
 }
 
-const VIEWS = {today:vToday, week:vWeek, habits:vHabits, stats:vStats, app:vApp, goals:vGoals, money:vMoney, roadmap:vRoadmap, resources:vResources};
+const VIEWS = {today:vToday, week:vWeek, habits:vHabits, stats:vStats, app:vApp, checkin:vCheck, forest:vForest, goals:vGoals, money:vMoney, roadmap:vRoadmap, resources:vResources};
 function render(){
   buildPlan(); snapToday();
   document.querySelectorAll("#tabs button").forEach(b => b.setAttribute("aria-selected", b.dataset.tab === tab));
@@ -1432,7 +1504,7 @@ $("#view").addEventListener("change", e => {
   save(); render();
 });
 
-const APP_VER = "1.0.0";
+const APP_VER = "1.3.0";
 
 /* =====================================================================
    PWA additions: daily snapshots, weekly stats, big goals, reminders,
@@ -1521,6 +1593,7 @@ function vStats(){
     <div class="kpi"><b>${W.good}/${W.n}</b><span>أيام 70% فأكثر</span></div>
     <div class="kpi"><b>${W.logged}/${W.n}</b><span>أيام مسجّلة</span></div>
     <div class="kpi"><b>${W.bd}/${W.bt}</b><span>كتل منجزة</span></div>
+    <div class="kpi"><b>${hrs(sumMin(treesIn(keyOf(ws), keyOf(we))))} س</b><span>تركيز في الغابة</span></div>
     <div class="kpi"><b>${W.hd % 1 ? W.hd.toFixed(1) : W.hd}/${W.ht}</b><span>عادات منجزة</span></div>
   </div>
   <div class="grid2">
@@ -1606,6 +1679,7 @@ function vBig(){
     <div id="big-sum">${bigSummary()}</div>
     <div class="bigs">${B.map(g => `<div class="big" data-id="${g.id}">
       <div class="bh"><span class="ic">${esc(g.ic || "🎯")}</span><input type="text" id="bn-${g.id}" data-xb="bn" value="${esc(g.n)}" aria-label="اسم الهدف"><button class="btn ghost del" data-act="x-bdel" aria-label="حذف">✕</button></div>
+      <div id="ba-${g.id}" class="gart">${goalArt(g)}</div>
       <div id="bo-${g.id}" class="stack" style="gap:8px">${bigOut(g)}</div>
       <div class="f">
         <label>المبلغ المستهدف ₽<input type="number" inputmode="numeric" id="bt-${g.id}" data-xb="bt" value="${esc(g.tgt || "")}" placeholder="0"></label>
@@ -1624,6 +1698,7 @@ function vBig(){
 function refreshBig(id){
   const g = (state.big || []).find(x => x.id === id), el = document.getElementById("bo-" + id);
   if (g && el) el.innerHTML = bigOut(g);
+  const ar = document.getElementById("ba-" + id); if (g && ar) ar.innerHTML = goalArt(g);
   const s = document.getElementById("big-sum"); if (s) s.innerHTML = bigSummary();
 }
 
@@ -1670,9 +1745,11 @@ function inApp(r){
 function fire(r){
   inApp(r);
   if (!nGranted()) return;
-  const opt = {body: r.body, tag: r.id, icon: "icon-192.png", badge: "badge-96.png", lang: "ar", dir: "rtl", data: {url: "./#today"}};
-  const plain = () => { try { new Notification(r.title, opt); } catch(e) {} };
-  if (swReg) swReg.showNotification(r.title, opt).catch(plain); else plain();
+  const base = {body: r.body, tag: r.id, icon: "icon-192.png", badge: "badge-96.png", lang: "ar", dir: "rtl"};
+  const url = r.kind === "habits" ? "./#checkin" : r.kind === "focus" ? "./#forest" : r.kind === "weekly" ? "./#stats" : "./#today";
+  const acts = r.kind === "habits" ? [{action: "checkin", title: "تسجيل سريع"}] : r.kind === "block" ? [{action: "timer", title: "ابدأ المؤقّت"}] : [];
+  const plain = () => { try { new Notification(r.title, base); } catch(e) {} };
+  if (swReg) swReg.showNotification(r.title, Object.assign({data: {url, urls: {checkin: "./#checkin", timer: "./#forest"}}, actions: acts}, base)).catch(plain); else plain();
 }
 function tickReminders(){
   if (!N().on) return;
@@ -1689,6 +1766,7 @@ function planReminders(){
     if (!("caches" in window) || !N().on || !nGranted()) return;
     const t = Date.now(), list = [];
     for (let i = 0; i < 3; i++) remindersFor(addDays(now(), i)).forEach(r => { if (r.at > t) list.push(r); });
+    const fc = state.focus.cur; if (fc) list.push({id: "focus-" + fc.start, kind: "focus", at: fc.start + fc.dur * 60000, title: "اكتملت شجرتك 🌳", body: fc.t + " · " + fc.dur + " دقيقة"});
     caches.open("tatawwur-data").then(c => c.put("schedule.json", new Response(JSON.stringify(list), {headers: {"content-type": "application/json"}}))).catch(() => {});
   }, 1500);
 }
@@ -1755,6 +1833,7 @@ function pwaBanner(){
   const B = (w, html, act, lbl) => `<div class="banner"><div>${html}</div><div class="row"><button class="btn primary" data-act="${act}">${lbl}</button><button class="btn ghost" data-act="x-dismiss" data-w="${w}" aria-label="إخفاء">✕</button></div></div>`;
   if (!Object.keys(state.logs).length && !dis.imp) return B("imp", "<b>أول تشغيل:</b> إن كانت لك بيانات من النسخة السابقة فاستوردها من ملف النسخة الاحتياطية.", "x-goapp", "استيراد البيانات");
   if (deferred && !standalone() && !dis.inst) return B("inst", "<b>ثبّت التطبيق</b> على الشاشة الرئيسية ليعمل بدون إنترنت ويفتح كأي تطبيق.", "x-install", "تثبيت");
+  if (backupDue() && dis.bk !== weekKey(now())) return B("bk", "<b>نسخة احتياطية:</b> مرّ أسبوع على آخر نسخة. احفظها في Google Drive بضغطة.", "x-share", "حفظ نسخة");
   if (nSupported() && !(N().on && nGranted()) && !dis.ntf) return B("ntf", "<b>التذكيرات متوقفة.</b> فعّلها لتصلك تنبيهات النوم والخروج والعادات.", "x-non", "تفعيل");
   return "";
 }
@@ -1776,13 +1855,14 @@ function vApp(){
         ${!standalone() && !deferred ? '<ol class="steps"><li>افتح هذه الصفحة في Chrome على الهاتف.</li><li>اضغط القائمة ⋮ أعلى الشاشة.</li><li>اختر «إضافة إلى الشاشة الرئيسية» ثم «تثبيت».</li></ol>' : ""}
         <div class="sw"><span>العمل بدون إنترنت<small>${swReady ? "كل الصفحات محفوظة على الجهاز." : location.protocol === "file:" ? "يحتاج فتح التطبيق من رابط https." : "يُجهَّز عند أول فتح مع اتصال."}</small></span><span class="${swReady ? "ok" : "legend"}">${swReady ? "جاهز ✓" : "…"}</span></div>
         <div class="sw"><span>إعدادات الدوام والنوم<small>مواعيد النوبة، القيلولة، نوم التعافي، الطريق.</small></span><button class="btn" data-act="x-goweek">فتح</button></div>
+        <label class="sw"><span>غروب الشاشة<small>تخفت الألوان نحو الأزرق الداكن قبل موعد النوم بنصف ساعة.</small></span><input type="checkbox" data-xb="dusk"${state.dusk === false ? "" : " checked"}></label>
         <div class="sw"><span>تحديث التطبيق<small>الإصدار ${APP_VER}</small></span><button class="btn" data-act="x-update">تحقّق من تحديث</button></div>
       </section>
       <section class="panel"><h3>النسخ الاحتياطي</h3>
         <p class="legend" style="margin:2px 0 8px">${days} يوماً مسجّلاً على هذا الجهاز. ${bk ? "آخر نسخة احتياطية: <span class='num'>" + esc(bk) + "</span>." : '<span class="warn">لم تأخذ نسخة احتياطية بعد.</span>'} ${persisted === true ? "التخزين محمي من الحذف التلقائي." : ""}</p>
-        <div class="row"><button class="btn primary" data-act="x-export">تصدير نسخة احتياطية</button><button class="btn" data-act="x-import">استيراد نسخة</button></div>
-        <input type="file" id="imp" accept=".json,application/json" hidden>
-        <p class="note">مسح بيانات المتصفح أو حذف التطبيق يحذف بياناتك. احفظ ملف النسخة في مكان آمن (Google Drive مثلاً) مرة كل أسبوع.</p>
+        <div class="row"><button class="btn primary" data-act="x-share">حفظ في Drive / مشاركة</button><button class="btn" data-act="x-export">تنزيل ملف</button><button class="btn" data-act="x-import">استيراد نسخة</button></div>
+        <input type="file" id="imp" accept=".json,.txt,application/json,text/plain" hidden>
+        <p class="note">مسح بيانات المتصفح أو حذف التطبيق يحذف بياناتك. زر «حفظ في Drive» يفتح قائمة المشاركة: اختر Google Drive. يذكّرك التطبيق كل أسبوع.</p>
       </section>
     </div>
     <div class="stack">
@@ -1791,7 +1871,7 @@ function vApp(){
           ${on ? '<span class="row" style="flex-wrap:nowrap"><button class="btn" data-act="x-ntest">تجربة</button><button class="btn ghost" data-act="x-noff">إيقاف</button></span>' : '<button class="btn primary" data-act="x-non">تفعيل التذكيرات</button>'}</div>
         ${sw("sleep", "النوم والقيلولة", "قبل النوم الرئيسي، قيلولة العصر، نوم التعافي، وموعد نوم الليل.", num("sleepLead", "دقائق قبل النوم"))}
         ${sw("leave", "الخروج إلى العمل والجامعة", "قبل موعد الانطلاق.", num("leaveLead", "دقائق قبل الخروج"))}
-        ${sw("blocks", "بداية كل كتلة في الخطة", "الدراسة، البرمجة، الروسية، الرياضة.", num("lead", "دقائق قبل الكتلة"))}
+        ${sw("blocks", "بداية كل كتلة في الخطة", "الدراسة، البرمجة، الروسية، الرياضة. مع زر «ابدأ المؤقّت».", num("lead", "دقائق قبل الكتلة"))}
         ${sw("habits", "تسجيل العادات", "في أيام العطلة بهذا الوقت، وفي أيام النوبة قبل الخروج بـ45 دقيقة.", tm("habitT", "وقت تذكير العادات"))}
         ${sw("weekly", "المراجعة الأسبوعية", "كل أحد: نسبة الالتزام وإدخال محاضرات الأسبوع القادم.", tm("weeklyT", "وقت المراجعة"))}
         ${sw("due", "واجبات الجامعة", "ظهر يوم التسليم واليوم الذي قبله.")}
@@ -1816,7 +1896,7 @@ $("#view").addEventListener("click", e => {
   else if (a === "x-snow") sOff = 0;
   else if (a === "x-goapp") { setTab("app"); return; }
   else if (a === "x-goweek") { setTab("week"); const d = document.querySelector("details.cfg"); if (d) { d.open = true; d.scrollIntoView({block: "start"}); } return; }
-  else if (a === "x-dismiss") { const d = dismissed(); d[el.dataset.w] = 1; lsSet(LS + "-dis", d); }
+  else if (a === "x-dismiss") { const d = dismissed(); d[el.dataset.w] = el.dataset.w === "bk" ? weekKey(now()) : 1; lsSet(LS + "-dis", d); }
   else if (a === "x-install") { if (deferred) { const p = deferred; deferred = null; p.prompt(); Promise.resolve(p.userChoice).then(() => render()).catch(() => {}); } return; }
   else if (a === "x-non") { enableNotif(); return; }
   else if (a === "x-noff") { N().on = false; save(); }
@@ -1848,7 +1928,8 @@ $("#view").addEventListener("change", e => {
   else if (b === "bd" || b === "bl") { const host = el.closest(".big"), g = host && state.big.find(x => x.id === host.dataset.id); if (!g) return;
     if (b === "bd") g.d = el.value; else g.link = el.checked; }
   else return;
-  save(); render();
+  save(); if (b === "nf" && el.type !== "checkbox") return;   // keep the next tap from being swallowed by a re-render
+  render();
 });
 
 /* ---------- boot ---------- */
@@ -1862,6 +1943,607 @@ setSync(navigator.onLine === false ? "بدون إنترنت · محفوظ على
 setInterval(tickReminders, 20000);
 document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") { tickReminders(); if (tab === "today" || tab === "stats") softRender(); } });
 setTimeout(tickReminders, 1500);
+
+/* =====================================================================
+   v1.1: focus forest, quick check-in, expense log, one-tap backup
+   ===================================================================== */
+const F = () => state.focus;
+const STAGES = [[0, "برعم"], [10, "شجيرة"], [25, "شجرة صغيرة"], [50, "شجرة"], [90, "شجرة كبيرة"]];
+const stageOf = m => { let s = 0; STAGES.forEach((x, i) => { if (m >= x[0]) s = i; }); return s; };
+const focusElapsed = () => { const c = F().cur; return c ? Math.max(0, (Date.now() - c.start) / 60000) : 0; };
+const mmss = s => { s = Math.max(0, Math.round(s)); const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60); return (h ? h + ":" : "") + pad(m) + ":" + pad(s % 60); };
+const treesIn = (a, b) => F().trees.filter(t => t.k >= a && t.k <= b);
+const sumMin = l => l.reduce((a, t) => a + t.m, 0);
+const hrs = m => (m / 60).toFixed(1);
+let wl = null;
+function wake(on){
+  try { if (on && F().wake && navigator.wakeLock && document.visibilityState === "visible") navigator.wakeLock.request("screen").then(x => { wl = x; }).catch(() => {});
+    else if (!on && wl) { wl.release().catch(() => {}); wl = null; } } catch(e) {}
+}
+function syncGoals(){
+  state.goals.forEach(g => { if (!g.fc) return; const m = sumMin(F().trees.filter(t => g.fc === "all" || t.c === g.fc)); g.cur = Math.round(m / 6) / 10; });
+}
+function goalLink(g){
+  return `<select id="gf-${g.id}" data-xb="gf" aria-label="ربط بالغابة"><option value="">الرقم يدوي</option><option value="all"${g.fc === "all" ? " selected" : ""}>ساعات الغابة: الكل</option>${["deep","ru","uni","body","money","routine"].map(k => `<option value="${k}"${g.fc === k ? " selected" : ""}>ساعات الغابة: ${CATS[k].n}</option>`).join("")}</select>`;
+}
+function startFocus(t, c, dur, bid, bm){
+  dur = Math.max(1, Math.min(240, Math.round(+dur || 25)));
+  F().cur = {start: Date.now(), dur, t: t || "جلسة تركيز", c: c || "deep", bid: bid || "", bm: bm || 0, k: keyOf(now())};
+  pickWord();
+  F().dur = dur; save(); wake(true); render(); window.scrollTo(0, 0);
+}
+function endFocus(auto){
+  const cur = F().cur; if (!cur) return;
+  const m = Math.round(Math.min(cur.dur, focusElapsed()));
+  F().cur = null; wake(false);
+  if (m < 1) { save(); toast("أقل من دقيقة: لم تُحسب شجرة"); render(); return; }
+  const tree = {id: uid(), k: cur.k, at: cur.start, t: cur.t, c: cur.c, m, full: m >= cur.dur};
+  F().trees.push(tree); afterTree(tree, cur);
+  if (cur.bid && cur.k === keyOf(now()) && (m >= cur.dur || (cur.bm && m >= cur.bm * .8))) log(cur.k).b[cur.bid] = 1;
+  syncGoals(); save();
+  const msg = {id: "focus-" + cur.start, kind: "focus", title: (auto ? "اكتملت الجلسة: " : "أُضيفت إلى غابتك: ") + STAGES[stageOf(m)][1] + " 🌳", body: cur.t + " · " + m + " دقيقة"};
+  if (auto) fire(msg); else toast(msg.title);
+  render();
+}
+function focusBlocks(){
+  const L = dayLog(keyOf(now()));
+  return getDay(now()).blocks.filter(b => !b.free && !b.conflict && !["move", "work", "rest"].includes(b.c) && !(L.b && L.b[b.id]));
+}
+let fSel = null, fName = "", fCat = "deep", fDur = 0;
+function vForest(){
+  const cur = F().cur, tk = keyOf(now()), ws = weekStart(now()), wk = keyOf(ws), we = keyOf(addDays(ws, 6));
+  const today = treesIn(tk, tk), week = treesIn(wk, we), all = F().trees;
+  let top;
+  if (cur) {
+    const el = focusElapsed(), st = stageOf(el);
+    top = `<section class="panel fnow" style="--cat:var(--c-${cur.c})">
+      <div class="eyebrow">${esc((CATS[cur.c] || {}).n || "")}</div><h3 style="font-size:1.15rem">${esc(cur.t)}</h3>${wordLine(cur)}
+      <div id="f-tree" class="ftree" data-st="${st}">${treeSVG(st, cur.c, 170, {night: nightNow()})}</div>
+      <div id="f-time" class="ftime num">${mmss((cur.dur - el) * 60)}</div>
+      <div class="pbar" style="height:10px;border-radius:5px"><i id="f-bar" style="width:${Math.min(100, el / cur.dur * 100).toFixed(1)}%;background:var(--cat)"></i></div>
+      <p id="f-info" class="legend" style="margin:8px 0 0">مضى ${Math.floor(el)} من ${cur.dur} دقيقة · لو أوقفت الآن: ${STAGES[st][1]}</p>
+      <button class="btn" data-act="x-fstop" style="margin-top:12px">إيقاف واحتساب الشجرة</button>
+      <p class="note">المؤقّت يستمر حتى لو أغلقت التطبيق أو قفلت الشاشة، وتُضاف الشجرة عند انتهاء المدة.</p></section>`;
+  } else {
+    const bl = focusBlocks(), nm = now().getHours() * 60 + now().getMinutes();
+    if (fSel === null || (fSel !== "custom" && !bl.some(b => b.id === fSel))) {
+      const b = bl.find(b => nm >= toMin(b.s) && nm < toMin(b.e)) || bl.find(b => toMin(b.s) > nm);
+      fSel = b ? b.id : "custom"; fDur = b ? Math.min(180, toMin(b.e) - Math.max(nm, toMin(b.s))) : (F().dur || 25);
+      if (fDur < 10) fDur = F().dur || 25;
+    }
+    const sb = bl.find(b => b.id === fSel), dur = fDur || F().dur || 25;
+    top = `<section class="panel"><h3>ازرع شجرة</h3>
+      <p class="legend" style="margin:2px 0 10px">اختر المهمة والمدة ثم ابدأ. كل دقيقة تركيز تُحسب، وتكبر الشجرة كلما طالت الجلسة.</p>
+      <div class="stack" style="gap:10px">
+        <select id="f-sel" data-xb="fs" aria-label="المهمة">${bl.map(b => `<option value="${esc(b.id)}"${b.id === fSel ? " selected" : ""}>${esc(b.s)} · ${esc(b.t)}</option>`).join("")}<option value="custom"${fSel === "custom" ? " selected" : ""}>مهمة أخرى…</option></select>
+        ${sb ? "" : `<div class="row" style="flex-wrap:nowrap"><input type="text" id="f-name" data-xb="fn" value="${esc(fName)}" placeholder="اسم المهمة" style="flex:1"><select id="f-cat" data-xb="fc">${catOpts(fCat)}</select></div>`}
+        <div class="row">${[15, 25, 45, 60, 90].map(m => `<button class="btn chipb${m === dur ? " on" : ""}" data-act="x-fdur" data-m="${m}">${m} د</button>`).join("")}
+          <label class="row legend" style="gap:4px;flex-wrap:nowrap"><input type="number" id="f-dur" data-xb="fd" min="1" max="240" inputmode="numeric" value="${dur}" style="width:72px"> دقيقة</label></div>
+        <div class="row" style="justify-content:space-between"><span class="row" style="gap:6px">${treeSVG(stageOf(dur), sb ? sb.c : fCat, 44)}<span class="legend">ستحصل على: <b style="color:var(--ink)">${STAGES[stageOf(dur)][1]}</b></span></span>
+          <button class="btn primary" data-act="x-fstart" style="padding:10px 26px;font-size:1rem">ابدأ</button></div>
+        <label class="row legend" style="gap:6px;flex-wrap:nowrap"><input type="checkbox" id="f-wake" data-xb="fw"${F().wake ? " checked" : ""}> إبقاء الشاشة مضاءة أثناء المؤقّت</label>
+        <label class="row legend" style="gap:6px;flex-wrap:nowrap"><input type="checkbox" id="f-ru" data-xb="fru"${F().ru === false ? "" : " checked"}> كلمة روسية مع كل جلسة وسؤال عنها في نهايتها</label>
+      </div></section>`;
+  }
+  const grove = l => l.length ? `<div class="grove">${l.map(t => `<div class="gt" title="${esc(t.t)}">${treeSVG(stageOf(t.m), t.c, 54)}<span class="num">${t.m}د</span></div>`).join("")}</div>` : '<div class="grove empty"><span class="legend">لا أشجار بعد اليوم. ابدأ أول جلسة.</span></div>';
+  const days = [0,1,2,3,4,5,6].map(i => { const d = addDays(ws, i), k = keyOf(d), l = treesIn(k, k); return {d, k, i, l, m: sumMin(l)}; });
+  const mx = Math.max(60, ...days.map(x => x.m));
+  const byCat = {}; week.forEach(t => byCat[t.c] = (byCat[t.c] || 0) + t.m);
+  const wm = sumMin(week);
+  return `<h2>غابة التركيز</h2>
+  <p class="lead">كل جلسة تركيز تزرع شجرة. إن أوقفت المؤقّت قبل نهايته تُحسب المدة التي أنجزتها شجرةً أصغر.</p>
+  ${quizCard()}${hooksPanel()}<div class="grid2">${top}
+    <div class="stack">
+      <div class="stats" style="margin:0">
+        <div class="kpi"><b>${sumMin(today)} د</b><span>تركيز اليوم</span></div>
+        <div class="kpi"><b>${hrs(wm)} س</b><span>هذا الأسبوع</span></div>
+        <div class="kpi"><b>${all.length}</b><span>كل الأشجار</span></div>
+        <div class="kpi"><b>${hrs(sumMin(all))} س</b><span>مجموع الساعات</span></div></div>
+      ${todayGrove(today)}
+    </div>
+  </div>
+  <div class="grid2" style="margin-top:16px">
+    <section class="panel"><h3>هذا الأسبوع</h3>
+      <div class="wbars" style="height:150px">${days.map(x => `<div class="wbar${x.m ? " hi" : " na"}${x.k === tk ? " today" : ""}"><span class="v">${x.m ? x.m + "د" : ""}</span><div class="box"><div class="col" style="height:${x.m / mx * 100}%"></div></div><span class="n">${DAYS[x.i].ar}<br><span class="num">${x.l.length ? x.l.length + "🌳" : "·"}</span></span></div>`).join("")}</div>
+      ${Object.keys(byCat).length ? `<div style="margin-top:12px">${Object.keys(byCat).sort((a, b) => byCat[b] - byCat[a]).map(k => `<div class="crow" style="--cat:var(--c-${k})"><span class="row" style="gap:6px;flex-wrap:nowrap"><span class="dot"></span>${(CATS[k] || {}).n || k}</span><div class="pbar"><i style="width:${Math.round(byCat[k] / wm * 100)}%"></i></div><span class="num legend">${hrs(byCat[k])} س</span></div>`).join("")}</div>` : ""}
+    </section>
+    <section class="panel"><h3>آخر الجلسات</h3>
+      ${all.length ? all.slice(-8).reverse().map(t => `<div class="frow"><span>${treeSVG(stageOf(t.m), t.c, 30, treeOpts(t))}</span><span style="min-width:0">${esc(t.t)}<small>${esc(t.k.slice(5))} · ${t.m} دقيقة${t.full ? "" : " · أُوقفت مبكراً"}</small></span><button class="btn ghost del" data-act="x-fdel" data-id="${t.id}" aria-label="حذف">✕</button></div>`).join("") : '<p class="legend">تظهر جلساتك هنا.</p>'}
+      <p class="note">${STAGES.map((s, i) => s[1] + " " + (i < STAGES.length - 1 ? s[0] + "–" + STAGES[i + 1][0] : s[0] + "+") + " د").join(" · ")}. يمكنك ربط هدف (مثل «200 ساعة برمجة») بساعات الغابة من صفحة الأهداف.</p>
+    </section>
+  </div>
+  ${albumPanel()}
+  ${monthPanel()}`;
+}
+function tickFocus(){
+  const cur = F().cur, chip = document.getElementById("fchip");
+  if (!cur) { if (chip) chip.hidden = true; return; }
+  const el = focusElapsed();
+  if (el >= cur.dur) { endFocus(true); return; }
+  const left = mmss((cur.dur - el) * 60);
+  if (chip) { chip.hidden = false; chip.textContent = "🌱 " + left; }
+  if (tab !== "forest") return;
+  const T = document.getElementById("f-time"); if (!T) return;
+  T.textContent = left;
+  document.getElementById("f-bar").style.width = Math.min(100, el / cur.dur * 100).toFixed(1) + "%";
+  const st = stageOf(el), tr = document.getElementById("f-tree");
+  if (+tr.dataset.st !== st) { tr.dataset.st = st; tr.innerHTML = treeSVG(st, cur.c, 170, {night: nightNow()}); }
+  document.getElementById("f-info").textContent = "مضى " + Math.floor(el) + " من " + cur.dur + " دقيقة · لو أوقفت الآن: " + STAGES[st][1];
+}
+
+/* ---------- expense log ---------- */
+const expCats = () => { const l = M().expenses.map(x => (x.n || "").trim()).filter(Boolean); if (!l.includes("أخرى")) l.push("أخرى"); return l; };
+function expForm(k){
+  return `<div class="expf" data-k="${k}"><input type="number" inputmode="decimal" id="ex-v" placeholder="المبلغ ₽" aria-label="المبلغ">
+    <select id="ex-c" aria-label="البند">${expCats().map(c => `<option${c === lsGet(LS + "-ecat", "") ? " selected" : ""}>${esc(c)}</option>`).join("")}</select>
+    <input type="text" id="ex-n" placeholder="ملاحظة (اختياري)" aria-label="ملاحظة"><button class="btn primary" data-act="x-eadd">+ مصروف</button></div>`;
+}
+const expRow = x => `<div class="frow"><b class="num">${fmtNum(x.v)}</b><span style="min-width:0">${esc(x.c)}${x.n ? " · " + esc(x.n) : ""}<small>${esc(x.k.slice(5))}</small></span><button class="btn ghost del" data-act="x-edel" data-id="${x.id}" aria-label="حذف">✕</button></div>`;
+function vExp(){
+  const d = now(), mk = keyOf(d).slice(0, 7), list = state.exp.filter(x => x.k.slice(0, 7) === mk), tot = list.reduce((a, x) => a + x.v, 0);
+  const bud = M().expenses.reduce((a, x) => a + (+x.v || 0), 0), dim = new Date(d.getFullYear(), d.getMonth() + 1, 0).getDate(), day = d.getDate();
+  const by = {}; list.forEach(x => by[x.c] = (by[x.c] || 0) + x.v);
+  const bmap = {}; M().expenses.forEach(x => bmap[(x.n || "").trim()] = +x.v || 0);
+  const pace = bud > 0 ? bud * day / dim : 0, left = bud - tot;
+  const rows = Object.keys(Object.assign({}, bmap, by)).filter(k => k && (by[k] || bmap[k])).map(k => { const a = by[k] || 0, b = bmap[k] || 0, over = b > 0 && a > b;
+    return `<div class="crow" style="--cat:var(${over ? "--bad" : "--c-money"})"><span>${esc(k)}</span><div class="pbar"><i style="width:${b > 0 ? Math.min(100, a / b * 100) : (a ? 100 : 0)}%"></i></div><span class="num legend${over ? " warn" : ""}">${fmtNum(a)}${b ? " / " + fmtNum(b) : ""}</span></div>`; }).join("");
+  return `<section class="panel" style="margin-bottom:16px">
+    <div class="row" style="justify-content:space-between"><h3>مصاريف هذا الشهر</h3><span class="legend">اليوم ${day} من ${dim}</span></div>
+    <div class="stats" style="margin:10px 0">
+      <div class="kpi"><b>${fmtNum(tot)} ₽</b><span>صُرف حتى الآن</span></div>
+      <div class="kpi"><b>${bud ? fmtNum(left) + " ₽" : "—"}</b><span>المتبقي من الميزانية</span></div>
+      <div class="kpi"><b>${bud && day < dim ? fmtNum(Math.max(0, left) / (dim - day + 1)) + " ₽" : "—"}</b><span>المتاح يومياً حتى آخر الشهر</span></div>
+      <div class="kpi"><b class="delta ${bud ? (tot > pace ? "down" : "up") : ""}">${bud ? (tot > pace ? "+" : "−") + fmtNum(Math.abs(tot - pace)) + " ₽" : "—"}</b><span>${bud && tot > pace ? "فوق" : "تحت"} المعدّل المتوقع لليوم</span></div></div>
+    ${expForm(keyOf(d))}
+    ${rows ? `<div style="margin-top:12px">${rows}</div>` : ""}
+    ${list.length ? `<details class="cmore"${list.length <= 6 ? " open" : ""}><summary>${list.length} مصروفاً مسجّلاً هذا الشهر</summary><div style="margin-top:6px">${list.slice().reverse().slice(0, 40).map(expRow).join("")}</div></details>` : '<p class="note">سجّل كل مصروف لحظة دفعه. المقارنة مع بنود «الميزانية الشهرية» أدناه.</p>'}
+  </section>`;
+}
+
+/* ---------- quick check-in ---------- */
+let cDay = 0;
+function vCheck(){
+  const d = addDays(now(), cDay), k = keyOf(d), g = getDay(d), L = dayLog(k), s = calcSnap(d);
+  const blocks = g.blocks.filter(b => !b.free && b.c !== "move"), habits = state.habits.filter(h => applies(h, d));
+  const ex = state.exp.filter(x => x.k === k);
+  return `<h2>تسجيل سريع</h2>
+  <p class="lead">نصف دقيقة قبل النوم أو قبل الخروج للنوبة: علّم ما أنجزته. النسخة المصغّرة من العادة تُحسب.</p>
+  <div class="row" style="justify-content:space-between;margin-bottom:12px">
+    <div class="row"><button class="btn chipb${cDay === 0 ? " on" : ""}" data-act="x-cday" data-d="0">اليوم</button><button class="btn chipb${cDay === -1 ? " on" : ""}" data-act="x-cday" data-d="-1">أمس</button>
+      <span class="legend">${esc(d.toLocaleDateString("ar", {weekday: "long", day: "numeric", month: "long"}))} ${kindChip(g.sub)}</span></div>
+    <div class="score"><div class="ring" style="--p:${s.p}"><b>${s.p}%</b></div></div></div>
+  <div class="grid2">
+    <section class="panel"><h3>العادات</h3>
+      ${habits.map(h => { const v = L.h ? L.h[h.id] : undefined; return `<div class="chk"><span class="row" style="gap:6px;flex-wrap:nowrap;min-width:0"><span class="dot" style="--cat:var(--c-${h.c})"></span><span style="min-width:0">${esc(h.n)}<small>مصغّرة: ${esc(h.m)}</small></span></span>
+        <span class="row" style="flex-wrap:nowrap;gap:6px"><button class="btn chipb${v === 1 ? " on good" : ""}" data-act="x-ch" data-id="${h.id}" data-v="1">تمّت</button><button class="btn chipb${v === "m" ? " on" : ""}" data-act="x-ch" data-id="${h.id}" data-v="m">مصغّرة</button></span></div>`; }).join("") || '<p class="legend">لا عادات لهذا اليوم.</p>'}
+    </section>
+    <section class="panel"><h3>كتل الخطة</h3>
+      ${blocks.map(b => { const v = L.b && L.b[b.id] ? 1 : 0; return `<button class="cblk${v ? " on" : ""}" data-act="x-cb" data-id="${esc(b.id)}" style="--cat:var(--c-${b.c})"><span class="t">${esc(b.s)}</span><span class="bar"></span><span class="ttl">${esc(b.t)}</span><span class="tk">${v ? "✓" : ""}</span></button>`; }).join("") || '<p class="legend">لا كتل لهذا اليوم.</p>'}
+    </section>
+  </div>
+  <div class="grid2" style="margin-top:16px">
+    <section class="panel"><h3>مصاريف ${cDay ? "أمس" : "اليوم"}</h3><div style="margin-top:8px">${expForm(k)}</div>
+      ${ex.length ? `<div style="margin-top:8px">${ex.map(expRow).join("")}</div>` : '<p class="note">لا مصاريف مسجّلة لهذا اليوم.</p>'}</section>
+    <section class="panel"><h3>سطر واحد عن اليوم</h3>
+      <textarea id="c-note" data-xb="cn" style="margin-top:8px" placeholder="ماذا تعلّمت؟ ماذا تحسّن غداً؟">${esc(L.note || "")}</textarea>
+      <div class="row" style="margin-top:10px;justify-content:space-between"><span class="legend">يُحفظ تلقائياً.</span><button class="btn primary" data-act="x-cdone">تم</button></div></section>
+  </div>
+  ${lettersPanel()}`;
+}
+function quickBar(){
+  const cur = F().cur;
+  return `<div class="row qbar"><button class="btn primary" data-act="x-gocheck">⚡ تسجيل سريع</button><button class="btn" data-act="x-goforest">${cur ? "🌱 المؤقّت يعمل" : "🌳 ابدأ مؤقّت تركيز"}</button></div>${moonChip() ? `<div class="row" style="margin:-8px 0 14px">${moonChip()}</div>` : ""}${todayExtras()}`;
+}
+
+/* ---------- one-tap backup via the Android share sheet ---------- */
+async function shareBackup(){
+  const text = JSON.stringify({app: "tatawwur", exported: new Date().toISOString(), state}, null, 1), base = "tatawwur-backup-" + keyOf(now());
+  for (const [ext, type] of [[".json", "application/json"], [".txt", "text/plain"]]) {
+    try { const file = new File([text], base + ext, {type});
+      if (navigator.canShare && navigator.canShare({files: [file]})) { await navigator.share({files: [file], title: "نسخة احتياطية: نظام التطوّر اليومي"}); lsSet(LS + "-backup", keyOf(now())); toast("تمت مشاركة النسخة الاحتياطية"); render(); return; }
+    } catch(e) { if (e && e.name === "AbortError") return; }
+  }
+  exportBackup();
+}
+function backupDue(){
+  if (!Object.keys(state.logs).length) return false;
+  const bk = lsGet(LS + "-backup", null);
+  return !bk || dayNum(now()) - dayNum(parseKey(bk)) >= 7;
+}
+
+/* ---------- events ---------- */
+$("#view").addEventListener("click", e => {
+  const el = e.target.closest("[data-act]"); if (!el || el.disabled) return;
+  const a = el.dataset.act, id = el.dataset.id, cd = addDays(now(), cDay), ck = keyOf(cd);
+  if (a === "x-gocheck") { cDay = 0; setTab("checkin"); return; }
+  else if (a === "x-goforest") { setTab("forest"); return; }
+  else if (a === "x-cdone") { toast("سُجّل اليوم: " + calcSnap(cd).p + "%"); cDay = 0; setTab("today"); return; }
+  else if (a === "x-share") { shareBackup(); return; }
+  else if (a === "x-cday") cDay = +el.dataset.d;
+  else if (a === "x-cb") { const L = log(ck); if (L.b[id]) delete L.b[id]; else L.b[id] = 1; L.s = calcSnap(cd); save(); }
+  else if (a === "x-ch") { const L = log(ck), v = el.dataset.v === "1" ? 1 : "m"; if (L.h[id] === v) delete L.h[id]; else L.h[id] = v; L.s = calcSnap(cd); save(); }
+  else if (a === "x-eadd") { const f = el.closest(".expf"), v = +f.querySelector("#ex-v").value; if (!(v > 0)) { toast("اكتب المبلغ"); return; }
+    const k = f.dataset.k; lsSet(LS + "-ecat", f.querySelector("#ex-c").value); state.exp.push({id: uid(), k, v, c: f.querySelector("#ex-c").value, n: f.querySelector("#ex-n").value.trim()});
+    const h = state.habits.find(h => h.c === "money" && /مصاريف|مصروف/.test(h.n)); if (h && applies(h, parseKey(k))) { const L = log(k); if (!L.h[h.id]) L.h[h.id] = 1; L.s = calcSnap(parseKey(k)); }
+    save(); toast("سُجّل " + rub(v)); }
+  else if (a === "x-edel") { state.exp = state.exp.filter(x => x.id !== id); save(); }
+  else if (a === "x-fdur") { fDur = +el.dataset.m; }
+  else if (a === "x-fstart") { const b = focusBlocks().find(b => b.id === fSel), i = document.getElementById("f-dur"), dur = (i && +i.value) || fDur || 25;
+    if (b) startFocus(b.t, b.c, dur, b.id, toMin(b.e) - toMin(b.s)); else startFocus(fName.trim(), fCat, dur); fSel = null; return; }
+  else if (a === "x-fstop") { endFocus(false); return; }
+  else if (a === "x-fdel") { if (!window.confirm("حذف هذه الجلسة من الغابة؟")) return; F().trees = F().trees.filter(t => t.id !== id); syncGoals(); save(); }
+  else return;
+  render();
+});
+$("#view").addEventListener("input", e => {
+  const el = e.target, b = el.dataset.xb;
+  if (b === "fn") fName = el.value;
+  else if (b === "fd") fDur = +el.value || 0;
+  else if (b === "cn") { log(keyOf(addDays(now(), cDay))).note = el.value; save(); }
+});
+$("#view").addEventListener("change", e => {
+  const el = e.target, b = el.dataset.xb;
+  if (b === "fs") { fSel = el.value; const x = focusBlocks().find(x => x.id === fSel); if (x) fDur = Math.min(180, toMin(x.e) - toMin(x.s)); }
+  else if (b === "fc") fCat = el.value;
+  else if (b === "fd") { fDur = Math.max(1, Math.min(240, +el.value || 25)); return; }
+  else if (b === "fw") { F().wake = el.checked; save(); return; }
+  else if (b === "gf") { const g = state.goals.find(g => g.id === el.closest("[data-id]").dataset.id); if (!g) return; if (el.value) { g.fc = el.value; if (g.u !== "ساعة") g.u = "ساعة"; } else delete g.fc; syncGoals(); save(); }
+  else return;
+  render();
+});
+document.getElementById("fchip").addEventListener("click", () => setTab("forest"));
+setInterval(tickFocus, 1000);
+document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") { tickFocus(); if (F().cur) wake(true); } });
+
+/* =====================================================================
+   v1.2: living forest (species, seasons, night, creatures), goal art,
+   road map path, letters, time capsule, month page, Russian word,
+   dusk screen, sleep moon
+   ===================================================================== */
+const SPECIES = {deep: ["сосна", "صنوبر"], ru: ["берёза", "بتولا"], body: ["дуб", "بلوط"], uni: ["тополь", "حور"], money: ["клён", "قيقب"], routine: ["ива", "صفصاف"]};
+const isNightTree = t => { const h = new Date(t.at).getHours(); return h >= 20 || h < 6; };
+const treeOpts = t => { const r = t.rare && rareById(t.rare); return {night: isNightTree(t), star: !!t.star, shape: r ? r[3] : null, color: r ? r[4] : t.gold ? "#E0B020" : null}; };
+function treeInner(st, cat, o){
+  o = o || {};
+  const c = o.color || (o.cols && o.cols[cat]) || (o.cols ? o.cols.body : `var(--c-${SPECIES[cat] ? cat : "body"})`), tr = o.cols ? "#7A5A3A" : "var(--trunk)";
+  const soil = `<ellipse cx="32" cy="58.5" rx="17" ry="3.5" fill="${o.cols ? "rgba(90,107,120,.28)" : "var(--soil)"}"/>`;
+  if (st === 0) return soil + `<path d="M32 58V46" stroke="${tr}" stroke-width="3" stroke-linecap="round"/><path d="M32 47c-9 0-12-6-12-10 8 0 12 4 12 10zM32 44c0-7 5-11 11-11 0 7-5 11-11 11z" fill="${c}"/>`;
+  const sp = o.shape || (SPECIES[cat] ? cat : "body"), s = [0, .56, .72, .88, 1.06][st];
+  const shapes = {
+    deep: `<rect x="-2.5" y="-10" width="5" height="10" fill="${tr}"/><polygon points="-16,-8 0,-28 16,-8" fill="${c}"/><polygon points="-13,-20 0,-38 13,-20" fill="${c}"/><polygon points="-9,-32 0,-49 9,-32" fill="${c}"/>`,
+    ru: `<rect x="-2.5" y="-32" width="5" height="32" rx="1.5" fill="#EEEDE4"/><path d="M-2.5-8h3M-.5-15h3M-2.5-22h3" stroke="#3b3b3b" stroke-width="1.2"/><ellipse cx="0" cy="-37" rx="12" ry="13" fill="${c}"/><circle cx="-10" cy="-30" r="7" fill="${c}"/><circle cx="10" cy="-30" r="7" fill="${c}"/>`,
+    body: `<rect x="-4" y="-22" width="8" height="22" rx="2.5" fill="${tr}"/><circle cx="0" cy="-37" r="15" fill="${c}"/><circle cx="-14" cy="-28" r="11" fill="${c}"/><circle cx="14" cy="-28" r="11" fill="${c}"/><circle cx="0" cy="-24" r="11" fill="${c}"/>`,
+    uni: `<rect x="-2" y="-12" width="4" height="12" fill="${tr}"/><ellipse cx="0" cy="-31" rx="9" ry="21" fill="${c}"/>`,
+    money: `<rect x="-3" y="-18" width="6" height="18" rx="2" fill="${tr}"/><path d="M0-52l6 9 10-3-4 9 10 5-10 5 4 9-11-3-5 8-5-8-11 3 4-9-10-5 10-5-4-9 10 3z" fill="${c}"/>`,
+    routine: `<rect x="-3" y="-22" width="6" height="22" rx="2" fill="${tr}"/><path d="M-17-24a17 16 0 0 1 34 0z" fill="${c}"/><g fill="${c}"><rect x="-17" y="-25" width="4" height="17" rx="2"/><rect x="-10" y="-25" width="4" height="21" rx="2"/><rect x="6" y="-25" width="4" height="21" rx="2"/><rect x="13" y="-25" width="4" height="17" rx="2"/></g>`};
+  return soil + (o.night ? `<circle cx="32" cy="${58 - 30 * s}" r="${25 * s}" fill="${c}" opacity=".22"/>` : "")
+    + `<g transform="translate(32 58) scale(${s})">${shapes[sp]}</g>`
+    + (o.night ? `<circle cx="${32 - 15 * s}" cy="${58 - 44 * s}" r="1.6" fill="#FFE9A6"/><circle cx="${32 + 17 * s}" cy="${58 - 20 * s}" r="1.3" fill="#FFE9A6"/><circle cx="${32 + 9 * s}" cy="${58 - 50 * s}" r="1.1" fill="#FFE9A6"/>` : "")
+    + (o.star ? `<path transform="translate(${32 + 12 * s} ${58 - 46 * s}) scale(.55)" d="M0-8l2.4 5 5.6.6-4.2 3.8 1.2 5.5L0 4.2-5 6.9l1.2-5.5L-8-2.4l5.6-.6z" fill="#F5C542" stroke="#fff" stroke-width="1"/>` : "");
+}
+function treeSVG(st, cat, px, o){ return `<svg viewBox="0 0 64 64" width="${px}" height="${px}" aria-hidden="true">${treeInner(st, cat, o)}</svg>`; }
+
+/* ---------- seasons, night, creatures ---------- */
+const SEASON = m => m === 11 || m < 2 ? "winter" : m < 5 ? "spring" : m < 8 ? "summer" : "autumn";
+const SEASON_AR = {winter: "شتاء", spring: "ربيع", summer: "صيف", autumn: "خريف"};
+const nightNow = () => { const h = now().getHours(); return h >= 20 || h < 6; };
+function activeDay(k){ return anyTicks(state.logs[k]) > 0 || F().trees.some(t => t.k === k); }
+function dayStreak(){
+  let d = now(), n = 0; if (!activeDay(keyOf(d))) d = addDays(d, -1);
+  while (n < 1000 && activeDay(keyOf(d))) { n++; d = addDays(d, -1); }
+  return n;
+}
+const CREATURES = [[3, "🦋", "فراشة"], [7, "🐦", "طائر"], [14, "🐿️", "سنجاب"], [30, "🦌", "غزال"]];
+function sceneGrove(list, o){
+  o = o || {};
+  const cls = "grove s-" + SEASON(o.month == null ? now().getMonth() : o.month) + (o.night ? " night" : "") + (list.length ? "" : " empty");
+  const px = o.px || 54;
+  return `<div class="${cls}">${o.night ? '<i class="moon"></i>' : ""}${list.length ? list.map(t => `<div class="gt" title="${esc(t.t)}">${treeSVG(stageOf(t.m), t.c, px, treeOpts(t))}${o.noLabel ? "" : `<span class="num">${t.m}د</span>`}</div>`).join("") : `<span class="legend">${o.empty || "لا أشجار بعد."}</span>`}${(o.creatures || []).map(c => `<span class="crt" title="${c[2]}">${c[1]}</span>`).join("")}</div>`;
+}
+function todayGrove(today){
+  const n = dayStreak(); if (n > (F().best || 0)) F().best = n;
+  const here = CREATURES.filter(c => n >= c[0]), next = CREATURES.find(c => n < c[0]), gone = CREATURES.filter(c => n < c[0] && (F().best || 0) >= c[0]);
+  const night = nightNow(), se = SEASON(now().getMonth());
+  return `<section class="panel"><div class="row" style="justify-content:space-between"><h3>غابة اليوم</h3><span class="legend">${night ? "🌙 غابة الليل" : "☀️ " + SEASON_AR[se]} · سلسلة ${n} ${n === 1 ? "يوم" : n === 2 ? "يومان" : n <= 10 ? "أيام" : "يوماً"}</span></div>
+    ${sceneGrove(today, {night, creatures: here.concat(visitorNow() ? [visitorNow().v] : []).concat(DECOR.filter(x => FX().decor[x[0]]).slice(0, 6)), empty: "لا أشجار بعد اليوم. ابدأ أول جلسة."})}
+    <p class="note">${gone.length ? esc(gone[gone.length - 1][1] + " رحل " + gone[gone.length - 1][2] + " الغابة ولم يمت: يعود عند " + gone[gone.length - 1][0] + " أيام متتالية. ") : ""}${next ? `${next[1]} يأتي ${next[2]} عند ${next[0]} ${next[0] <= 10 ? "أيام" : "يوماً"} متتالية (باقٍ ${next[0] - n}).` : "كل الكائنات تسكن غابتك 🌟"} جلسات الليل (20:00–06:00) تزرع أشجاراً مضيئة.</p></section>`;
+}
+function speciesLegend(){
+  return `<div class="spl">${Object.keys(SPECIES).map(k => `<span>${treeSVG(3, k, 34)}<b lang="ru" dir="ltr">${SPECIES[k][0]}</b><small>${SPECIES[k][1]} · ${CATS[k].n}</small></span>`).join("")}</div>`;
+}
+
+/* ---------- Russian word of the session ---------- */
+const RUW = [["дерево","شجرة"],["лес","غابة"],["время","وقت"],["работа","عمل"],["учёба","دراسة"],["цель","هدف"],["привычка","عادة"],["сон","نوم"],["утро","صباح"],["вечер","مساء"],["ночь","ليل"],["день","يوم"],["неделя","أسبوع"],["месяц","شهر"],["год","سنة"],["деньги","مال"],["дом","منزل"],["машина","سيارة"],["книга","كتاب"],["язык","لغة"],["слово","كلمة"],["задача","مهمة"],["успех","نجاح"],["ошибка","خطأ"],["опыт","خبرة"],["знание","معرفة"],["сила","قوة"],["здоровье","صحة"],["отдых","راحة"],["дорога","طريق"],["город","مدينة"],["друг","صديق"],["семья","عائلة"],["мечта","حلم"],["план","خطة"],["шаг","خطوة"],["начало","بداية"],["конец","نهاية"],["вопрос","سؤال"],["ответ","جواب"],["урок","درس"],["экзамен","امتحان"],["лекция","محاضرة"],["зарплата","راتب"],["смена","نوبة عمل"],["терпение","صبر"],["внимание","انتباه"],["память","ذاكرة"],["будущее","مستقبل"],["свобода","حرية"],["выбор","اختيار"],["решение","قرار"],["результат","نتيجة"],["развитие","تطوّر"],["сегодня","اليوم"],["завтра","غداً"],["вчера","أمس"],["всегда","دائماً"],["быстро","بسرعة"],["медленно","ببطء"]];
+function pickWord(){ const f = F(); if (f.ru === false || !f.cur) return; f.wi = ((f.wi || 0) + 1) % RUW.length; f.cur.w = f.wi; }
+function wordLine(cur){ return cur.w == null ? "" : `<p class="rword">كلمة الجلسة: <b lang="ru" dir="ltr">${RUW[cur.w][0]}</b> = ${RUW[cur.w][1]}<small>ستُسأل عنها عند انتهاء الجلسة.</small></p>`; }
+function afterTree(tree, cur){
+  const fx = FX(), r = rareOf(now());
+  if (tree.m >= 10) fx.boxes++;
+  if (tree.m >= 25 && tree.k === keyOf(now()) && !F().trees.some(t => t.k === tree.k && t.rare)) { tree.rare = r[0]; fx.rares[r[0]] = (fx.rares[r[0]] || 0) + 1; setTimeout(() => toast("نبتت بذرة اليوم: " + r[1]), 2200); }
+  if (cur.w == null) return;
+  const o = [cur.w]; while (o.length < 3) { const r = Math.floor(Math.random() * RUW.length); if (!o.includes(r)) o.push(r); }
+  F().quiz = {w: cur.w, tree: tree.id, o: o.sort(() => Math.random() - .5)};
+}
+function quizCard(){
+  const q = F().quiz; if (!q || !RUW[q.w]) return "";
+  return `<section class="panel tips" style="margin-bottom:16px"><div class="eyebrow">سؤال الشجرة</div>
+    <h3 style="margin:4px 0 10px">ما معنى <span lang="ru" dir="ltr" style="color:var(--accent)">${RUW[q.w][0]}</span>؟</h3>
+    <div class="row">${q.o.map(i => `<button class="btn" data-act="x-quiz" data-i="${i}" style="padding:10px 18px">${RUW[i][1]}</button>`).join("")}<button class="btn ghost" data-act="x-qskip">تخطٍّ</button></div>
+    <p class="note">الإجابة الصحيحة تضع نجمة على شجرتك. حفظت حتى الآن ${F().known || 0} كلمة.</p></section>`;
+}
+
+/* ---------- goal art: the house gets built, the car assembled ---------- */
+function goalArt(g){
+  const p = bigCalc(g).p, kind = g.ic === "🏠" ? "house" : g.ic === "🚗" ? "car" : "jar";
+  const ln = 'fill="none" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="4 3"';
+  let art = "", cap = "";
+  if (kind === "house") {
+    const rows = 8, done = Math.round(Math.min(p, 70) / 70 * rows); let br = "";
+    for (let r = 0; r < rows; r++) { const y = 88 - r * 6, on = r < done;
+      for (let i = 0; i < 8; i++) br += `<rect x="${55 + i * 13 + (r % 2 ? -6.5 : 0)}" y="${y}" width="12" height="5" rx="1" ${on ? 'fill="var(--c-ru)" opacity=".85"' : ln}/>`; }
+    br = `<clipPath id="wc-${g.id}"><rect x="61" y="45" width="78" height="48.5"/></clipPath><g clip-path="url(#wc-${g.id})">${br}</g>`;
+    const roof = p >= 70 ? `<polygon points="52,46 100,14 148,46" fill="var(--c-work)" opacity="${(.45 + Math.min(1, (p - 70) / 20) * .55).toFixed(2)}"/>` : `<polygon points="52,46 100,14 148,46" ${ln}/>`;
+    const door = p >= 90 ? '<rect x="93" y="70" width="14" height="23" rx="2" fill="var(--trunk)"/>' : `<rect x="93" y="70" width="14" height="23" rx="2" ${ln}/>`;
+    const win = p >= 100 ? '<rect x="113" y="58" width="16" height="14" rx="2" fill="#FFD76A"/><path d="M121 58v14M113 65h16" stroke="var(--trunk)" stroke-width="1.2"/><rect x="118" y="20" width="8" height="14" fill="var(--c-work)"/><path d="M122 16c-4-4 3-6 0-10" stroke="var(--muted)" stroke-width="2" fill="none" stroke-linecap="round"/>' : `<rect x="113" y="58" width="16" height="14" rx="2" ${ln}/>`;
+    art = (p > 0 ? '<rect x="56" y="93" width="88" height="5" rx="1.5" fill="var(--c-work)"/>' : `<rect x="56" y="93" width="88" height="5" rx="1.5" ${ln}/>`) + br + roof + door + win;
+    cap = p <= 0 ? "أول إيداع يضع الأساس." : p < 70 ? "الجدران: " + done + " من " + rows + " صفوف" : p < 90 ? "يُركَّب السقف" : p < 100 ? "رُكّب الباب. بقيت النافذة المضيئة." : "اكتمل البيت وأُضيء نوره";
+  } else if (kind === "car") {
+    const body = p >= 25, wheels = p >= 50, cabin = p >= 75, lights = p >= 100, f = (on, c) => on ? `fill="${c}"` : ln;
+    art = `<rect x="40" y="62" width="${body ? 120 : Math.max(0, p / 25 * 120)}" height="${body ? 22 : 4}" rx="${body ? 8 : 2}" ${body || p > 0 ? 'fill="var(--c-uni)"' : ln} ${body ? "" : 'transform="translate(0 20)"'}/>`
+      + (body ? "" : `<rect x="40" y="62" width="120" height="22" rx="8" ${ln}/>`)
+      + `<path d="M62 62l12-20h44l16 20z" ${f(cabin, "var(--c-uni)")}/>` + (cabin ? '<path d="M70 60l8-14h18v14zM100 60V46h16l10 14z" fill="var(--surface)" opacity=".85"/>' : "")
+      + `<circle cx="70" cy="86" r="10" ${f(wheels, "var(--ink)")}/><circle cx="132" cy="86" r="10" ${f(wheels, "var(--ink)")}/>` + (wheels ? '<circle cx="70" cy="86" r="4" fill="var(--line)"/><circle cx="132" cy="86" r="4" fill="var(--line)"/>' : "")
+      + (lights ? '<rect x="153" y="67" width="7" height="6" rx="2" fill="#FFD76A"/><path d="M162 70l14-5v10z" fill="#FFD76A" opacity=".45"/><rect x="40" y="67" width="5" height="6" rx="2" fill="var(--bad)"/>' : "");
+    cap = p <= 0 ? "أول إيداع يبدأ الهيكل." : p < 25 ? "يُبنى الشاسيه" : p < 50 ? "اكتمل الهيكل. العجلات عند 50%." : p < 75 ? "رُكّبت العجلات. المقصورة عند 75%." : p < 100 ? "رُكّبت المقصورة. بقيت الأضواء." : "السيارة جاهزة للانطلاق";
+  } else {
+    const h = 60 * Math.min(100, p) / 100;
+    art = `<rect x="74" y="${96 - h}" width="52" height="${h}" rx="4" fill="var(--c-money)" opacity=".8"/><rect x="72" y="34" width="56" height="64" rx="10" fill="none" stroke="var(--muted)" stroke-width="2.5"/><rect x="80" y="26" width="40" height="9" rx="3" fill="var(--muted)"/>`
+      + (p >= 100 ? '<circle cx="100" cy="18" r="6" fill="#F5C542"/>' : "");
+    cap = p <= 0 ? "الجرّة فارغة. أول إيداع يبدأ الملء." : p < 100 ? "امتلأ " + Math.floor(p) + "% من الجرّة" : "امتلأت الجرّة";
+  }
+  return `<svg viewBox="0 0 200 104" width="100%" style="max-height:130px" role="img" aria-label="${esc(cap)}"><line x1="20" x2="180" y1="98.5" y2="98.5" stroke="var(--line)" stroke-width="1.5"/>${art}</svg><div class="legend" style="text-align:center">${esc(cap)}</div>`;
+}
+
+/* ---------- road map as a path ---------- */
+function roadArt(){
+  const P = state.roadmap, H = 78, n = P.length; if (!n) return "";
+  const fr = P.map(p => p.items.length ? p.items.filter(i => i.d).length / p.items.length : 0);
+  let cur = fr.findIndex(f => f < 1); if (cur < 0) cur = n - 1;
+  const x = i => i % 2 ? 22 : 50, y = i => 30 + i * H;
+  let d = `M${x(0)} ${y(0)}`; for (let i = 1; i < n; i++) d += ` C${x(i - 1)} ${y(i - 1) + H * .55} ${x(i)} ${y(i) - H * .55} ${x(i)} ${y(i)}`;
+  const t = fr[cur] >= 1 ? 0 : fr[cur], nx = Math.min(n - 1, cur + 1), mx = x(cur) + (x(nx) - x(cur)) * t * t * (3 - 2 * t), my = y(cur) + (y(nx) - y(cur)) * t;
+  const tot = P.reduce((a, p) => a + p.items.length, 0), dn = P.reduce((a, p) => a + p.items.filter(i => i.d).length, 0);
+  return `<section class="panel" style="margin-bottom:16px"><div class="row" style="justify-content:space-between"><h3>درب الرحلة</h3><span class="legend num">${dn}/${tot}</span></div>
+    <div class="roadp" style="height:${n * H}px"><svg viewBox="0 0 72 ${n * H}" width="72" height="${n * H}" aria-hidden="true">
+      <path d="${d}" fill="none" stroke="var(--line)" stroke-width="7" stroke-linecap="round"/><path d="${d}" fill="none" stroke="var(--surface)" stroke-width="1.5" stroke-dasharray="5 6"/>
+      ${P.map((p, i) => `<circle cx="${x(i)}" cy="${y(i)}" r="10" fill="${fr[i] >= 1 ? "var(--good)" : i === cur ? "var(--accent)" : "var(--sunk)"}" stroke="var(--surface)" stroke-width="2"/><text x="${x(i)}" y="${y(i) + 4}" text-anchor="middle" font-size="11" font-weight="700" fill="${fr[i] >= 1 || i === cur ? "#fff" : "var(--muted)"}">${fr[i] >= 1 ? "✓" : i + 1}</text>`).join("")}
+      <g transform="translate(${mx.toFixed(1)} ${my.toFixed(1)})"><circle r="15" fill="var(--accent)" opacity=".25"/><path d="M0-22c-6 0-10 4.500-10 10 0 7 10 16 10 16s10-9 10-16c0-5.500-4-10-10-10z" fill="var(--bad)" stroke="#fff" stroke-width="1.5"/><circle cy="-12" r="3.500" fill="#fff"/></g></svg>
+      <div>${P.map((p, i) => `<div class="rst${i === cur ? " cur" : ""}" style="height:${H}px"><b>${esc(p.s)}</b><small>${esc(p.w)} · <span class="num">${Math.round(fr[i] * 100)}%</span>${i === cur ? " · أنت هنا" : ""}</small><div class="pbar"><i style="width:${Math.round(fr[i] * 100)}%"></i></div></div>`).join("")}</div></div></section>`;
+}
+
+/* ---------- letters to yourself, time capsule ---------- */
+function lettersPanel(){
+  const L = state.letters;
+  return `<section class="panel" id="letters" style="margin-top:16px"><h3>رسالة إلى نفسك في يوم صعب</h3>
+    <p class="legend" style="margin:2px 0 8px">اكتبها وأنت في يوم قوي. سيعرضها عليك التطبيق في يوم لم تسر فيه الأمور.</p>
+    <textarea id="l-text" placeholder="ماذا تقول لنفسك حين تتعب أو تتأخر؟"></textarea>
+    <div class="row" style="margin-top:8px;justify-content:space-between"><span class="legend">${L.length ? L.length + " " + (L.length === 1 ? "رسالة محفوظة" : "رسائل محفوظة") : "لا رسائل بعد"}</span><button class="btn primary" data-act="x-lsave">حفظ الرسالة</button></div>
+    ${L.length ? `<details class="cmore"><summary>رسائلك</summary><div style="margin-top:6px">${L.slice().reverse().map(x => `<div class="frow"><span>✉️</span><span style="min-width:0">${esc(x.t)}<small>${esc(x.k)}</small></span><button class="btn ghost del" data-act="x-ldel" data-id="${x.id}" aria-label="حذف">✕</button></div>`).join("")}</div></details>` : ""}</section>`;
+}
+function todayExtras(){
+  const d = now(), out = [hooksPanel()], first = firstTracked();
+  // time capsule: your own line from a week, a month, a year ago
+  const back = [["قبل سنة", new Date(d.getFullYear() - 1, d.getMonth(), d.getDate())], ["قبل شهر", new Date(d.getFullYear(), d.getMonth() - 1, d.getDate())], ["قبل أسبوع", addDays(d, -7)]];
+  for (const [lbl, x] of back) { const L = state.logs[keyOf(x)], t = L && (L.note || "").trim();
+    if (t) { out.push(`<section class="panel capsule"><div class="eyebrow">⏳ صندوق الزمن · ${lbl} (${esc(dLabel(x))}) كتبت:</div><p>«${esc(t)}»</p></section>`); break; } }
+  // a letter from a strong day, shown after a hard one
+  const y = addDays(d, -1), ys = first && keyOf(y) >= first ? dayStat(y) : null, ts = calcSnap(d);
+  if (ys && ys.p < 40 && state.letters.length) { const x = state.letters[dayNum(d) % state.letters.length];
+    out.push(`<section class="panel letter"><div class="eyebrow">✉️ رسالة منك · كتبتها يوم ${esc(dLabel(parseKey(x.k)))}</div><p>${esc(x.t)}</p></section>`); }
+  else if (ts.p >= 70 && lsGet(LS + "-lask", "") !== keyOf(d)) out.push(`<div class="banner" style="background:var(--accent-soft);border-color:var(--accent)"><div><b style="color:var(--accent)">يوم قوي (${ts.p}%).</b> اكتب رسالة قصيرة لنفسك في يوم صعب.</div><div class="row"><button class="btn primary" data-act="x-golet">اكتب</button><button class="btn ghost" data-act="x-lask" aria-label="إخفاء">✕</button></div></div>`);
+  return out.join("");
+}
+
+/* ---------- sleep moon + dusk screen ---------- */
+const sleepHabit = () => state.habits.find(h => /نوم/.test(h.n));
+function moonSVG(n, px){
+  const f = Math.max(0, Math.min(1, n / 14)), r = 9, rx = Math.abs(1 - 2 * f) * r;
+  const lit = f <= 0 ? "" : f >= 1 ? `<circle cx="12" cy="12" r="${r}" fill="#F3E3A2"/>` : `<path d="M12 3A${r} ${r} 0 0 1 12 21A${rx.toFixed(2)} ${r} 0 0 ${f < .5 ? 0 : 1} 12 3z" fill="#F3E3A2"/>`;
+  return `<svg viewBox="0 0 24 24" width="${px}" height="${px}" aria-hidden="true"><circle cx="12" cy="12" r="${r}" fill="#26364d"/>${lit}</svg>`;
+}
+function moonChip(){
+  const h = sleepHabit(); if (!h) return "";
+  const n = Math.min(14, streak(h));
+  return `<span class="moonc" title="ليالٍ متتالية نمت فيها في موعدك">${moonSVG(n, 26)}<span>${n >= 14 ? "بدر كامل" : "قمر النوم"} <b class="num">${n}/14</b></span></span>`;
+}
+function duskLevel(){
+  const d = now(), nm = d.getHours() * 60 + d.getMinutes(), g = getDay(d), pts = [];
+  g.blocks.forEach(b => { if (b.c === "rest" && /نوم|قيلولة/.test(b.t) && toMin(b.s) > 0) pts.push(toMin(b.s)); });
+  const last = g.blocks[g.blocks.length - 1]; if (last && last.c === "routine" && /مراجعة اليوم|تجهيز الدوام/.test(last.t)) pts.push(toMin(last.e));
+  let lv = 0; pts.forEach(s => { if (nm >= s - 30 && nm <= s + 60) lv = Math.max(lv, Math.min(1, (nm - (s - 30)) / 30)); });
+  return lv;
+}
+function applyDusk(){
+  let el = document.getElementById("dusk"); if (!el) { el = document.createElement("div"); el.id = "dusk"; document.body.appendChild(el); }
+  let lv = 0; try { lv = state.dusk === false ? 0 : duskLevel(); } catch(e) {}
+  el.style.opacity = (lv * .42).toFixed(3);
+}
+
+/* ---------- month page + share as image ---------- */
+let mOff = 0;
+function monthData(off){
+  const d = now(), m0 = new Date(d.getFullYear(), d.getMonth() + off, 1), mk = keyOf(m0).slice(0, 7), tk = keyOf(d), first = firstTracked();
+  const trees = F().trees.filter(t => t.k.slice(0, 7) === mk), dim = new Date(m0.getFullYear(), m0.getMonth() + 1, 0).getDate();
+  const st = []; for (let i = 1; i <= dim; i++) { const x = new Date(m0.getFullYear(), m0.getMonth(), i), k = keyOf(x); if (first && k >= first && k <= tk) st.push({d: x, s: dayStat(x)}); }
+  const avg = st.length ? Math.round(st.reduce((a, x) => a + x.s.p, 0) / st.length) : null, best = st.slice().sort((a, b) => b.s.p - a.s.p)[0];
+  let note = ""; Object.keys(state.logs).forEach(k => { if (k.slice(0, 7) === mk) { const t = (state.logs[k].note || "").trim(); if (t.length > note.length) note = t; } });
+  return {m0, mk, trees, avg, best: best && best.s.p > 0 ? best : null, note, min: sumMin(trees), name: m0.toLocaleDateString("ar", {month: "long", year: "numeric"}), season: SEASON(m0.getMonth())};
+}
+function monthPanel(){
+  const M0 = monthData(mOff);
+  return `<section class="panel" style="margin-top:16px"><div class="row" style="justify-content:space-between"><h3>لوحة الشهر</h3>
+      <div class="row"><button class="btn" data-act="x-mprev">→</button><b style="min-width:110px;text-align:center">${esc(M0.name)}</b><button class="btn" data-act="x-mnext"${mOff >= 0 ? " disabled" : ""}>←</button></div></div>
+    ${sceneGrove(M0.trees, {month: M0.m0.getMonth(), px: 38, noLabel: true, empty: "لا أشجار في هذا الشهر."})}
+    <div class="stats" style="margin:12px 0 0">
+      <div class="kpi"><b>${M0.trees.length}</b><span>شجرة · ${SEASON_AR[M0.season]}</span></div>
+      <div class="kpi"><b>${hrs(M0.min)} س</b><span>ساعات التركيز</span></div>
+      <div class="kpi"><b>${M0.avg == null ? "—" : M0.avg + "%"}</b><span>متوسط الالتزام</span></div>
+      <div class="kpi"><b>${M0.best ? M0.best.s.p + "%" : "—"}</b><span>أفضل يوم${M0.best ? " · " + esc(dLabel(M0.best.d)) : ""}</span></div></div>
+    ${M0.note ? `<p class="capsule" style="margin:12px 0 0;padding:10px 12px;border-radius:8px"><small style="display:block;color:var(--muted)">أطول ما كتبته هذا الشهر (لا يظهر في الصورة):</small>«${esc(M0.note)}»</p>` : ""}
+    <div class="row" style="margin-top:12px"><button class="btn primary" data-act="x-mshare">مشاركة اللوحة كصورة</button></div>
+    <h3 style="margin-top:18px">أشجار غابتك</h3>${speciesLegend()}
+  </section>`;
+}
+function wrapText(t, n){ const w = t.split(/\s+/), L = []; let c = ""; w.forEach(x => { if ((c + " " + x).trim().length > n) { L.push(c); c = x; } else c = (c + " " + x).trim(); }); if (c) L.push(c); return L.slice(0, 4); }
+function shareMonth(){
+  const D = monthData(mOff), cs = getComputedStyle(document.documentElement), cols = {};
+  ["deep", "ru", "body", "uni", "money", "routine"].forEach(k => cols[k] = cs.getPropertyValue("--c-" + k).trim() || "#2F7D4F");
+  const SKY = {winter: ["#DCE8F3", "#F4F8FB"], spring: ["#E6F3E4", "#FBF4F6"], summer: ["#DDF0E0", "#F6FAEC"], autumn: ["#F6E6CF", "#FBF3E6"]}[D.season];
+  const W = 1080, H = 1350, x0 = 90, per = 8, sz = 112, list = D.trees.slice(-40);
+  const trees = list.map((t, i) => `<g transform="translate(${x0 + (i % per) * sz} ${330 + Math.floor(i / per) * (sz + 6)}) scale(${sz / 64})">${treeInner(stageOf(t.m), t.c, Object.assign({cols}, treeOpts(t)))}</g>`).join("");
+  const e = s => esc(s), tx = (y, s, size, w, fill) => `<text x="${W / 2}" y="${y}" text-anchor="middle" direction="rtl" font-family="Tahoma, Arial, sans-serif" font-size="${size}" font-weight="${w || 400}" fill="${fill || "#13202B"}">${e(s)}</text>`;
+  const stats = [[D.trees.length, "شجرة"], [hrs(D.min), "ساعة تركيز"], [D.avg == null ? "—" : D.avg + "%", "متوسط الالتزام"]];
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${SKY[0]}"/><stop offset="1" stop-color="${SKY[1]}"/></linearGradient></defs>
+    <rect width="${W}" height="${H}" fill="url(#g)"/><rect x="40" y="40" width="${W - 80}" height="${H - 80}" rx="36" fill="#fff" opacity=".55"/>
+    ${tx(150, "غابتي في " + D.name, 64, 700)}${tx(215, "نظام التطوّر اليومي · " + SEASON_AR[D.season], 34, 400, "#5A6B78")}
+    ${list.length ? trees : tx(560, "لم تُزرع أشجار هذا الشهر بعد", 40, 400, "#5A6B78")}
+    ${stats.map((s, i) => `<g transform="translate(${W - 190 - i * 350} 1010)"><text text-anchor="middle" font-family="Tahoma, Arial, sans-serif" font-size="76" font-weight="700" fill="#B87309">${e(s[0])}</text><text y="52" text-anchor="middle" direction="rtl" font-family="Tahoma, Arial, sans-serif" font-size="32" fill="#5A6B78">${e(s[1])}</text></g>`).join("")}
+    ${tx(1200, SEASON_AR[D.season] + " " + D.m0.getFullYear() + " · كل شجرة جلسة تركيز", 30, 400, "#5A6B78")}
+  </svg>`;
+  const img = new Image();
+  img.onload = () => { const c = document.createElement("canvas"); c.width = W; c.height = H; c.getContext("2d").drawImage(img, 0, 0);
+    c.toBlob(async b => { if (!b) { toast("تعذّر إنشاء الصورة"); return; } const name = "forest-" + D.mk + ".png";
+      try { const f = new File([b], name, {type: "image/png"}); if (navigator.canShare && navigator.canShare({files: [f]})) { await navigator.share({files: [f], title: "غابتي في " + D.name}); return; } } catch(er) { if (er && er.name === "AbortError") return; }
+      const u = URL.createObjectURL(b), a = document.createElement("a"); a.href = u; a.download = name; document.body.appendChild(a); a.click(); setTimeout(() => { a.remove(); URL.revokeObjectURL(u); }, 1500); toast("حُفظت الصورة في التنزيلات");
+    }, "image/png"); };
+  img.onerror = () => toast("تعذّر إنشاء الصورة");
+  img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+}
+
+/* ---------- events ---------- */
+$("#view").addEventListener("click", e => {
+  const el = e.target.closest("[data-act]"); if (!el || el.disabled) return;
+  const a = el.dataset.act;
+  if (a === "x-quiz") { const q = F().quiz; if (!q) return; const ok = +el.dataset.i === q.w, t = F().trees.find(t => t.id === q.tree);
+    if (ok) { if (t) t.star = true; F().known = (F().known || 0) + 1; } F().quiz = null; save(); toast(ok ? "صحيح ⭐ نجمة على شجرتك" : RUW[q.w][0] + " = " + RUW[q.w][1]); }
+  else if (a === "x-qskip") { F().quiz = null; save(); }
+  else if (a === "x-lsave") { const i = document.getElementById("l-text"), t = i ? i.value.trim() : ""; if (!t) { toast("اكتب الرسالة أولاً"); return; } state.letters.push({id: uid(), k: keyOf(now()), t}); save(); toast("حُفظت رسالتك"); }
+  else if (a === "x-ldel") { state.letters = state.letters.filter(x => x.id !== el.dataset.id); save(); }
+  else if (a === "x-lask") lsSet(LS + "-lask", keyOf(now()));
+  else if (a === "x-golet") { lsSet(LS + "-lask", keyOf(now())); cDay = 0; setTab("checkin"); const s = document.getElementById("letters"); if (s) { s.scrollIntoView({block: "start"}); const i = document.getElementById("l-text"); if (i) i.focus(); } return; }
+  else if (a === "x-mprev") mOff--;
+  else if (a === "x-mnext") mOff = Math.min(0, mOff + 1);
+  else if (a === "x-mshare") { shareMonth(); return; }
+  else return;
+  render();
+});
+$("#view").addEventListener("change", e => {
+  const el = e.target, b = el.dataset.xb;
+  if (b === "fru") { F().ru = el.checked; save(); }
+  else if (b === "dusk") { state.dusk = el.checked; save(); applyDusk(); }
+});
+setInterval(applyDusk, 60000); setTimeout(applyDusk, 300);
+
+/* =====================================================================
+   v1.3: visitor of the day, seed of the day, reward box, mission of the hour
+   ===================================================================== */
+const hsh = n => { let x = Math.imul((n | 0) ^ 0x9E3779B9, 0x85EBCA6B); x ^= x >>> 13; x = Math.imul(x, 0xC2B2AE35); return (x ^ (x >>> 16)) >>> 0; };
+function FX(){ const f = F(); f.album = f.album || {}; f.rares = f.rares || {}; f.decor = f.decor || {}; f.prov = f.prov || []; f.boxes = f.boxes || 0; return f; }
+const VIS = [["owl","🦉","بومة",22,25],["hedgehog","🦔","قنفذ",5,8],["fox","🦊","ثعلب",17,20],["rabbit","🐇","أرنب",8,11],["swan","🦢","بجعة",12,15],["wolf","🐺","ذئب",1,4],["bear","🐻","دب",14,17],["peacock","🦚","طاووس",10,13],["bat","🦇","خفاش",20,23],["badger","🦡","غرير",3,6]];
+const RARE = [["sakura","ساكورا","сакура","body","#F29BB7"],["gold","قيقب ذهبي","золотой клён","money","#E0B020"],["spruce","تنّوب أزرق","голубая ель","deep","#4C8DB5"],["redoak","بلوط أحمر","красный дуб","body","#C0392B"],["silver","بتولا فضية","серебристая берёза","ru","#8FCFC0"],["rowan","غبيراء","рябина","uni","#E2622B"],["lilac","ليلك","сирень","routine","#A77BD6"]];
+const DECOR = [["mushroom","🍄","فطر"],["flowers","🌸","أزهار"],["rock","🪨","صخرة"],["lantern","🏮","فانوس"],["log","🪵","جذع"],["tulip","🌷","توليب"],["sunflower","🌻","دوّار الشمس"],["nest","🪺","عشّ"]];
+const PROV = [["Тише едешь — дальше будешь","من تأنّى وصل أبعد"],["Повторение — мать учения","التكرار أمّ التعلّم"],["Без труда не вытащишь и рыбку из пруда","بلا تعب لا تُخرج حتى سمكة من البركة"],["Век живи — век учись","عِش دهراً وتعلّم دهراً"],["Утро вечера мудренее","الصباح أحكم من المساء"],["Терпение и труд всё перетрут","الصبر والعمل يذلّلان كل شيء"],["Капля камень точит","القطرة تنحت الحجر"],["Дорогу осилит идущий","الطريق يقطعه من يمشي"],["Москва не сразу строилась","موسكو لم تُبنَ دفعة واحدة"],["Глаза боятся, а руки делают","العيون تخاف واليدان تعملان"]];
+const hh = h => pad(h % 24) + ":00";
+const visOf = d => VIS[hsh(dayNum(d)) % VIS.length];
+const rareOf = d => RARE[hsh(dayNum(d) + 77) % RARE.length];
+const rareById = id => RARE.find(r => r[0] === id);
+function visitorNow(){
+  const d = now(), h = d.getHours(), v = visOf(d), y = addDays(d, -1), vy = visOf(y);
+  if (h >= v[3] && h < Math.min(v[4], 24)) return {v, k: keyOf(d)};
+  if (vy[4] > 24 && h < vy[4] - 24) return {v: vy, k: keyOf(y)};
+  return null;
+}
+function visitorRow(){
+  const f = FX(), d = now(), h = d.getHours(), cur = visitorNow(), v = visOf(d), tk = keyOf(d);
+  if (cur && f.vday !== cur.k) return `<div class="hk now"><span class="hi crt">${cur.v[1]}</span><span><b>زائر في غابتك الآن: ${cur.v[2]}</b><small>يبقى حتى ${hh(cur.v[4])}. اضغط لتضيفه إلى ألبومك.</small></span><button class="btn primary" data-act="x-vcatch">رأيته</button></div>`;
+  if (f.vday === tk || (cur && f.vday === cur.k)) { const s = cur ? cur.v : v; return `<div class="hk"><span class="hi">${s[1]}</span><span><b>رأيت زائر اليوم: ${s[2]}</b><small>زائر جديد غداً في ساعة أخرى.</small></span><span class="ok">✓</span></div>`; }
+  if (h < v[3]) return `<div class="hk"><span class="hi">👣</span><span><b>زائر اليوم يمرّ بين ${hh(v[3])} و${hh(v[4])}</b><small>افتح الغابة في ذلك الوقت لتعرف من هو.</small></span></div>`;
+  return `<div class="hk"><span class="hi">👣</span><span><b>مرّ زائر اليوم ولم تره</b><small>زائر جديد غداً في ساعة أخرى.</small></span></div>`;
+}
+function seedRow(){
+  const d = now(), tk = keyOf(d), r = rareOf(d), got = F().trees.find(t => t.k === tk && t.rare);
+  const ico = treeSVG(got ? stageOf(got.m) : 0, r[3], 40, {shape: r[3], color: r[4]});
+  if (got) return `<div class="hk"><span class="hi">${ico}</span><span><b>زُرعت بذرة اليوم: ${r[1]}</b><small><span lang="ru" dir="ltr">${r[2]}</span> · بذرة جديدة غداً.</small></span><span class="ok">✓</span></div>`;
+  return `<div class="hk"><span class="hi">${ico}</span><span><b>بذرة اليوم: ${r[1]} <span lang="ru" dir="ltr" class="legend">${r[2]}</span></b><small>تنبت بأول جلسة تركيز 25 دقيقة فأكثر قبل نهاية اليوم.</small></span><button class="btn" data-act="x-mgo" data-m="25" data-c="" data-t="">ازرعها</button></div>`;
+}
+/* mission of the hour: changes every 3 hours, never during sleep or the shift */
+const MIS = [
+  {id: "ru25", t: "25 دقيقة روسية الآن", k: "focus", c: "ru", m: 25}, {id: "deep25", t: "25 دقيقة برمجة الآن", k: "focus", c: "deep", m: 25},
+  {id: "any45", t: "جلسة تركيز 45 دقيقة لأي مهمة", k: "focus", c: "", m: 45}, {id: "uni25", t: "25 دقيقة لواجب الجامعة", k: "focus", c: "uni", m: 25},
+  {id: "move15", t: "15 دقيقة حركة أو مشي", k: "focus", c: "body", m: 15}, {id: "hab2", t: "علّم عادتين، ولو مصغّرتين", k: "hab", n: 2},
+  {id: "exp", t: "سجّل مصروفاً واحداً", k: "exp", n: 1}, {id: "blk", t: "أنجز كتلة من خطة اليوم وعلّمها", k: "blk", n: 1}];
+function missionState(){
+  const d = now(), nm = d.getHours() * 60 + d.getMinutes(), slot = Math.floor(d.getHours() / 3), key = keyOf(d) + "-" + slot;
+  const b = getDay(d).blocks.find(b => nm >= toMin(b.s) && nm < toMin(b.e));
+  if (b && (b.c === "work" || (b.c === "rest" && /نوم|قيلولة/.test(b.t)))) return {rest: b.c === "work" ? "أنت في النوبة" : "وقت النوم"};
+  const m = MIS[hsh(dayNum(d) * 8 + slot) % MIS.length], f = FX(), L = dayLog(keyOf(d));
+  const cnt = {hab: Object.keys(L.h || {}).length, blk: Object.keys(L.b || {}).length, exp: state.exp.length};
+  if (!f.mis || f.mis.key !== key) f.mis = {key, base: cnt, done: false};
+  const start = new Date(d.getFullYear(), d.getMonth(), d.getDate(), slot * 3).getTime();
+  let prog = 0, need = 1;
+  if (m.k === "focus") { need = m.m; prog = Math.max(0, ...F().trees.filter(t => t.at >= start && (!m.c || t.c === m.c)).map(t => t.m)); }
+  else { need = m.n; prog = Math.max(0, cnt[m.k] - (f.mis.base[m.k] || 0)); }
+  return {m, key, left: (slot + 1) * 180 - nm, prog, need, ok: prog >= need};
+}
+function checkMission(){
+  const s = missionState(); if (s.rest || !s.ok) return;
+  const f = FX(); if (f.mis.done) return;
+  f.mis.done = true; f.boxes++; f.mdone = (f.mdone || 0) + 1;
+  setTimeout(() => toast("أُنجزت مهمة الساعة: صندوق 🎁 بانتظارك"), 50);
+}
+function missionRow(){
+  const s = missionState();
+  if (s.rest) return `<div class="hk"><span class="hi">🌙</span><span><b>لا مهمة الآن: ${s.rest}</b><small>المهام تعود بعدها.</small></span></div>`;
+  const f = FX(), done = f.mis.done, m = s.m;
+  return `<div class="hk${done ? "" : " now"}"><span class="hi">${done ? "✅" : "🎯"}</span><span><b>مهمة الساعة: ${m.t}</b><small>${done ? "أُنجزت. مهمة جديدة بعد " + inMin(s.left) + "." : "الجائزة صندوق 🎁 · تتغيّر بعد " + inMin(s.left) + (m.k !== "focus" && s.need > 1 ? " · " + s.prog + "/" + s.need : "")}</small></span>
+    ${done ? '<span class="ok">✓</span>' : m.k === "focus" ? `<button class="btn primary" data-act="x-mgo" data-m="${m.m}" data-c="${m.c}" data-t="${esc(m.t.replace(" الآن", ""))}">ابدأ</button>` : '<button class="btn primary" data-act="x-gocheck">سجّل</button>'}</div>`;
+}
+function boxRow(){
+  const f = FX(), lb = f.lastBox;
+  if (f.boxes > 0) return `<div class="hk now"><span class="hi crt">🎁</span><span><b>${f.boxes === 1 ? "صندوق بانتظارك" : f.boxes + " صناديق بانتظارك"}</b><small>تكسب صندوقاً بعد كل جلسة 10 دقائق فأكثر، وبعد كل مهمة ساعة.</small></span><button class="btn primary" data-act="x-box">افتح</button></div>`;
+  return lb ? `<div class="hk"><span class="hi">${lb.i}</span><span><b>آخر صندوق: ${esc(lb.t)}</b>${lb.s ? `<small${lb.ru ? ' lang="ru" dir="ltr" style="text-align:end"' : ""}>${esc(lb.s)}</small>` : ""}</span></div>` : "";
+}
+function hooksPanel(){
+  return `<section class="panel hooks" style="margin-bottom:16px"><h3>اليوم في الغابة</h3>${missionRow()}${visitorRow()}${seedRow()}${boxRow()}</section>`;
+}
+function openBox(){
+  const f = FX(); if (f.boxes <= 0) return;
+  f.boxes--; const r = Math.random(), plain = F().trees.slice().reverse().find(t => !t.gold && !t.rare);
+  if (r < .5 || (r >= .8 && !plain)) { const d = DECOR[Math.floor(Math.random() * DECOR.length)]; f.decor[d[0]] = (f.decor[d[0]] || 0) + 1; f.lastBox = {i: d[1], t: "زينة للغابة: " + d[2], s: f.decor[d[0]] > 1 ? "صار عندك " + f.decor[d[0]] : "جديدة في ألبومك"}; }
+  else if (r < .8) { const i = Math.floor(Math.random() * PROV.length); if (!f.prov.includes(i)) f.prov.push(i); f.lastBox = {i: "📜", t: PROV[i][1], s: PROV[i][0], ru: 1}; }
+  else { plain.gold = true; f.lastBox = {i: "🌟", t: "شجرة ذهبية", s: "تحوّلت آخر أشجارك إلى ذهبية"}; }
+  save(); toast(f.lastBox.i + " " + f.lastBox.t);
+}
+function albumPanel(){
+  const f = FX(), cell = (on, i, n, s) => `<span class="alb${on ? "" : " no"}"><i>${on ? i : "؟"}</i><b>${on ? n : "؟؟؟"}</b>${s ? `<small>${s}</small>` : ""}</span>`;
+  const nv = VIS.filter(v => f.album[v[0]]).length, nr = RARE.filter(r => f.rares[r[0]]).length, nd = DECOR.filter(d => f.decor[d[0]]).length;
+  return `<section class="panel" style="margin-top:16px"><div class="row" style="justify-content:space-between"><h3>الألبوم</h3><span class="legend num">${nv + nr + nd}/${VIS.length + RARE.length + DECOR.length}</span></div>
+    <div class="eyebrow" style="margin-top:10px">الزوّار ${nv}/${VIS.length}</div><div class="albg">${VIS.map(v => cell(f.album[v[0]], v[1], v[2], f.album[v[0]] ? `<span class="num">${hh(v[3])}–${hh(v[4])}</span>` : "")).join("")}</div>
+    <div class="eyebrow" style="margin-top:12px">الأشجار النادرة ${nr}/${RARE.length}</div><div class="albg">${RARE.map(r => cell(f.rares[r[0]], treeSVG(3, r[3], 34, {shape: r[3], color: r[4]}), r[1], f.rares[r[0]] ? `<span lang="ru" dir="ltr">${r[2]}</span>` : "")).join("")}</div>
+    <div class="eyebrow" style="margin-top:12px">زينة الغابة ${nd}/${DECOR.length}</div><div class="albg">${DECOR.map(d => cell(f.decor[d[0]], d[1], d[2], f.decor[d[0]] > 1 ? "×" + f.decor[d[0]] : "")).join("")}</div>
+    ${f.prov.length ? `<details class="cmore"><summary>أمثال روسية جمعتها (${f.prov.length}/${PROV.length})</summary><div style="margin-top:6px">${f.prov.map(i => `<div class="frow" style="grid-template-columns:auto 1fr"><span>📜</span><span><span lang="ru" dir="ltr" style="display:block;text-align:end;font-weight:600">${PROV[i][0]}</span><small>${PROV[i][1]}</small></span></div>`).join("")}</div></details>` : ""}
+  </section>`;
+}
+$("#view").addEventListener("click", e => {
+  const el = e.target.closest("[data-act]"); if (!el || el.disabled) return;
+  const a = el.dataset.act;
+  if (a === "x-vcatch") { const c = visitorNow(), f = FX(); if (!c) { toast("غادر الزائر"); render(); return; }
+    f.vday = c.k; f.album[c.v[0]] = (f.album[c.v[0]] || 0) + 1; save(); toast(c.v[1] + " أُضيف " + c.v[2] + " إلى ألبومك"); }
+  else if (a === "x-box") openBox();
+  else if (a === "x-mgo") { fSel = "custom"; fName = el.dataset.t || ""; if (el.dataset.c) fCat = el.dataset.c; fDur = +el.dataset.m || 25; setTab("forest"); return; }
+  else return;
+  render();
+});
 
 const h = (location.hash || "").slice(1); if (VIEWS[h]) tab = h;
 render();
