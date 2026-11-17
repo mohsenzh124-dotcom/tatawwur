@@ -1,0 +1,1874 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>نظام التطوّر اليومي</title>
+<meta name="description" content="خطة يومية حول نوبات العمل والجامعة: النوم، العادات، الأهداف، المال.">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#17212A" media="(prefers-color-scheme: dark)">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="التطوّر">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-180.png">
+<style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Reem+Kufi:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: sticky tab bar over one 1100px column; days are generated from the 2/2 shift rotation + the week's lectures */
+:root{
+  --bg:#EEF2F5; --surface:#FFFFFF; --sunk:#E3E9EE; --ink:#13202B; --muted:#5A6B78; --line:#D3DCE3;
+  --accent:#B87309; --accent-ink:#FFFFFF; --accent-soft:#F6E8CF;
+  --good:#2F7D4F; --warn:#B4530F; --bad:#B42318; --warn-soft:#FBE7D6;
+  --c-uni:#2F5DA8; --c-work:#5B6B7A; --c-deep:#B87309; --c-ru:#B42335; --c-body:#2F7D4F; --c-money:#0F7C80; --c-routine:#7A5BA8; --c-rest:#8A8F94; --c-move:#9AA6B0;
+  --f-display:"Reem Kufi","IBM Plex Sans Arabic",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans Arabic",system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --r:10px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0F161C; --surface:#17212A; --sunk:#1E2A34; --ink:#E6EDF2; --muted:#93A4B1; --line:#2A3946;
+  --accent:#E3A13A; --accent-ink:#1A1205; --accent-soft:#3A2C14;
+  --good:#5BC189; --warn:#F0A060; --bad:#F2766B; --warn-soft:#3A2416;
+  --c-uni:#6F9BE8; --c-work:#9AAAB8; --c-deep:#E3A13A; --c-ru:#F07383; --c-body:#5BC189; --c-money:#4CC3C6; --c-routine:#B396E4; --c-rest:#A3A9AE; --c-move:#6B7884;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F161C; --surface:#17212A; --sunk:#1E2A34; --ink:#E6EDF2; --muted:#93A4B1; --line:#2A3946;
+  --accent:#E3A13A; --accent-ink:#1A1205; --accent-soft:#3A2C14;
+  --good:#5BC189; --warn:#F0A060; --bad:#F2766B; --warn-soft:#3A2416;
+  --c-uni:#6F9BE8; --c-work:#9AAAB8; --c-deep:#E3A13A; --c-ru:#F07383; --c-body:#5BC189; --c-money:#4CC3C6; --c-routine:#B396E4; --c-rest:#A3A9AE; --c-move:#6B7884;
+  color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.65}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+.wrap{max-width:1100px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding-block:12px 4px;flex-wrap:wrap}
+.brand h1{font-family:var(--f-display);font-size:1.45rem;margin:0;font-weight:700}
+.brand h1 span{color:var(--accent)}
+.sync{font-size:.78rem;color:var(--muted)}
+.sync[data-mode="on"]::before{content:"● ";color:var(--good)}
+.sync[data-mode="off"]{color:var(--warn);font-weight:600}
+.sync[data-mode="off"]::before{content:"● "}
+nav.tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding-block:4px 0}
+nav.tabs::-webkit-scrollbar{display:none}
+nav.tabs button{flex:0 0 auto;border:0;background:none;color:var(--muted);font:600 .92rem var(--f-body);padding:8px 12px 10px;border-bottom:3px solid transparent;cursor:pointer}
+nav.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+main{padding-block:20px 60px}
+h2{font-family:var(--f-display);font-weight:600;font-size:1.35rem;margin:0 0 4px;text-wrap:balance}
+h3{font-size:1.02rem;margin:0;font-weight:700}
+.lead{color:var(--muted);margin:0 0 18px;max-width:70ch}
+.eyebrow{font-size:.75rem;color:var(--muted);letter-spacing:.02em;font-weight:600}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;min-width:0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:16px}
+.stack{display:flex;flex-direction:column;gap:12px}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate}
+input,select,textarea{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:7px;padding:6px 9px;min-width:0}
+textarea{width:100%;resize:vertical;min-height:70px}
+input[type=time],input[type=number],input[type=date]{direction:ltr;font-family:var(--f-mono);font-size:.9rem}
+.btn{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:7px;padding:6px 12px;font:600 .88rem var(--f-body);cursor:pointer}
+.btn:hover{background:var(--sunk)}
+.btn:disabled{opacity:.45;cursor:default}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.ghost{border-color:transparent;background:none;color:var(--muted);padding:4px 8px}
+.btn.ghost.del:hover{color:var(--bad)}
+.btn.link{border:0;background:none;color:var(--accent);padding:2px 4px;font-size:.84rem}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:.76rem;font-weight:600;padding:1px 9px;border-radius:99px;background:var(--sunk);color:var(--muted);white-space:nowrap}
+.chip.work{background:var(--c-work);color:#fff}
+.chip.rec{background:var(--accent-soft);color:var(--accent)}
+.chip.focus{background:var(--accent);color:var(--accent-ink)}
+.dot{width:9px;height:9px;border-radius:50%;flex:0 0 auto;background:var(--cat,var(--muted));display:inline-block}
+.banner{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--warn-soft);border:1px solid var(--warn);border-radius:var(--r);padding:12px 14px;margin-bottom:16px}
+.banner b{color:var(--warn)}
+
+/* Today */
+.today-head{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-end;margin-bottom:16px}
+.today-head .date{font-family:var(--f-display);font-size:1.6rem;line-height:1.2}
+.today-head .ru{color:var(--muted);font-size:.9rem}
+.score{display:flex;align-items:center;gap:12px}
+.ring{--p:0;width:64px;height:64px;border-radius:50%;background:conic-gradient(var(--accent) calc(var(--p)*1%),var(--sunk) 0);display:grid;place-items:center}
+.ring b{width:50px;height:50px;border-radius:50%;background:var(--bg);display:grid;place-items:center;font:600 .95rem var(--f-mono)}
+.blocks{display:flex;flex-direction:column}
+.block{display:grid;grid-template-columns:auto 4px 1fr auto;gap:10px;align-items:center;padding:8px 4px;border-bottom:1px solid var(--line)}
+.block:last-child{border-bottom:0}
+.block .t{font:500 .8rem var(--f-mono);color:var(--muted);direction:ltr;min-width:86px;text-align:left}
+.block .bar{align-self:stretch;border-radius:2px;background:var(--cat)}
+.block .ttl{min-width:0}
+.block.now{background:var(--accent-soft);border-radius:8px}
+.block.now .t{color:var(--ink)}
+.block.done .ttl{color:var(--muted);text-decoration:line-through}
+.block.conflict .ttl{color:var(--bad);font-weight:600}
+.tick{width:26px;height:26px;border-radius:7px;border:2px solid var(--line);background:var(--surface);cursor:pointer;display:grid;place-items:center;font-size:.85rem;padding:0;color:var(--ink)}
+.tick[data-v="1"]{background:var(--good);border-color:var(--good);color:#fff}
+.tick[data-v="m"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.habit-row{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
+.habit-row:last-child{border-bottom:0}
+.habit-row small{display:block;color:var(--muted);font-size:.78rem}
+.warn{color:var(--warn);font-weight:600}
+.legend{font-size:.8rem;color:var(--muted)}
+.left{font-size:.82rem;color:var(--warn);margin-top:8px}
+
+/* Week */
+.weeknav{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.weeknav .lbl{font-family:var(--f-display);font-size:1.1rem;min-width:190px;text-align:center}
+.lec{display:grid;grid-template-columns:150px auto auto 1fr auto;gap:6px;align-items:center;padding:6px 0;border-bottom:1px dashed var(--line)}
+.lec input[type=text]{width:100%}
+@media (max-width:640px){.lec{grid-template-columns:1fr 1fr auto}.lec input[type=text]{grid-column:1/-1;order:-1}.lec select{grid-column:1/-1}}
+.daycards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:12px}
+.dc{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.dc.sel{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.dc.today .dn::after{content:" · اليوم";color:var(--accent);font-size:.8rem}
+.dc .dh{display:flex;justify-content:space-between;align-items:flex-start;gap:6px}
+.dc .dn{font-weight:700}
+.dc .dn small{display:block;font-weight:400;color:var(--muted);font-size:.76rem}
+.mini{display:flex;flex-direction:column;gap:2px;font-size:.8rem}
+.mini div{display:grid;grid-template-columns:44px 8px 1fr;gap:6px;align-items:center}
+.mini .t{font:400 .72rem var(--f-mono);color:var(--muted);direction:ltr;text-align:left}
+.mini span:last-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.mini .x{color:var(--bad);font-weight:600}
+.dc .acts{display:flex;gap:4px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:6px;margin-top:auto}
+.ed-row{display:grid;grid-template-columns:auto auto 1fr auto auto;gap:6px;align-items:center;padding:6px 0;border-bottom:1px dashed var(--line)}
+.ed-row input[type=text]{width:100%}
+@media (max-width:640px){.ed-row{grid-template-columns:1fr 1fr auto}.ed-row input[type=text]{grid-column:1/-1;order:-1}.ed-row select{grid-column:1/3}}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:16px}
+.kpi{background:var(--sunk);border-radius:8px;padding:10px 12px}
+.kpi b{display:block;font:600 1.15rem var(--f-mono);direction:ltr;text-align:right}
+.kpi span{font-size:.78rem;color:var(--muted)}
+.set{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
+.set label{display:flex;flex-direction:column;gap:4px;font-size:.82rem;color:var(--muted)}
+.task{display:grid;grid-template-columns:1fr 150px 80px auto;gap:6px;align-items:center;padding:5px 0;border-bottom:1px dashed var(--line)}
+@media (max-width:640px){.task{grid-template-columns:1fr 70px auto}.task input[type=text]{grid-column:1/-1}}
+.ut.done input{color:var(--muted);text-decoration:line-through}
+@media (max-width:640px){.lec.ut{grid-template-columns:auto 1fr 1fr auto!important}.lec.ut>div{grid-column:1/-1;order:-1}}
+.asset{display:grid;grid-template-columns:1fr 140px 110px 76px auto auto auto auto;gap:6px;align-items:center;padding:6px 0;border-bottom:1px dashed var(--line)}
+.asset.debt{grid-template-columns:1fr 120px 80px auto auto auto}
+.asset .liq{display:flex;gap:4px;align-items:center;font-size:.8rem;color:var(--muted);white-space:nowrap}
+@media (max-width:760px){.asset{grid-template-columns:1fr 1fr auto}.asset>input[type=text]{grid-column:1/-1}.asset.debt{grid-template-columns:1fr 1fr auto}}
+.road{display:flex;flex-direction:column;gap:4px}
+.lvl{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start;padding:8px;border-radius:8px}
+.lvl .lv{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--sunk);font-size:.8rem}
+.lvl.ok .lv{background:var(--good);color:#fff}
+.lvl.ok b{color:var(--muted)}
+.lvl.cur{background:var(--accent-soft)}
+.lvl.cur .lv{background:var(--accent);color:var(--accent-ink)}
+.lvl .pbar{margin-top:4px}
+.simt{width:100%;border-collapse:collapse;margin-top:12px;font-size:.86rem}
+.simt th,.simt td{padding:6px;border-bottom:1px solid var(--line);text-align:right}
+.simt th{color:var(--muted);font-weight:600}
+.acc{margin:8px 0 0;padding-inline-start:18px;display:flex;flex-direction:column;gap:8px;font-size:.9rem}
+.tips{border-inline-start:4px solid var(--accent)}
+.tips ul{margin:6px 0 0;padding-inline-start:18px;display:flex;flex-direction:column;gap:4px}
+.cfocus{display:flex;flex-direction:column;gap:2px;background:var(--accent-soft);border-radius:8px;padding:10px 12px;margin:8px 0 10px}
+.cfocus b{font-size:1rem;line-height:1.5}
+.clist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.ct{display:grid;grid-template-columns:auto 1fr;gap:8px;align-items:start;padding:6px 8px;border-radius:7px;background:var(--sunk);border-inline-start:3px solid var(--ct);font-size:.9rem}
+.ct .cl{font-size:.7rem;font-weight:700;color:var(--ct);white-space:nowrap;padding-top:2px;min-width:38px}
+.ct.urgent{--ct:var(--bad)} .ct.warn{--ct:var(--warn)} .ct.focus{--ct:var(--accent)} .ct.info{--ct:var(--c-uni)} .ct.good{--ct:var(--good)}
+.cmore{margin-top:8px}
+.cmore>summary{cursor:pointer;font-size:.82rem;color:var(--muted)}
+.cmore .clist{margin-top:6px}
+.cbase{margin:6px 0 0;padding-inline-start:18px;font-size:.86rem;color:var(--muted);display:flex;flex-direction:column;gap:3px}
+.dfocus{font-size:.78rem;background:var(--accent-soft);border-radius:6px;padding:4px 8px;line-height:1.5}
+.dfocus span{color:var(--accent);font-weight:700}
+.review{border-inline-start:4px solid var(--c-routine)}
+.review ul{margin:4px 0 0;padding-inline-start:18px}
+.mline{display:grid;grid-template-columns:1fr 130px auto;gap:6px;align-items:center;padding:4px 0}
+details.cfg>summary{cursor:pointer;font-weight:700;list-style:none}
+details.cfg>summary::before{content:"◂ ";color:var(--muted)}
+details.cfg[open]>summary::before{content:"▾ "}
+
+/* Habits */
+.hgrid-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+table.hgrid{border-collapse:collapse;font-size:.82rem;min-width:100%}
+.hgrid th,.hgrid td{padding:4px;text-align:center;border-bottom:1px solid var(--line)}
+.hgrid th.hn,.hgrid td.hn{text-align:right;position:sticky;right:0;background:var(--surface);min-width:170px;max-width:230px;padding-inline:10px;z-index:1}
+.hgrid thead th{font:500 .7rem var(--f-mono);color:var(--muted);direction:ltr}
+.hgrid thead th.wd{color:var(--c-work);text-decoration:underline}
+.cell{width:22px;height:22px;border-radius:5px;border:1px solid var(--line);background:var(--sunk);cursor:pointer;padding:0;display:block;margin:auto}
+.cell[data-v="1"]{background:var(--good);border-color:var(--good)}
+.cell[data-v="m"]{background:var(--accent);border-color:var(--accent);opacity:.55}
+.cell.today{outline:2px solid var(--ink);outline-offset:1px}
+.cell.future{opacity:.35;cursor:default}
+.cell.na{background:transparent;border-style:dashed;cursor:default;opacity:.4}
+.streak{font:600 .8rem var(--f-mono);color:var(--accent)}
+.hedit{display:grid;grid-template-columns:1fr 1fr 140px 130px auto;gap:6px;align-items:center;padding:6px 0;border-bottom:1px dashed var(--line)}
+@media (max-width:700px){.hedit{grid-template-columns:1fr 1fr auto}.hedit input{grid-column:1/-1}}
+
+/* Goals */
+.vision{border-inline-start:4px solid var(--accent)}
+.vision textarea{font-family:var(--f-display);font-size:1.15rem;line-height:1.6;border:0;background:transparent;padding:0;min-height:80px}
+.goal{display:flex;flex-direction:column;gap:8px;padding:14px 0;border-bottom:1px solid var(--line)}
+.goal:last-of-type{border-bottom:0}
+.goal .gt{font-weight:700;width:100%;border:0;background:transparent;padding:0;font-size:1rem}
+.pbar{height:8px;border-radius:4px;background:var(--sunk);overflow:hidden}
+.pbar i{display:block;height:100%;background:var(--accent)}
+.gfields{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:.85rem;color:var(--muted)}
+.gfields input[type=number]{width:110px}
+.gfields input.u{width:80px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:12px}
+.fi-in{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.fi-in label{display:flex;flex-direction:column;gap:4px;font-size:.82rem;color:var(--muted)}
+.note{font-size:.8rem;color:var(--muted);margin:10px 0 0}
+
+/* Roadmap */
+.phase{display:grid;grid-template-columns:130px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.phase:last-child{border-bottom:0}
+.phase .when{font-family:var(--f-display);color:var(--accent);font-size:1.05rem;line-height:1.3}
+.phase .when small{display:block;color:var(--muted);font-family:var(--f-body);font-size:.78rem}
+@media (max-width:640px){.phase{grid-template-columns:1fr;gap:6px}}
+.item{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:start;padding:3px 0}
+.item input[type=text]{border-color:transparent;background:transparent;width:100%;padding:3px 6px}
+.item input[type=text]:hover,.item input[type=text]:focus{border-color:var(--line);background:var(--surface)}
+.item.done input[type=text]{color:var(--muted);text-decoration:line-through}
+.item .tick{width:22px;height:22px;margin-top:4px}
+
+/* Resources */
+.res{display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.res:last-child{border-bottom:0}
+.res a{color:var(--ink);font-weight:600;text-decoration:none;border-bottom:1px solid var(--accent)}
+.res a:hover{color:var(--accent)}
+.res p{grid-column:1/-1;margin:0;color:var(--muted);font-size:.86rem}
+.toast{position:fixed;bottom:calc(16px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:8px 16px;border-radius:8px;font-size:.88rem;z-index:20}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* ---- PWA additions ---- */
+.alloc{display:flex;flex-direction:column;gap:8px}
+.alloc .a{display:grid;grid-template-columns:minmax(110px,1.2fr) 2fr 44px;gap:8px;align-items:center;font-size:.86rem}
+.alloc .track{height:8px;border-radius:4px;background:var(--sunk);overflow:hidden;display:block}
+.alloc .track i{display:block;height:100%;background:var(--cat)}
+nav.tabs button{min-height:44px}
+.tick{min-width:26px}
+@media (max-width:640px){.tick{width:34px;height:34px}.item .tick{width:28px;height:28px}.cell{width:26px;height:26px}.btn{padding:9px 13px}.btn.ghost{padding:8px 10px}.btn.link{padding:8px 6px}}
+/* stats */
+.wbars{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;align-items:end;height:190px;margin-top:10px}
+.wbar{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:4px;min-width:0}
+.wbar .col{width:100%;max-width:44px;border-radius:6px 6px 2px 2px;background:var(--accent);min-height:3px}
+.wbar.low .col{background:var(--warn)} .wbar.hi .col{background:var(--good)}
+.wbar.na .col{background:var(--sunk);height:3px!important}
+.wbar .v{font:600 .74rem var(--f-mono);direction:ltr}
+.wbar .n{font-size:.72rem;color:var(--muted);text-align:center;line-height:1.25;white-space:nowrap}
+.wbar.today .n{color:var(--accent);font-weight:700}
+.wbar .k{width:8px;height:8px;border-radius:50%;background:var(--c-rest)}
+.wbar .k.w{background:var(--c-work)}
+.hrow{display:grid;grid-template-columns:1fr auto 48px;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
+.hrow:last-child{border-bottom:0}
+.hdots{display:flex;gap:3px;direction:rtl}
+.hdots i{width:13px;height:13px;border-radius:4px;background:var(--sunk);border:1px solid var(--line);display:block}
+.hdots i[data-v="1"]{background:var(--good);border-color:var(--good)}
+.hdots i[data-v="m"]{background:var(--accent);border-color:var(--accent);opacity:.6}
+.hdots i[data-v="x"]{background:transparent;border-style:dashed;opacity:.5}
+.crow{display:grid;grid-template-columns:minmax(96px,1fr) 2fr auto;gap:10px;align-items:center;padding:6px 0;font-size:.88rem}
+.crow .pbar i{background:var(--cat)}
+.trend{display:flex;gap:6px;align-items:flex-end;height:90px;margin-top:10px;direction:ltr}
+.trend div{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:3px;height:100%;min-width:0}
+.trend i{display:block;width:100%;max-width:34px;border-radius:4px 4px 1px 1px;background:var(--accent);opacity:.55;min-height:2px}
+.trend div.cur i{opacity:1}
+.trend span{font:500 .66rem var(--f-mono);color:var(--muted)}
+.insight{margin:0;padding-inline-start:18px;display:flex;flex-direction:column;gap:6px}
+.delta.up{color:var(--good)} .delta.down{color:var(--bad)}
+/* big goals */
+.bigs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px;margin-top:12px}
+.big{border:1px solid var(--line);border-radius:var(--r);padding:14px;display:flex;flex-direction:column;gap:10px;min-width:0;background:var(--surface)}
+.big .bh{display:flex;align-items:center;gap:8px}
+.big .bh .ic{font-size:1.5rem;line-height:1}
+.big .bh input{flex:1;font-weight:700;font-size:1.05rem;border-color:transparent;background:transparent;padding:2px 4px}
+.big .bh input:focus{border-color:var(--line);background:var(--surface)}
+.big .pbar{height:12px;border-radius:6px}
+.big .pbar i{background:var(--good)}
+.big .pl{display:flex;justify-content:space-between;font-size:.84rem;color:var(--muted);gap:8px;flex-wrap:wrap}
+.big .f{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.big .f label{display:flex;flex-direction:column;gap:3px;font-size:.78rem;color:var(--muted);min-width:0}
+.big .f input{width:100%}
+.big .calc{background:var(--sunk);border-radius:8px;padding:8px 10px;font-size:.86rem;display:flex;flex-direction:column;gap:3px}
+.big .dep{display:grid;grid-template-columns:1fr auto;gap:6px}
+.big .hist{font-size:.78rem;color:var(--muted)}
+/* settings */
+.sw{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.sw:last-of-type{border-bottom:0}
+.sw small{display:block;color:var(--muted);font-size:.78rem}
+.sw input[type=checkbox]{width:22px;height:22px;flex:0 0 auto;accent-color:var(--accent)}
+.sw input[type=number]{width:72px} .sw input[type=time]{width:132px}
+.rem{display:grid;grid-template-columns:52px 1fr;gap:8px;padding:5px 0;border-bottom:1px dashed var(--line);font-size:.86rem}
+.rem:last-child{border-bottom:0}
+.rem .t{font:500 .8rem var(--f-mono);color:var(--muted);direction:ltr;text-align:left}
+.rem.past{opacity:.45}
+.ok{color:var(--good);font-weight:600} 
+.steps{margin:6px 0 0;padding-inline-start:20px;display:flex;flex-direction:column;gap:4px;font-size:.9rem}
+.inapp{position:fixed;inset-inline:12px;top:calc(10px + env(safe-area-inset-top,0px));z-index:30;background:var(--ink);color:var(--bg);border-radius:10px;padding:10px 14px;box-shadow:0 6px 24px rgba(0,0,0,.3);display:flex;flex-direction:column;gap:2px;max-width:520px;margin-inline:auto}
+.inapp b{font-size:.95rem} .inapp span{font-size:.84rem;opacity:.85}
+.wbar .box{flex:1;width:100%;display:flex;align-items:flex-end;justify-content:center;min-height:0}
+.big .num{white-space:nowrap}
+</style>
+</head>
+<body>
+<div dir="rtl" lang="ar">
+<header class="top">
+  <div class="wrap">
+    <div class="brand">
+      <h1>نظام <span>التطوّر</span> اليومي</h1>
+      <span class="sync" id="sync" data-mode="on">محفوظ على هذا الجهاز</span>
+    </div>
+    <nav class="tabs" role="tablist" id="tabs">
+      <button role="tab" data-tab="today">اليوم</button>
+      <button role="tab" data-tab="week">الأسبوع والمحاضرات</button>
+      <button role="tab" data-tab="habits">متتبع العادات</button>
+      <button role="tab" data-tab="stats">الإحصائيات</button>
+      <button role="tab" data-tab="goals">الأهداف</button>
+      <button role="tab" data-tab="money">المال والأصول</button>
+      <button role="tab" data-tab="roadmap">خارطة الطريق</button>
+      <button role="tab" data-tab="resources">المصادر</button>
+      <button role="tab" data-tab="app">الإعدادات</button>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="view"></main>
+</div>
+
+<script>
+(function(){
+"use strict";
+const $ = (s, r=document) => r.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const uid = () => Math.random().toString(36).slice(2, 9);
+const pad = n => String(n).padStart(2, "0");
+const keyOf = d => d.getFullYear() + "-" + pad(d.getMonth()+1) + "-" + pad(d.getDate());
+const parseKey = k => { const [y,m,d] = k.split("-").map(Number); return new Date(y, m-1, d); };
+const addDays = (d, n) => { const x = new Date(d); x.setDate(x.getDate()+n); return x; };
+const dayNum = d => Math.round(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) / 864e5);
+const mod = (a, n) => ((a % n) + n) % n;
+const fmtNum = n => Math.round(n).toLocaleString("ru-RU");
+const toMin = t => { const [h,m] = String(t||"0:0").split(":").map(Number); return (h||0)*60 + (m||0); };
+const fmtT = m => { m = Math.max(0, Math.min(1440, Math.round(m))); return pad(Math.floor(m/60)) + ":" + pad(m%60); };
+
+const CATS = {
+  uni:{n:"الجامعة"}, work:{n:"العمل"}, deep:{n:"برمجة وذكاء اصطناعي"}, ru:{n:"اللغة الروسية"},
+  body:{n:"صحة ورياضة"}, money:{n:"المال والفرص"}, routine:{n:"روتين ومراجعة"}, rest:{n:"راحة وعلاقات"}, move:{n:"تنقّل"}
+};
+const DAYS = [
+  {ar:"الإثنين", ru:"Пн"},{ar:"الثلاثاء", ru:"Вт"},{ar:"الأربعاء", ru:"Ср"},{ar:"الخميس", ru:"Чт"},
+  {ar:"الجمعة", ru:"Пт"},{ar:"السبت", ru:"Сб"},{ar:"الأحد", ru:"Вс"}
+];
+const RU_FULL = ["Воскресенье","Понедельник","Вторник","Среда","Четверг","Пятница","Суббота"];
+const dayIdx = d => (d.getDay()+6) % 7;
+const weekStart = d => addDays(d, -dayIdx(d));
+const KIND = {work:"يوم عمل", w1:"نوبة أولى", w2:"بين نوبتين", rec:"يوم تعافٍ", focus:"يوم إنتاج"};
+
+/* ---------- defaults ---------- */
+const T = (t, c, m) => ({id:uid(), t, c, m});
+function defaults(){
+  return {
+    v:2,
+    settings:{ver:4, start:"2026-10-23", shiftS:"22:00", shiftE:"10:00", commute:60, uniCommute:60,
+      wakeRec:"09:30", wakeFocus:"08:00", sleep:"23:00", sleepH:8, napH:3, recNapH:3.5, napS:"14:30", midWake:"17:30",
+      maxTasks:4, uniPre:3, uniRec:2.5, uniFocus:5},
+    tasks:{
+      pre:[T("Python: درس من CS50P + تمارين","deep",90), T("الروسية: مفردات وقراءة","ru",30), T("مشي خفيف","body",30)],
+      mid:[T("روسية خفيفة: Anki أو استماع","ru",20)],
+      rec:[T("Python: درس من CS50P","deep",60), T("الروسية: درس ومفردات","ru",45), T("مراجعة المصاريف وتسجيلها","money",15)],
+      focus:[T("جلسة برمجة عميقة: درس + تمارين","deep",90), T("الروسية: قراءة نص علمي وكتابة","ru",60),
+             T("رياضة","body",60), T("فرص الدخل: سيرة ذاتية، وظائف، مهارة","money",45)]
+    },
+    uni:{tasks:[]},
+    lectures:{},
+    days:{},
+    habits:[
+      {id:"h1", n:"ساعة تعلّم برمجة", m:"15 دقيقة", c:"deep", on:"off"},
+      {id:"h2", n:"30 دقيقة روسية", m:"استماع في الطريق أو 5 كلمات Anki", c:"ru", on:"all"},
+      {id:"h3", n:"رياضة أو 8000 خطوة", m:"10 تمارين ضغط", c:"body", on:"off"},
+      {id:"h4", n:"قراءة 20 صفحة", m:"صفحة واحدة", c:"routine", on:"all"},
+      {id:"h5", n:"تسجيل كل المصاريف", m:"تسجيل مصروف واحد", c:"money", on:"all"},
+      {id:"h6", n:"نوم 7–8 ساعات", m:"إطفاء الشاشات قبل النوم بنصف ساعة", c:"body", on:"all"},
+      {id:"h7", n:"مراجعة اليوم وتخطيط الغد", m:"كتابة أهم 3 مهام للغد", c:"routine", on:"all"}
+    ],
+    vision:"خلال 5 سنوات: أنتقل من نوبات العمل الطويلة إلى مهنة في الذكاء الاصطناعي بدخل مرتفع، أتحدث الروسية بطلاقة، وأستثمر بانتظام نحو الحرية المالية.",
+    goals:[
+      {id:uid(), t:"تسجيل كل المصاريف 30 يوماً متتالية", cur:0, tgt:30, u:"يوم", d:""},
+      {id:uid(), t:"صندوق طوارئ أول: شهر من المصاريف", cur:0, tgt:60000, u:"₽", d:""},
+      {id:uid(), t:"إنهاء CS50P: أساسيات Python", cur:0, tgt:10, u:"دروس", d:""},
+      {id:uid(), t:"200 ساعة تعلّم برمجة", cur:0, tgt:200, u:"ساعة", d:""},
+      {id:uid(), t:"أول مشروع منشور على GitHub", cur:0, tgt:1, u:"مشروع", d:""},
+      {id:uid(), t:"اجتياز ТРКИ-2 (مستوى B2)", cur:0, tgt:100, u:"%", d:""},
+      {id:uid(), t:"إنهاء الماجستير", cur:0, tgt:100, u:"%", d:""}
+    ],
+    reviews:{},
+    money:{rates:{USD:78.7, EUR:89.6}, ret:5, hist:[], incomeTarget:180000, resident:true, sim:{inc:0, exp:0},
+      assets:[{id:uid(), n:"نقد في اليد", type:"cash", cur:"RUB", v:0, liq:true, rate:0}, {id:uid(), n:"البطاقة / الحساب البنكي", type:"bank", cur:"RUB", v:0, liq:true, rate:0}],
+      debts:[],
+      income:[{id:uid(), n:"راتب العمل", v:0}],
+      expenses:["السكن","الطعام","المواصلات","الاتصالات والإنترنت","الدراسة","أخرى"].map(n => ({id:uid(), n, v:0}))},
+    roadmap:[
+      {id:"p0", w:"الشهر الأول", s:"الاستقرار", items:[
+        "الالتزام بنظام 2/2: نوم كافٍ قبل الدوام وتعافٍ بعده",
+        "تسجيل كل مصروف لمدة 30 يوماً ومعرفة أين يذهب المال",
+        "ميزانية شهرية بسيطة وبدء صندوق طوارئ ولو بمبلغ صغير",
+        "تحديد مستواك في الروسية باختبار تجريبي من جامعة سانت بطرسبرغ",
+        "إنهاء أول 3 دروس من CS50P"]},
+      {id:"p1", w:"الأشهر 1–6", s:"أساسيات البرمجة", items:[
+        "إنهاء CS50P كاملاً مع المسائل",
+        "Kaggle Learn: Python ثم Pandas ثم Intro to Machine Learning",
+        "الجبر الخطي بصرياً (3Blue1Brown) لفهم مواد الماجستير",
+        "تعلّم Git و GitHub ورفع كل تمارينك",
+        "مشروع 1: تحليل بيانات حقيقية بـ Pandas مع رسوم بيانية",
+        "ربط كل مادة في الماجستير بتطبيق عملي صغير",
+        "الانتقال من B1 إلى B2 في الروسية"]},
+      {id:"p2", w:"الأشهر 6–12", s:"تعلّم الآلة والخطوة الأولى", items:[
+        "Google Machine Learning Crash Course",
+        "سلسلة Karpathy: Zero to Hero",
+        "مشروع 2: نموذج تعلّم آلة كامل من البيانات حتى التقييم",
+        "سيرة ذاتية بالروسية وملف على hh.ru و Хабр Карьера",
+        "التقديم على وظائف انتقالية: محلل بيانات، Junior Python، تدريب ML، بدلاً من نوبات 12 ساعة",
+        "اجتياز ТРКИ-2 (B2)"]},
+      {id:"p3", w:"السنة 1–3", s:"الدخل المرتفع", items:[
+        "Hugging Face LLM Course ومشروع RAG منشور",
+        "وظيفة ML/AI Engineer ثم الترقي إلى Middle",
+        "ادخار 30% من الدخل أو أكثر",
+        "استثمار شهري منتظم بعد استشارة مختص",
+        "مصدر دخل ثانٍ: فريلانس أو استشارات"]},
+      {id:"p4", w:"السنة 3–10", s:"الحرية المالية", items:[
+        "الوصول إلى رقم الحرية المالية (25 ضعف المصاريف السنوية)",
+        "دخل سلبي يغطي المصاريف الأساسية",
+        "اختيار العمل بحرية: بحث، شركة ناشئة، أو مشاريعك الخاصة"]}
+    ].map(p => ({...p, items:p.items.map(t => ({id:uid(), t, d:false}))})),
+    big:[
+      {id:"g-home", n:"المنزل", ic:"🏠", tgt:0, cur:0, mo:0, d:"", link:false, log:[]},
+      {id:"g-car", n:"السيارة", ic:"🚗", tgt:0, cur:0, mo:0, d:"", link:false, log:[]},
+      {id:"g-save", n:"الادخار", ic:"💰", tgt:0, cur:0, mo:0, d:"", link:false, log:[]}
+    ],
+    notif:{on:false, sleep:true, sleepLead:30, leave:true, leaveLead:10, blocks:true, lead:5,
+      habits:true, habitT:"21:00", weekly:true, weeklyT:"18:00", due:true, money:true},
+    logs:{}
+  };
+}
+
+/* ---------- state + persistence ---------- */
+let state = defaults();
+const LS = "tatawwur-v2";
+function norm(x){
+  const D = defaults(); x = Object.assign(D, x);
+  const st = x.settings || {};
+  if (!st.ver || st.ver < 2) Object.assign(st, {shiftS:"22:00", shiftE:"10:00", sleep:"23:00", napH:4, recNapH:4});
+  if (!st.ver || st.ver < 3) { st.uniCommute = 60; x.tasks = defaults().tasks; }
+  if (!st.ver || st.ver < 4) Object.assign(st, {napS:"14:30", napH:3, midWake:"17:30", recNapH:3.5});
+  st.ver = 4;
+  x.settings = Object.assign(defaults().settings, st);
+  x.tasks = Object.assign(defaults().tasks, x.tasks || {});
+  x.uni = Object.assign({tasks:[]}, x.uni || {});
+  x.money = Object.assign(defaults().money, x.money || {});
+  x.money.rates = Object.assign({USD:78.7, EUR:89.6}, x.money.rates || {});
+  x.money.sim = Object.assign({inc:0, exp:0}, x.money.sim || {});
+  x.reviews = x.reviews || {};
+  x.notif = Object.assign(defaults().notif, x.notif || {});
+  if (!Array.isArray(x.big)) x.big = defaults().big;
+  x.big.forEach(g => { if (!Array.isArray(g.log)) g.log = []; });
+  x.logs = x.logs || {}; x.days = x.days || {}; x.lectures = x.lectures || {};
+  return x;
+}
+try { const raw = localStorage.getItem(LS); if (raw) state = norm(JSON.parse(raw)); } catch(e) {}
+/* PWA: everything is stored on this device only (localStorage). No account, no server. */
+function setSync(t, mode){ const el = $("#sync"); if (el) { el.textContent = t; el.dataset.mode = mode || ""; } }
+function save(){
+  try { snapToday(); } catch(e) {}
+  try { localStorage.setItem(LS, JSON.stringify(state)); setSync(navigator.onLine === false ? "بدون إنترنت · محفوظ على هذا الجهاز" : "محفوظ على هذا الجهاز", "on"); }
+  catch(e) { setSync("تعذّر الحفظ: مساحة التخزين ممتلئة", "off"); }
+  try { planReminders(); } catch(e) {}
+}
+window.addEventListener("online", () => setSync("محفوظ على هذا الجهاز", "on"));
+window.addEventListener("offline", () => setSync("بدون إنترنت · محفوظ على هذا الجهاز", "on"));
+
+/* ---------- rotation + day generator ---------- */
+const S = () => state.settings;
+const PATTERN = ["work","work","off","off"];
+function baseType(d){ return PATTERN[mod(dayNum(d) - dayNum(parseKey(S().start)), 4)]; }
+function dayType(d){ const o = state.days[keyOf(d)]; return (o && o.type) || baseType(d); }
+function kindOf(d){ return dayType(d) === "work" ? "work" : (dayType(addDays(d,-1)) === "work" ? "rec" : "focus"); }
+function weekKey(d){ return keyOf(weekStart(d)); }
+function lecturesOn(d){ const w = state.lectures[weekKey(d)]; const k = keyOf(d); return w && w.items ? w.items.filter(l => l.d === k && l.s && l.e).sort((a,b) => toMin(a.s)-toMin(b.s)) : []; }
+const blk = (s, e, t, c, extra) => Object.assign({id:fmtT(s) + "|" + t, s:fmtT(s), e:fmtT(e), t, c}, extra || {});
+
+function genDay(d, need){
+  const k = keyOf(d), o = state.days[k], kind = kindOf(d);
+  if (o && o.custom) { const st0 = S(), nt = toMin(st0.shiftE) <= toMin(st0.shiftS), pw = dayType(addDays(d,-1)) === "work";
+    return {kind, sub: kind === "work" ? (nt ? (pw ? "w2" : "w1") : "work") : kind, blocks:o.custom.slice().sort((a,b) => toMin(a.s)-toMin(b.s)), left:[], custom:true}; }
+  const st = S(), cm = +st.commute || 0, uc = +st.uniCommute || 0;
+  const ss = toMin(st.shiftS), se = toMin(st.shiftE), night = se <= ss;
+  const lecs = lecturesOn(d);
+  const prevW = dayType(addDays(d,-1)) === "work", curW = kind === "work", nextW = dayType(addDays(d,1)) === "work";
+  const hard = [], fixed = [], wins = [];
+  let list = [], sub = kind;
+  const H = (s,e,t,c,x) => hard.push(blk(s,e,t,c,x));
+  const F = (s,e,t,c) => fixed.push(blk(s,e,t,c));
+  const firstLec = lecs.length ? toMin(lecs[0].s) : 1440;
+  const earlyWake = w => Math.max(0, Math.min(w, firstLec - uc - 45));
+  if (night) {
+    const leave = ss - cm, wakeB = leave - 90;
+    let t0 = 0;
+    if (prevW) {
+      H(0, se, "نوبة الليل (منذ الأمس)", "work");
+      H(se, se+cm, "طريق العودة: بلا شاشات، نظارة شمسية لتنام أسرع", "move");
+      F(se+cm, se+cm+30, "فطور خفيف", "rest"); t0 = se+cm+30;
+    }
+    if (curW && prevW) {
+      sub = "w2";
+      const mw = toMin(st.midWake || "17:30");
+      H(t0, mw, "النوم الرئيسي: نَم فور عودتك، غرفة مظلمة وسدّادات أذن", "rest");
+      F(mw, mw+45, "استيقاظ، وجبة، استحمام (قيلولة 20 دقيقة فقط إن احتجت)", "routine");
+      wins.push([mw+45, leave]); list = state.tasks.mid || [];
+    } else if (curW) {
+      sub = "w1";
+      const w = earlyWake(toMin(st.wakeFocus)), nap = (+st.napH||3)*60, ns = toMin(st.napS || "14:30"), ne = Math.min(ns+nap, leave-45);
+      F(w, w+45, "روتين صباحي وفطور (استيقظ في وقتك، لا تنم حتى الظهر)", "routine");
+      H(ns, ne, "قيلولة العصر: غرفة مظلمة، بلا هاتف، الاستلقاء بهدوء يكفي إن لم تنم", "rest");
+      F(ne, ne+45, "استيقاظ، ضوء وحركة، وجبة", "routine");
+      wins.push([w+45, ns]); wins.push([ne+45, leave]); list = state.tasks.pre || [];
+    } else if (prevW) {
+      sub = "rec";
+      const rn = (+st.recNapH||4)*60, sl = toMin(st.sleep);
+      H(t0, t0+rn, "نوم تعافٍ قصير، لا تزد عليه حتى تنام ليلاً", "rest");
+      F(t0+rn, t0+rn+30, "استيقاظ ومشي في ضوء النهار", "routine");
+      F(sl-30, sl, "مراجعة اليوم والنوم في موعده", "routine");
+      wins.push([t0+rn+30, sl-30]); list = state.tasks.rec || [];
+    } else {
+      sub = "focus";
+      const w = earlyWake(toMin(st.wakeFocus)), sl = toMin(st.sleep);
+      F(w, w+45, "روتين صباحي وفطور", "routine");
+      F(sl-30, sl, "مراجعة اليوم وتخطيط الغد", "routine");
+      wins.push([w+45, sl-30]); list = state.tasks.focus || [];
+    }
+    if (curW) {
+      H(leave, ss, "الطريق إلى العمل: استماع روسي", "move");
+      H(ss, 1440, "نوبة الليل · في الاستراحة 10 دقائق Anki", "work");
+    }
+  } else {
+    if (curW) {
+      const w = ss - cm - 45;
+      F(w, ss-cm, "استيقاظ، فطور، تجهيز", "routine");
+      H(ss-cm, ss, "الطريق إلى العمل: استماع روسي", "move");
+      H(ss, se, "دوام العمل · في الاستراحة 10 دقائق Anki", "work");
+      H(se, se+cm, "طريق العودة: بودكاست خفيف أو راحة", "move");
+      F(se+cm, se+cm+45, "عشاء واستحمام", "rest");
+      F(se+cm+45, se+cm+60, "تسجيل العادات والمصاريف وتجهيز الغد", "routine");
+    } else {
+      const w = earlyWake(toMin(kind === "rec" ? st.wakeRec : st.wakeFocus));
+      const sl = nextW ? Math.min(1440, (ss - cm - 45) + 1440 - (+st.sleepH||8)*60) : toMin(st.sleep);
+      F(w, w+45, "روتين صباحي وفطور", "routine");
+      F(sl-30, sl, nextW ? "تجهيز الدوام ونوم مبكر" : "مراجعة اليوم وتخطيط الغد", "routine");
+      wins.push([w+45, sl-30]); list = state.tasks[kind] || [];
+    }
+  }
+  // lectures: inside a free window (with travel) or flagged as a conflict
+  const inWin = (s, e) => wins.some(([a,b]) => s >= a && e <= b);
+  const conf = [], groups = [];
+  lecs.forEach(l => {
+    const s = toMin(l.s), e = toMin(l.e);
+    if (!inWin(s-uc, e+uc)) { conf.push(blk(s, e, "تعارض مع " + (curW ? "الدوام أو نوم النوبة" : "النوم") + ": محاضرة " + l.t, "uni", {conflict:true})); return; }
+    const g = groups[groups.length-1];
+    if (g && s - g.e < uc*2) { g.e = Math.max(g.e, e); g.items.push(l); } else groups.push({s, e, items:[l]});
+  });
+  groups.forEach(g => {
+    F(g.s-uc, g.s, "الطريق إلى الجامعة: مراجعة مفردات", "move");
+    g.items.forEach(l => fixed.push(blk(toMin(l.s), toMin(l.e), "محاضرة: " + l.t, "uni", {lec:true})));
+    F(g.e, g.e+uc, "العودة من الجامعة", "move");
+  });
+  const clash = (s, e) => fixed.some(f => s < toMin(f.e) && e > toMin(f.s));
+  [[13*60+30, 14*60+15, "غداء"], [19*60, 19*60+45, "عشاء"]].forEach(([s,e,t]) => { if (inWin(s, e) && !clash(s, e)) F(s, e, t, "rest"); });
+  // free gaps inside the windows
+  const gaps = [];
+  wins.forEach(([a,b]) => {
+    let cur = a;
+    fixed.map(f => [toMin(f.s), toMin(f.e)]).filter(([s,e]) => e > a && s < b).sort((x,y) => x[0]-y[0])
+      .forEach(([s,e]) => { if (s > cur) gaps.push([cur, s]); cur = Math.max(cur, e); });
+    if (b > cur) gaps.push([cur, b]);
+  });
+  const wk = state.lectures[weekKey(d)], pendingW = !(wk && wk.ok);
+  const tl = pendingW ? [] : list.slice(0, Math.max(0, +st.maxTasks || 4)).map(t => ({...t, rem:+t.m||0}));
+  if (!pendingW && dayIdx(d) === 6 && sub !== "w2" && sub !== "work") tl.unshift({t:"المراجعة الأسبوعية وإدخال محاضرات الأسبوع القادم", c:"routine", rem:30});
+  const cap = Math.round(60 * (+({w1:st.uniPre, pre:st.uniPre, rec:st.uniRec, focus:st.uniFocus})[sub] || 0));
+  const urgent = (need || 0) > cap;
+  let uniLeft = pendingW || !cap ? 0 : Math.max(cap, Math.ceil((need || 0) / 15) * 15);
+  const placed = [];
+  // university first: it always gets the earliest free time
+  gaps.forEach(g => {
+    let p = g[0];
+    const uEnd = urgent ? g[1] : Math.min(g[1], 21*60);
+    while (uniLeft >= 25 && uEnd - p >= 25) {
+      const len = Math.min(uniLeft, uEnd - p, 90);
+      placed.push(blk(p, p+len, "وقت الجامعة: واجبات ومراجعة", "uni", {uniSlot:true})); uniLeft -= len; p += len;
+      if (g[1] - p >= 40) p += 10;
+    }
+    g[0] = p;
+  });
+  // then development tasks in what is left
+  gaps.forEach(g => {
+    let p = g[0];
+    for (const t of tl) {
+      if (t.rem > 0 && t.rem < 25 && t.rem < (+t.m||0)) t.rem = 0;
+      if (t.rem <= 0) continue;
+      const room = g[1] - p; if (room < 15) break;
+      let len;
+      if (t.rem <= room) len = t.rem; else if (room >= 45) len = room; else continue;
+      placed.push(blk(p, p+len, t.t, t.c)); t.rem -= len; p += len;
+      if (g[1] - p >= 40) p += 10;
+    }
+    if (g[1] - p >= 30) placed.push(blk(p, g[1], pendingW ? "بانتظار جدول المحاضرات" : "وقت حر وراحة", "rest", {free:true}));
+  });
+  const left = tl.filter(t => t.rem >= 15).map(t => t.t);
+  return {kind, sub, pending:pendingW && wins.length > 0, blocks:hard.concat(fixed, placed, conf).filter(b => toMin(b.e) > toMin(b.s)).sort((a,b) => toMin(a.s)-toMin(b.s) || toMin(a.e)-toMin(b.e)), left};
+}
+
+
+/* ---------- university assignment planner ---------- */
+function isStudyDay(d){
+  const curW = dayType(d) === "work", prevW = dayType(addDays(d,-1)) === "work";
+  const st = S(), night = toMin(st.shiftE) <= toMin(st.shiftS);
+  if (!curW) return true;
+  return night && !prevW;
+}
+let PLAN = {}, FINISH = {};
+function buildPlan(){
+  PLAN = {}; FINISH = {};
+  const todo = (state.uni.tasks || []).filter(t => !t.done && (+t.h||0) > 0).map(t => ({...t, rem:Math.round((+t.h||0)*60)}))
+    .sort((a,b) => (a.due||"9999") < (b.due||"9999") ? -1 : (a.due||"9999") > (b.due||"9999") ? 1 : 0);
+  const start = now();
+  const studyDays = [];
+  for (let i = 0; i < 120; i++) { const d = addDays(start, i); if (isStudyDay(d)) studyDays.push(keyOf(d)); }
+  for (let i = 0; i < 49; i++) {
+    const d = addDays(start, i), k = keyOf(d);
+    let need = 0;
+    if (isStudyDay(d)) todo.forEach(t => { if (t.rem <= 0) return;
+      const n = studyDays.filter(x => x >= k && (t.due ? x < t.due : x < keyOf(addDays(start, 14)))).length;
+      need += t.rem / Math.max(1, n); });
+    const g = genDay(d, need);
+    if (g.custom) { PLAN[k] = g; continue; }
+    const out = [];
+    g.blocks.forEach(b => {
+      if (!b.uniSlot) { out.push(b); return; }
+      let p = toMin(b.s); const e = toMin(b.e);
+      while (p < e) {
+        const t = todo.find(x => x.rem > 0);
+        if (!t) { out.push(blk(p, e, "الجامعة: مراجعة المحاضرات وتحضير القادم", "uni", {uniSlot:true})); break; }
+        const len = Math.min(t.rem, e - p);
+        if (len < 15 && e - p >= 15) { t.rem = 0; FINISH[t.id] = k; continue; }
+        out.push(blk(p, p+len, "واجب: " + t.t + (t.course ? " · " + t.course : "") + (t.due ? " · تسليم " + t.due.slice(5) : ""), "uni", {uniSlot:true, aid:t.id}));
+        t.rem -= len; p += len;
+        if (t.rem <= 0) FINISH[t.id] = k;
+      }
+    });
+    PLAN[k] = {...g, blocks:out};
+  }
+}
+function getDay(d){ return PLAN[keyOf(d)] || genDay(d); }
+
+/* ---------- helpers ---------- */
+const now = () => new Date();
+function log(k){ return state.logs[k] || (state.logs[k] = {b:{}, h:{}, p:["","",""], note:""}); }
+function hv(k, hid){ const l = state.logs[k]; return l && l.h ? l.h[hid] : undefined; }
+function applies(h, d){ const on = h.on || "all"; if (on === "all") return true; const w = dayType(d) === "work"; return on === "work" ? w : !w; }
+function streak(h){
+  let d = now(), n = 0, guard = 0;
+  if (!hv(keyOf(d), h.id)) d = addDays(d, -1);
+  while (guard++ < 1000) { if (!applies(h, d)) { d = addDays(d,-1); continue; } if (!hv(keyOf(d), h.id)) break; n++; d = addDays(d,-1); }
+  return n;
+}
+function missedLast(h){
+  if (hv(keyOf(now()), h.id)) return false;
+  let d = addDays(now(), -1), g = 0; while (!applies(h, d) && g++ < 7) d = addDays(d, -1);
+  return !hv(keyOf(d), h.id);
+}
+function toast(t){ const el = document.createElement("div"); el.className = "toast"; el.textContent = t; document.body.appendChild(el); setTimeout(() => el.remove(), 1800); }
+function catOpts(sel){ return Object.keys(CATS).map(k => `<option value="${k}"${k===sel?" selected":""}>${CATS[k].n}</option>`).join(""); }
+const tickLabel = v => v === 1 ? "✓" : v === "m" ? "½" : "";
+const TASKLBL = {pre:"صباح النوبة الأولى (قبل القيلولة)", mid:"مساء يوم بين نوبتين", rec:"يوم التعافي (بعد الظهر)", focus:"يوم الإنتاج"};
+const SUBTIPS = {
+  w1:["قيلولة العصر 14:30، وقت انخفاض اليقظة الطبيعي. لا تنم في المساء: الجسم في أشد يقظته قبل موعد نومه.", "خذ معك وجبتين: للمساء والليل.", "لا كافيين بعد 05:00 أثناء النوبة حتى تنام صباحاً."],
+  w2:["نَم فور عودتك: نظارة شمسية في الطريق، ولا شاشات قبل النوم.", "غرفة مظلمة وسدّادات أذن، وهاتف صامت.", "لا كافيين بعد 05:00 أثناء النوبة.", "إن كنت تقود بعد النوبة وشعرت بثقل في العينين، توقّف 15 دقيقة."],
+  rec:["نوم 3–4 ساعات فقط بعد العودة (حتى 15:00)، ثم اخرج إلى ضوء النهار ولا قيلولة بعدها.", "نَم الليلة في موعدك حتى تعود ساعتك البيولوجية إلى النهار."],
+  work:["لا كافيين قبل النوم بست ساعات.", "جهّز ملابس الغد ووجباته من الليلة."]
+};
+function tipsFor(d){ const g = getDay(d), o = state.days[keyOf(d)] || {}; return (o.tips || []).concat(SUBTIPS[g.sub] || []); }
+const SUBNOTE = {work:"يوم دوام طويل: حافظ على العادات الصغيرة ونَم جيداً، ولا تحمّل نفسك أكثر.", w1:"قبل أول نوبة ليلية: استيقظ في وقتك المعتاد، صباح مفيد، ثم قيلولة العصر.", w2:"بين نوبتين: النوم أهم شيء اليوم. نشاط خفيف فقط قبل الخروج.", rec:"بعد آخر نوبة: نوم قصير فقط ثم ضوء نهار، حتى تنام ليلاً وتعود ساعتك البيولوجية.", focus:"يوم الإنتاج: أهم يوم في الدورة للتعلّم العميق."};
+const kindChip = k => `<span class="chip ${k === "w1" || k === "w2" ? "work" : k}">${KIND[k]}</span>`;
+const dLabel = d => d.toLocaleDateString("ar", {day:"numeric", month:"long"});
+function lectureBanner(d){
+  const w = state.lectures[weekKey(d)];
+  if (w && w.ok) return "";
+  return `<div class="banner"><div><b>بداية أسبوع جديد:</b> ما هي محاضرات هذا الأسبوع؟ أدخلها لتُرتَّب أيام العطلة حولها.</div>
+    <button class="btn primary" data-act="goto-lec">إدخال المحاضرات</button></div>`;
+}
+
+function reviewBox(r, title, open){
+  if (!r) return "";
+  const li = a => (a || []).map(x => `<li>${esc(x)}</li>`).join("");
+  return `<section class="panel review" style="margin-bottom:16px"><details${open?" open":""}><summary class="row" style="justify-content:space-between;cursor:pointer;list-style:none">
+      <h3>${esc(title)}</h3><span class="chip focus">${esc(r.score != null ? r.score + "/10" : "")}</span></summary>
+    ${r.summary ? `<p style="margin:8px 0 0">${esc(r.summary)}</p>` : ""}
+    <div class="grid2" style="margin-top:8px;gap:10px">
+      ${r.wins && r.wins.length ? `<div><div class="eyebrow">ما نجح</div><ul>${li(r.wins)}</ul></div>` : ""}
+      ${r.fix && r.fix.length ? `<div><div class="eyebrow">ما يحتاج تحسيناً</div><ul>${li(r.fix)}</ul></div>` : ""}
+      ${r.next && r.next.length ? `<div><div class="eyebrow">خطوات الأسبوع القادم</div><ul>${li(r.next)}</ul></div>` : ""}
+    </div><p class="note">مراجعة Claude بتاريخ ${esc(r.at || "")}</p></details></section>`;
+}
+function latestReview(){
+  const ks = Object.keys(state.reviews || {}).sort(); if (!ks.length) return null;
+  const r = state.reviews[ks[ks.length-1]]; if (!r || !r.at) return null;
+  return (dayNum(now()) - dayNum(parseKey(r.at)) <= 7) ? r : null;
+}
+
+/* ---------- daily coach: tips that react to the day's plan and entries ---------- */
+const LVL = {urgent:0, warn:1, focus:2, info:3, good:4};
+function dayLog(k){ return state.logs[k] || {b:{}, h:{}, p:["","",""], note:""}; }
+function dayPct(d){
+  const k = keyOf(d), g = getDay(d), L = dayLog(k);
+  const habits = state.habits.filter(h => applies(h, d));
+  const tick = g.blocks.filter(b => !b.free && b.c !== "move");
+  const total = tick.length + habits.length;
+  const done = tick.filter(b => L.b && L.b[b.id]).length + habits.reduce((a,h) => a + (L.h && L.h[h.id] === 1 ? 1 : L.h && L.h[h.id] === "m" ? .5 : 0), 0);
+  const any = Object.keys(L.b || {}).length + Object.keys(L.h || {}).length;
+  return {pct: total ? Math.round(done/total*100) : 0, any};
+}
+function nextKind(d, kind, max){ for (let i = 1; i <= (max || 10); i++) { const x = addDays(d, i); if (getDay(x).sub === kind) return x; } return null; }
+const inMin = m => m < 60 ? m + " دقيقة" : (Math.floor(m/60) + " س" + (m % 60 ? " " + (m % 60) + " د" : ""));
+function coach(d){
+  const k = keyOf(d), tk = keyOf(now()), isToday = k === tk;
+  const g = getDay(d), L = dayLog(k), o = state.days[k] || {};
+  const nm = isToday ? now().getHours()*60 + now().getMinutes() : -1;
+  const tips = []; const add = (lvl, t) => tips.push({lvl, t});
+  const blocks = g.blocks;
+  const lecs = blocks.filter(b => b.lec), conf = blocks.filter(b => b.conflict);
+  const lname = b => (b.t.replace(/^تعارض مع [^:]+: /, "").replace("محاضرة: ", "").replace("محاضرة ", "").trim() || "محاضرة");
+  const open = (state.uni.tasks || []).filter(t => !t.done);
+  const dd = t => t.due ? dayNum(parseKey(t.due)) - dayNum(d) : 99;
+  const tm = addDays(d, 1), tg = getDay(tm);
+
+  // the one thing to focus on
+  let focus = null;
+  const late = open.filter(t => t.due && dd(t) < 0);
+  const asgBlocks = blocks.filter(b => b.aid);
+  if (conf.length) focus = "حلّ تعارض " + lname(conf[0]) + " الساعة " + conf[0].s + " مع نومك أو دوامك";
+  else if (late.length && isToday) focus = "سلّم «" + late[0].t + "» المتأخر (" + (late[0].course || "").trim() + ")";
+  else if (asgBlocks.length) { const t = open.find(x => x.id === asgBlocks[0].aid);
+    focus = t ? "واجب «" + t.t.trim() + "» · " + (t.course || "").trim() + (t.due ? " · " + (dd(t) < 0 ? "متأخر منذ " + t.due.slice(5) : dd(t) === 0 ? "التسليم اليوم" : dd(t) === 1 ? "التسليم غداً" : "التسليم بعد " + dd(t) + " أيام") : "") : null; }
+  if (!focus && lecs.length) focus = "حضور " + lecs.map(lname).join(" و") + " والتركيز فيها";
+  if (!focus && g.sub === "w2") focus = "النوم: 7–8 ساعات قبل النوبة الثانية";
+  if (!focus && g.sub === "rec") focus = "إعادة ضبط ساعتك: ضوء النهار بعد الاستيقاظ ونوم الليلة في موعده";
+  if (!focus) { const dv = blocks.find(b => b.c === "deep"); focus = dv ? dv.t : "الحد الأدنى من كل عادة"; }
+
+  // own notes for the day
+  (o.tips || []).forEach(t => add("info", "ملاحظتك: " + t));
+
+  // university first
+  conf.forEach(b => add("urgent", "تعارض " + b.s + "–" + b.e + ": " + lname(b) + " تقع على وقت " + (g.sub === "rec" ? "نوم التعافي" : "النوم أو الدوام") + ". " + (g.sub === "rec" ? "قصّر النوم بعد العودة واستيقظ قبلها بساعة ونصف، أو" : "بدّل النوبة، أو") + " اطلب تسجيل المحاضرة."));
+  if (isToday && late.length) add("urgent", (late.length === 1 ? "واجب متأخر: " : late.length + " واجبات متأخرة: ") + late.map(t => "«" + t.t.trim() + "» (" + (t.course || "").trim() + "، " + t.due.slice(5) + ")").join("، ") + ". إن سلّمتها فعلّمها «منجز» في صفحة الأسبوع، وإلا فراسل الأساتذة اليوم واسأل عن تمديد.");
+  open.filter(t => dd(t) === 0).forEach(t => add("urgent", "تسليم «" + t.t.trim() + "» اليوم" + (+t.h > 0 ? "، ومتبقٍ " + t.h + " ساعة. ابدأ به قبل أي شيء آخر." : ".")));
+  open.filter(t => dd(t) === 1).forEach(t => {
+    const tw = tg.sub === "w2" || tg.sub === "work";
+    add(tw ? "urgent" : "warn", "تسليم «" + t.t.trim() + "» غداً" + (tw ? "، وغداً يوم نوبة: أنهِه اليوم." : ". خطّط لإنهائه اليوم وترك الغد للمراجعة."));
+  });
+  open.forEach(t => { const f = FINISH[t.id]; if (t.due && f && f > t.due && dd(t) > 1) add("warn", "بالجدول الحالي «" + t.t.trim() + "» يكتمل " + f.slice(5) + " بعد التسليم " + t.due.slice(5) + ". زِد ساعات الجامعة أو قلّل مهام التطوير."); });
+  open.filter(t => !(+t.h > 0) && dd(t) <= 7).slice(0, 1).forEach(t => add("info", "حدّد الساعات المتبقية لـ«" + t.t.trim() + "» حتى يُجدوَل له وقت."));
+  if (lecs.length) { const lv = blocks.find(b => b.c === "move" && /الجامعة/.test(b.t));
+    add("focus", "محاضرات اليوم: " + lecs.map(b => lname(b) + " " + b.s).join("، ") + (lv ? ". اخرج الساعة " + lv.s + "." : ".")); }
+
+  // where you are in the day
+  if (isToday) {
+    const cur = blocks.find(b => nm >= toMin(b.s) && nm < toMin(b.e));
+    const nxt = blocks.find(b => toMin(b.s) > nm && !b.free);
+    if (cur && !cur.free) add("focus", "الآن حتى " + cur.e + ": " + cur.t + (nxt ? ". بعدها: " + nxt.t + " (" + nxt.s + ")." : "."));
+    else if (nxt) add("focus", "التالي بعد " + inMin(toMin(nxt.s) - nm) + ": " + nxt.t + " (" + nxt.s + ").");
+    const missed = blocks.filter(b => !b.free && !["move","rest","work"].includes(b.c) && toMin(b.e) <= nm && !(L.b && L.b[b.id]));
+    if (missed.length >= 2) { const mu = missed.find(b => b.c === "uni");
+      add("warn", "فاتتك " + missed.length + " كتل اليوم. لا تعوّضها كلها: " + (mu ? "أكمل كتلة الجامعة «" + mu.t + "» أولاً، ثم" : "") + " اختر واحدة فقط وعلّمها بعد إنجازها."); }
+    const p = dayPct(d).pct;
+    if (nm >= 17*60 && p >= 70) add("good", "إنجاز اليوم " + p + "%. يوم قوي، احمِ نومك الليلة ولا تضف مهاماً جديدة.");
+    else if (nm >= 12*60 && p >= 40 && p < 70) add("good", "أنجزت " + p + "% حتى الآن. استمر بنفس الإيقاع.");
+    if (nm < 12*60 && !(L.p || []).some(x => x && x.trim()) && g.sub !== "w2") add("info", "اكتب أهم 3 أولويات اليوم قبل أن تبدأ، وضع الجامعة أولاً.");
+    if (nm >= 19*60 && !(L.note || "").trim()) add("info", (g.sub === "w1" || g.sub === "w2" ? "قبل الخروج للعمل" : "قبل النوم") + ": اكتب سطراً واحداً عمّا تعلّمته اليوم.");
+    // habits
+    const hs = state.habits.filter(h => applies(h, d) && !(L.h && L.h[h.id]));
+    hs.filter(h => missedLast(h)).slice(0, 2).forEach(h => add("warn", "«" + h.n + "» فاتتك آخر مرة. لا تفوّتها مرتين: نفّذ نسختها المصغّرة الآن (" + h.m + ")."));
+    if (nm >= 18*60) hs.filter(h => streak(h) >= 3 && !missedLast(h)).slice(0, 1).forEach(h => add("warn", "سلسلة «" + h.n + "» " + streak(h) + " أيام. لا تكسرها الليلة."));
+    if (nm >= 19*60) hs.filter(h => h.c === "money").slice(0, 1).forEach(h => add("info", "سجّل مصاريف اليوم قبل أن تنساها."));
+    // yesterday
+    const y = dayPct(addDays(d, -1));
+    if (nm < 14*60 && y.any && y.pct < 40) add("info", "أمس كان صعباً (" + y.pct + "%). اليوم اكتفِ بالجامعة والحد الأدنى من كل عادة.");
+    // shift timing
+    const st = S(), night = toMin(st.shiftE) <= toMin(st.shiftS);
+    if (night && dayType(addDays(d,-1)) === "work" && nm < toMin(st.shiftE)) add("info", nm >= 5*60 ? "لا كافيين بعد الآن حتى تنام صباحاً." : "خذ استراحة قصيرة وماء وحركة كل ساعتين في النوبة.");
+  }
+  // leftovers and tomorrow
+  if (g.left.length) { const nf = nextKind(d, "focus");
+    add("info", "لم يتّسع اليوم لـ: " + g.left.join("، ") + (nf ? ". انقلها ليوم الإنتاج " + dLabel(nf) + "." : ".")); }
+  if (!isToday || nm >= 16*60) {
+    const tl = tg.blocks.filter(b => b.lec);
+    const tc = tg.blocks.filter(b => b.conflict);
+    if (tl.length || tc.length) add(tc.length ? "warn" : "info", "غداً: " + tl.concat(tc).sort((a,b) => toMin(a.s) - toMin(b.s)).map(b => lname(b) + " " + b.s).join("، ") + (tc.length ? ". محاضرة منها تتعارض مع نومك، فقرّر الليلة كيف ستتعامل معها." : ". جهّز ما تحتاجه الليلة."));
+    if (tg.sub === "w1") add("info", "غداً أول نوبة: نَم الليلة في موعدك واستيقظ عادياً، والقيلولة الساعة " + (S().napS || "14:30") + ".");
+    if (tg.sub === "focus" && g.sub !== "focus") add("info", "غداً يوم الإنتاج: اكتب الليلة أول مهمة ستبدأ بها صباحاً.");
+  }
+  if (dayIdx(d) === 6 && g.sub !== "w2") add("info", "اليوم الأحد: المراجعة الأسبوعية، وأدخل محاضرات الأسبوع القادم وواجباته.");
+  if (!tips.length) add("good", "لا شيء عاجل. نفّذ الخطة كما هي.");
+  const seen = new Set();
+  const list = tips.filter(x => !seen.has(x.t) && seen.add(x.t)).sort((a,b) => LVL[a.lvl] - LVL[b.lvl]);
+  return {focus, tips:list, base:SUBTIPS[g.sub] || [], sub:g.sub};
+}
+const LVLN = {urgent:"عاجل", warn:"انتبه", focus:"الآن", info:"نصيحة", good:"أحسنت"};
+function coachHTML(d, opts){
+  const c = coach(d), max = (opts && opts.max) || 6, shown = c.tips.slice(0, max), more = c.tips.slice(max);
+  const li = x => `<li class="ct ${x.lvl}"><span class="cl">${LVLN[x.lvl]}</span><span>${esc(x.t)}</span></li>`;
+  return `<div class="cfocus"><span class="eyebrow">تركيز ${keyOf(d) === keyOf(now()) ? "اليوم" : "هذا اليوم"}</span><b>${esc(c.focus)}</b></div>
+    <ul class="clist">${shown.map(li).join("")}</ul>
+    ${more.length ? `<details class="cmore"><summary>${more.length} نصائح أخرى</summary><ul class="clist">${more.map(li).join("")}</ul></details>` : ""}
+    ${c.base.length ? `<details class="cmore"><summary>قواعد ${esc(KIND[c.sub])}</summary><ul class="cbase">${c.base.map(t => `<li>${esc(t)}</li>`).join("")}</ul></details>` : ""}`;
+}
+function refreshCoach(){ const el = document.getElementById("coach"); if (el) el.innerHTML = coachHTML(now()); }
+
+/* ---------- views ---------- */
+let tab = "today", wOff = 0, selDay = keyOf(now()), hOffset = 0;
+
+function vToday(){
+  const d = now(), k = keyOf(d), L = state.logs[k] || {b:{}, h:{}, p:["","",""], note:""};
+  const g = getDay(d), blocks = g.blocks;
+  const nm = d.getHours()*60 + d.getMinutes();
+  const habits = state.habits.filter(h => applies(h, d));
+  const tickable = blocks.filter(b => !b.free && b.c !== "move");
+  const total = tickable.length + habits.length;
+  const done = tickable.filter(b => L.b && L.b[b.id]).length + habits.reduce((a,h) => a + (L.h && L.h[h.id] === 1 ? 1 : L.h && L.h[h.id] === "m" ? .5 : 0), 0);
+  const pct = total ? Math.round(done/total*100) : 0;
+  const tm = addDays(d, 1), tk = genDay(tm).sub;
+  return `
+  ${lectureBanner(d)}
+  ${pwaBanner()}
+  ${reviewBox(latestReview(), "مراجعة الأسبوع الماضي", false)}
+  <div class="today-head">
+    <div><div class="row">${kindChip(g.sub)}<span class="legend">غداً: ${KIND[tk]}</span></div>
+      <div class="date">${esc(d.toLocaleDateString("ar", {weekday:"long", day:"numeric", month:"long"}))}</div>
+      <div class="ru">${RU_FULL[d.getDay()]} · <span class="num">${k}</span></div></div>
+    <div class="score"><div class="ring" style="--p:${pct}"><b>${pct}%</b></div><div class="legend">إنجاز اليوم<br>المهام + العادات</div></div>
+  </div>
+  <div class="grid2">
+    <section class="panel">
+      <div class="row" style="justify-content:space-between;margin-bottom:6px"><h3>خطة اليوم</h3><button class="btn link" data-act="goto-day" data-k="${k}">تعديل هذا اليوم</button></div>
+      <p class="legend" style="margin:0 0 6px">${esc(SUBNOTE[g.sub] || "")}</p>
+      ${g.pending ? '<div class="banner" style="margin:6px 0"><div>ستُرتَّب المهام وواجبات الجامعة بعد إدخال محاضرات هذا الأسبوع وتأكيدها.</div><button class="btn primary" data-act="goto-lec">إدخال المحاضرات</button></div>' : ""}
+      <div class="blocks">${blocks.map(b => {
+        const isNow = nm >= toMin(b.s) && nm < toMin(b.e), v = L.b && L.b[b.id] ? 1 : 0, can = !b.free && b.c !== "move";
+        return `<div class="block${isNow?" now":""}${v?" done":""}${b.conflict?" conflict":""}" style="--cat:var(--c-${b.c})">
+          <span class="t">${esc(b.s)}–${esc(b.e)}</span><span class="bar"></span>
+          <span class="ttl">${esc(b.t)}${isNow?' <span class="chip focus">الآن</span>':""}</span>
+          ${can ? `<button class="tick" data-act="tb" data-id="${esc(b.id)}" data-v="${v}" aria-label="تم">${v?"✓":""}</button>` : "<span></span>"}</div>`;
+      }).join("")}</div>
+      ${g.left.length ? `<div class="left">لم يتّسع الوقت لـ: ${g.left.map(esc).join("، ")}</div>` : ""}
+    </section>
+    <div class="stack">
+      <section class="panel tips"><h3>مدرّب اليوم</h3><div id="coach">${coachHTML(d)}</div></section>
+      <section class="panel">
+        <h3>عادات اليوم</h3>
+        <p class="legend" style="margin:2px 0 8px">ضغطة = تمّت · ضغطتان = النسخة المصغّرة · ثلاث = إلغاء</p>
+        ${habits.map(h => { const v = L.h ? L.h[h.id] : undefined;
+          return `<div class="habit-row"><span class="dot" style="--cat:var(--c-${h.c})"></span>
+            <div>${esc(h.n)}<small>الحد الأدنى: ${esc(h.m)}${missedLast(h)?' · <span class="warn">فاتتك آخر مرة، لا تفوّتها مرتين</span>':""}</small></div>
+            <div class="row"><span class="streak">${streak(h)}🔥</span><button class="tick" data-act="th" data-id="${h.id}" data-k="${k}" data-v="${v||""}">${tickLabel(v)}</button></div></div>`; }).join("")}
+      </section>
+      <section class="panel">
+        <h3>أهم 3 أولويات اليوم</h3>
+        <div class="stack" style="gap:6px;margin-top:8px">${[0,1,2].map(i => `<input type="text" id="p${i}" data-bind="p" data-i="${i}" value="${esc((L.p||[])[i]||"")}" placeholder="الأولوية ${i+1}">`).join("")}</div>
+        <h3 style="margin-top:14px">ماذا تعلّمت اليوم؟</h3>
+        <textarea id="note" data-bind="note" style="margin-top:6px" placeholder="درس، فكرة، أو شيء تحسّنه غداً">${esc(L.note||"")}</textarea>
+      </section>
+    </div>
+  </div>`;
+}
+
+function vWeek(){
+  const ws = addDays(weekStart(now()), wOff*7), wk = keyOf(ws), we = addDays(ws, 6);
+  const W = state.lectures[wk] || {ok:false, items:[]};
+  const prevW = state.lectures[keyOf(addDays(ws,-7))];
+  const days = [0,1,2,3,4,5,6].map(i => addDays(ws, i));
+  const tk = keyOf(now());
+  let mins = {deep:0, ru:0, uni:0, body:0}, wd = 0;
+  const gens = days.map(d => { const g = getDay(d); if (g.kind === "work") wd++; g.blocks.forEach(b => { if (mins[b.c] !== undefined && !b.lec) mins[b.c] += toMin(b.e)-toMin(b.s); }); return g; });
+  const sd = parseKey(selDay), sg = getDay(sd), so = state.days[selDay] || {};
+  const st = S();
+  return `
+  <h2>الأسبوع والمحاضرات</h2>
+  <p class="lead">في بداية كل أسبوع: أدخل المحاضرات وأكّدها، وأضف واجبات الجامعة بمواعيد تسليمها. الجامعة أولاً دائماً: المحاضرات والطريق إليها، ثم وقت الجامعة في أفضل ساعات اليوم، ثم مهام التطوير فيما يتبقّى. إذا اقترب تسليم واجب يأخذ وقت الجامعة ما يحتاجه حتى لو أُلغيت مهام التطوير ذلك اليوم.</p>
+  ${reviewBox((state.reviews || {})[wk], "مراجعة Claude لهذا الأسبوع", true)}
+  <div class="weeknav"><button class="btn" data-act="wprev">→</button><span class="lbl">${esc(dLabel(ws))} – ${esc(dLabel(we))}</span><button class="btn" data-act="wnext">←</button>${wOff?'<button class="btn link" data-act="wnow">هذا الأسبوع</button>':""}</div>
+  <section class="panel" style="margin-bottom:16px">
+    <div class="row" style="justify-content:space-between"><h3>محاضرات هذا الأسبوع</h3>
+      ${W.ok ? '<span class="chip" style="background:var(--good);color:#fff">مؤكَّدة</span>' : '<span class="chip" style="background:var(--warn);color:#fff">بانتظار التأكيد</span>'}</div>
+    <div style="margin-top:8px">${W.items.length ? W.items.map(l => `<div class="lec" data-id="${l.id}">
+        <select id="ld-${l.id}" data-bind="ld" aria-label="اليوم">${days.map((d,i) => `<option value="${keyOf(d)}"${keyOf(d)===l.d?" selected":""}>${DAYS[i].ar} ${d.getDate()}${dayType(d)==="work"?" (عمل)":""}</option>`).join("")}</select>
+        <input type="time" id="ls-${l.id}" data-bind="ls" value="${esc(l.s)}" aria-label="البداية">
+        <input type="time" id="le-${l.id}" data-bind="le" value="${esc(l.e)}" aria-label="النهاية">
+        <input type="text" id="lt-${l.id}" data-bind="lt" value="${esc(l.t)}" placeholder="اسم المادة" aria-label="المادة">
+        <button class="btn ghost del" data-act="dell" data-id="${l.id}" aria-label="حذف">✕</button></div>`).join("") : '<p class="legend">لا توجد محاضرات مُدخلة بعد.</p>'}</div>
+    <div class="row" style="margin-top:12px">
+      <button class="btn" data-act="addl">+ إضافة محاضرة</button>
+      <button class="btn" data-act="copyl"${prevW && prevW.items && prevW.items.length ? "" : " disabled"}>نسخ محاضرات الأسبوع الماضي</button>
+      <button class="btn primary" data-act="okl">${W.items.length ? "تأكيد: هذه كل محاضرات الأسبوع" : "لا محاضرات هذا الأسبوع"}</button>
+    </div>
+  </section>
+  ${vUniTasks()}
+  <div class="stats">
+    <div class="kpi"><b>${wd}/7</b><span>أيام عمل</span></div>
+    <div class="kpi"><b>${(mins.deep/60).toFixed(1)}</b><span>ساعات برمجة مخططة</span></div>
+    <div class="kpi"><b>${(mins.uni/60).toFixed(1)}</b><span>ساعات دراسة للجامعة</span></div>
+    <div class="kpi"><b>${(mins.ru/60).toFixed(1)}</b><span>ساعات روسية</span></div>
+    <div class="kpi"><b>${(mins.body/60).toFixed(1)}</b><span>ساعات رياضة</span></div>
+  </div>
+  <div class="daycards">${days.map((d,i) => { const g = gens[i], k = keyOf(d), lc = g.blocks.filter(b => b.conflict).length;
+    return `<div class="dc${k===selDay?" sel":""}${k===tk?" today":""}">
+      <div class="dh"><div class="dn">${DAYS[i].ar} ${d.getDate()}<small>${DAYS[i].ru}${g.custom?" · معدّل يدوياً":""}</small></div>${kindChip(g.sub)}</div>
+      <div class="mini">${g.blocks.filter(b => !b.free && b.c !== "move").map(b => `<div><span class="t">${esc(b.s)}</span><span class="dot" style="--cat:var(--c-${b.c})"></span><span class="${b.conflict?"x":""}">${esc(b.t)}</span></div>`).join("")}</div>
+      ${lc ? `<div class="left">محاضرة في يوم دوام: بدّل النوبة أو سجّل المحاضرة لمشاهدتها لاحقاً</div>` : ""}
+      <div class="dfocus"><span>التركيز:</span> ${esc(coach(d).focus)}</div>
+      <div class="acts"><button class="btn link" data-act="sel" data-k="${k}">تعديل</button>
+        <button class="btn link" data-act="flip" data-k="${k}">${dayType(d)==="work"?"اجعله عطلة":"اجعله يوم عمل"}</button></div></div>`; }).join("")}</div>
+
+  <section class="panel" style="margin-top:16px">
+    <div class="row" style="justify-content:space-between"><h3>${DAYS[dayIdx(sd)].ar} ${esc(dLabel(sd))} ${kindChip(sg.sub)}</h3>
+      <div class="row">${so.custom ? '<button class="btn" data-act="regen">إعادة الترتيب التلقائي</button>' : '<button class="btn" data-act="customize">تعديل يدوي لهذا اليوم</button>'}
+      ${so.type ? '<button class="btn link" data-act="unflip">إرجاع لنظام الدوام</button>' : ""}</div></div>
+    ${so.custom ? `<div style="margin-top:8px">${so.custom.slice().sort((a,b)=>toMin(a.s)-toMin(b.s)).map(b => `
+      <div class="ed-row" data-id="${esc(b.id)}">
+        <input type="time" id="s-${esc(b.id)}" data-bind="bs" value="${esc(b.s)}" aria-label="البداية">
+        <input type="time" id="e-${esc(b.id)}" data-bind="be" value="${esc(b.e)}" aria-label="النهاية">
+        <input type="text" id="t-${esc(b.id)}" data-bind="bt" value="${esc(b.t)}" aria-label="النشاط">
+        <select id="c-${esc(b.id)}" data-bind="bc" aria-label="الفئة">${catOpts(b.c)}</select>
+        <button class="btn ghost del" data-act="delb" data-id="${esc(b.id)}" aria-label="حذف">✕</button></div>`).join("")}
+      <div class="row" style="margin-top:10px"><button class="btn primary" data-act="addb">+ إضافة كتلة</button></div></div>`
+      : `<p class="legend">هذا اليوم مُرتَّب تلقائياً. اضغط «تعديل يدوي» لتغيير أي كتلة فيه، أو غيّر قوائم المهام والأوقات في الإعدادات أدناه.</p>
+         <div class="blocks">${sg.blocks.map(b => `<div class="block${b.conflict?" conflict":""}" style="--cat:var(--c-${b.c})"><span class="t">${esc(b.s)}–${esc(b.e)}</span><span class="bar"></span><span class="ttl">${esc(b.t)}</span><span></span></div>`).join("")}</div>
+         ${sg.left.length ? `<div class="left">لم يتّسع الوقت لـ: ${sg.left.map(esc).join("، ")}</div>` : ""}`}
+    <div class="tips panel" style="margin-top:14px;padding:12px"><h3 style="margin-bottom:6px">نصائح هذا اليوم</h3>${coachHTML(sd, {max:8})}</div>
+    <label class="legend" for="dtips" style="display:block;margin-top:14px">ملاحظاتك الخاصة بهذا اليوم (سطر لكل ملاحظة، تظهر في مدرّب اليوم)</label>
+    <textarea id="dtips" data-bind="dtips" style="margin-top:4px" placeholder="مثال: خذ معك وجبتين">${esc((so.tips || []).join("\n"))}</textarea>
+  </section>
+
+  <section class="panel" style="margin-top:16px">
+    <details class="cfg"><summary>إعدادات الدوام والنوم</summary>
+      <div class="set" style="margin-top:12px">
+        <label>أول يوم عمل في الدورة<input type="date" id="st-start" data-bind="set" data-f="start" value="${esc(st.start)}"></label>
+        <label>بداية النوبة<input type="time" id="st-ss" data-bind="set" data-f="shiftS" value="${esc(st.shiftS)}"></label>
+        <label>نهاية النوبة<input type="time" id="st-se" data-bind="set" data-f="shiftE" value="${esc(st.shiftE)}"></label>
+        <label>الطريق للعمل (دقيقة، اتجاه واحد)<input type="number" id="st-cm" data-bind="set" data-f="commute" value="${esc(st.commute)}"></label>
+        <label>الطريق للجامعة (دقيقة، اتجاه واحد)<input type="number" id="st-uc" data-bind="set" data-f="uniCommute" value="${esc(st.uniCommute)}"></label>
+        <label>الاستيقاظ في يوم التعافي<input type="time" id="st-wr" data-bind="set" data-f="wakeRec" value="${esc(st.wakeRec)}"></label>
+        <label>الاستيقاظ في يوم الإنتاج<input type="time" id="st-wf" data-bind="set" data-f="wakeFocus" value="${esc(st.wakeFocus)}"></label>
+        <label>النوم في أيام العطلة<input type="time" id="st-sl" data-bind="set" data-f="sleep" value="${esc(st.sleep)}"></label>
+        <label>عدد المهام الشخصية في اليوم<input type="number" min="1" max="6" id="st-mt" data-bind="set" data-f="maxTasks" value="${esc(st.maxTasks)}"></label>
+        <label>ساعات الجامعة: صباح النوبة الأولى<input type="number" step="0.5" id="st-up" data-bind="set" data-f="uniPre" value="${esc(st.uniPre)}"></label>
+        <label>ساعات الجامعة: يوم التعافي<input type="number" step="0.5" id="st-ur" data-bind="set" data-f="uniRec" value="${esc(st.uniRec)}"></label>
+        <label>ساعات الجامعة: يوم الإنتاج<input type="number" step="0.5" id="st-uf" data-bind="set" data-f="uniFocus" value="${esc(st.uniFocus)}"></label>
+        <label>بداية قيلولة العصر<input type="time" id="st-ns" data-bind="set" data-f="napS" value="${esc(st.napS)}"></label>
+        <label>قيلولة قبل أول نوبة (ساعات)<input type="number" step="0.5" id="st-nap" data-bind="set" data-f="napH" value="${esc(st.napH)}"></label>
+        <label>الاستيقاظ بين النوبتين<input type="time" id="st-mw" data-bind="set" data-f="midWake" value="${esc(st.midWake)}"></label>
+        <label>نوم التعافي بعد آخر نوبة (ساعات)<input type="number" step="0.5" id="st-rn" data-bind="set" data-f="recNapH" value="${esc(st.recNapH)}"></label>
+        <label>ساعات النوم قبل الدوام (للنوبات النهارية)<input type="number" id="st-sh" data-bind="set" data-f="sleepH" value="${esc(st.sleepH)}"></label>
+      </div>
+      <p class="note">إذا كانت نهاية النوبة قبل بدايتها (مثل 22:00 إلى 10:00) يُعامل الدوام كنوبة ليلية: نوم نهاري بين النوبتين، قيلولة قبل الأولى، ونوم تعافٍ قصير بعد الأخيرة.</p>
+    </details>
+  </section>
+  ${["pre","mid","rec","focus"].map(kind => `<section class="panel" style="margin-top:16px">
+    <details class="cfg"><summary>مهام ${TASKLBL[kind]} (بالترتيب حسب الأولوية)</summary>
+      <p class="legend" style="margin:8px 0">تُوضع المهام بالترتيب في الوقت الحر حول المحاضرات والوجبات. الأعلى في القائمة يأخذ الأولوية.</p>
+      ${state.tasks[kind].map((t,i) => `<div class="task" data-id="${t.id}" data-kind="${kind}">
+        <input type="text" id="tt-${t.id}" data-bind="tt" value="${esc(t.t)}" aria-label="المهمة">
+        <select id="tc-${t.id}" data-bind="tc">${catOpts(t.c)}</select>
+        <input type="number" id="tm-${t.id}" data-bind="tm" value="${esc(t.m)}" aria-label="دقائق">
+        <div class="row" style="gap:0;flex-wrap:nowrap"><button class="btn ghost" data-act="tup"${i===0?" disabled":""} aria-label="أعلى">▲</button><button class="btn ghost del" data-act="tdel" aria-label="حذف">✕</button></div></div>`).join("")}
+      <div class="row" style="margin-top:10px"><button class="btn" data-act="tadd" data-kind="${kind}">+ إضافة مهمة</button></div>
+    </details></section>`).join("")}`;
+}
+
+function vUniTasks(){
+  const list = (state.uni.tasks || []).slice().sort((a,b) => (a.done - b.done) || ((a.due||"9999") < (b.due||"9999") ? -1 : 1));
+  const status = t => {
+    if (t.done) return '<span class="legend">منجز</span>';
+    if (!(+t.h > 0)) return '<span class="legend">حدّد الساعات المتبقية</span>';
+    const f = FINISH[t.id];
+    if (!f) return '<span class="warn">لا يتّسع الوقت في الأسابيع القادمة</span>';
+    if (t.due && f > t.due) return `<span class="warn">سيتأخر: يكتمل ${esc(f.slice(5))} بعد التسليم</span>`;
+    return `<span class="legend" style="color:var(--good)">يكتمل ${esc(f.slice(5))}</span>`;
+  };
+  const dn = list.filter(t => t.done).length;
+  return `<section class="panel" style="margin-bottom:16px">
+    <div class="row" style="justify-content:space-between"><h3>واجبات ومهام الجامعة</h3>${dn ? '<button class="btn link" data-act="clearu">حذف المنجزة</button>' : ""}</div>
+    <p class="legend" style="margin:2px 0 8px">اكتب المادة والمهمة وموعد التسليم والساعات المتبقية. تُوزَّع على «وقت الجامعة» في الأيام القادمة بترتيب أقرب تسليم. حدّث الساعات المتبقية بعد كل جلسة.</p>
+    ${list.length ? list.map(t => `<div class="lec ut${t.done?" done":""}" data-id="${t.id}" style="grid-template-columns:auto 130px 1fr 150px 80px auto">
+      <button class="tick" data-act="tu" data-v="${t.done?1:""}" aria-label="منجز">${t.done?"✓":""}</button>
+      <input type="text" id="uc-${t.id}" data-bind="uc" value="${esc(t.course||"")}" placeholder="المادة" aria-label="المادة">
+      <div style="min-width:0"><input type="text" id="ut-${t.id}" data-bind="ut" value="${esc(t.t)}" placeholder="المهمة أو الواجب" aria-label="المهمة" style="width:100%"><div style="font-size:.78rem">${status(t)}</div></div>
+      <input type="date" id="ud-${t.id}" data-bind="ud" value="${esc(t.due||"")}" aria-label="موعد التسليم">
+      <input type="number" step="0.5" min="0" id="uh-${t.id}" data-bind="uh" value="${esc(t.h)}" aria-label="ساعات متبقية" title="ساعات متبقية">
+      <button class="btn ghost del" data-act="delu" aria-label="حذف">✕</button></div>`).join("") : '<p class="legend">لا توجد واجبات بعد. وقت الجامعة سيُستخدم لمراجعة المحاضرات.</p>'}
+    <div class="row" style="margin-top:12px"><button class="btn" data-act="addu">+ إضافة واجب أو مهمة</button></div>
+  </section>`;
+}
+
+function vHabits(){
+  const end = addDays(now(), hOffset*28), days = [];
+  for (let i=27;i>=0;i--) days.push(addDays(end, -i));
+  const tk = keyOf(now());
+  const rate = h => { let c = 0, n = 0; days.forEach(d => { if (!applies(h, d) || keyOf(d) > tk) return; n++; const v = hv(keyOf(d), h.id); if (v===1) c++; else if (v==="m") c+=.5; }); return n ? Math.round(c/n*100) : 0; };
+  const onOpt = v => [["all","كل الأيام"],["off","أيام العطلة"],["work","أيام العمل"]].map(([k,n]) => `<option value="${k}"${(v||"all")===k?" selected":""}>${n}</option>`).join("");
+  return `
+  <h2>متتبع العادات</h2>
+  <p class="lead">كل علامة هي "صوت" للشخص الذي تريد أن تكونه. إذا فاتتك عادة مرة فلا بأس، لكن لا تفوّتها مرتين. بعض العادات مخصّصة لأيام العطلة فقط، فلا تُحسب عليك في أيام الدوام (المربّعات المنقّطة).</p>
+  <div class="row" style="justify-content:space-between;margin-bottom:10px">
+    <div class="row"><button class="btn" data-act="hprev">→ السابق</button><button class="btn" data-act="hnext"${hOffset>=0?" disabled":""}>التالي ←</button></div>
+    <span class="legend"><span class="chip"><i class="dot" style="--cat:var(--good)"></i>تمّت</span> <span class="chip"><i class="dot" style="--cat:var(--accent)"></i>مصغّرة</span> <span class="chip" style="text-decoration:underline">تاريخ مُسطّر = يوم عمل</span></span>
+  </div>
+  <div class="hgrid-wrap"><table class="hgrid">
+    <thead><tr><th class="hn">العادة</th>${days.map(d => `<th class="${dayType(d)==="work"?"wd":""}" title="${keyOf(d)}">${DAYS[dayIdx(d)].ru}<br>${d.getDate()}</th>`).join("")}<th>الالتزام</th></tr></thead>
+    <tbody>${state.habits.map(h => `<tr><td class="hn"><span class="row" style="flex-wrap:nowrap;gap:6px"><span class="dot" style="--cat:var(--c-${h.c})"></span>${esc(h.n)}</span><span class="streak">${streak(h)} متتالية</span></td>
+      ${days.map(d => { const k = keyOf(d), v = hv(k, h.id), fut = k > tk, na = !applies(h, d);
+        return `<td><button class="cell${k===tk?" today":""}${fut?" future":""}${na?" na":""}" ${fut||na?"disabled":""} data-act="th" data-id="${h.id}" data-k="${k}" data-v="${v||""}" aria-label="${esc(h.n)} ${k}"></button></td>`; }).join("")}
+      <td class="num">${rate(h)}%</td></tr>`).join("")}</tbody>
+  </table></div>
+  <section class="panel" style="margin-top:18px">
+    <h3>تعديل العادات</h3>
+    <p class="legend" style="margin:2px 0 8px">العادة كاملة، ثم نسختها المصغّرة، ثم الفئة، ثم الأيام التي تنطبق عليها.</p>
+    ${state.habits.map(h => `<div class="hedit" data-id="${h.id}">
+      <input type="text" id="hn-${h.id}" data-bind="hn" value="${esc(h.n)}" aria-label="العادة">
+      <input type="text" id="hm-${h.id}" data-bind="hm" value="${esc(h.m)}" aria-label="النسخة المصغّرة">
+      <select id="hc-${h.id}" data-bind="hc">${catOpts(h.c)}</select>
+      <select id="ho-${h.id}" data-bind="ho">${onOpt(h.on)}</select>
+      <button class="btn ghost del" data-act="delh" data-id="${h.id}" aria-label="حذف">✕</button></div>`).join("")}
+    <div class="row" style="margin-top:12px"><button class="btn primary" data-act="addh">+ إضافة عادة</button></div>
+  </section>`;
+}
+
+const ATYPES = {cash:"نقد", bank:"حساب بنكي", deposit:"وديعة", invest:"أسهم وصناديق وسندات", crypto:"عملات رقمية", gold:"ذهب ومعادن", property:"عقار", car:"سيارة وممتلكات", recv:"أموال لك عند الآخرين", other:"أخرى"};
+const ACOL = {cash:"--c-money", bank:"--c-uni", deposit:"--c-routine", invest:"--c-deep", crypto:"--c-ru", gold:"--accent", property:"--c-body", car:"--c-work", recv:"--c-rest", other:"--c-move"};
+const CURS = ["RUB","USD","EUR","USDT"];
+const CUR_SYM = {RUB:"₽", USD:"$", EUR:"€", USDT:"USDT"};
+const M = () => state.money;
+const toRub = (v, cur) => (+v||0) * (cur === "RUB" ? 1 : cur === "USDT" ? (+M().rates.USD||0) : (+M().rates[cur]||0));
+function yearsToFI(nw, monthly, exp, retPct){
+  const target = exp*12*25; if (target <= 0) return null;
+  const mr = Math.pow(1 + retPct/100, 1/12) - 1; let bal = Math.max(0, nw), k = 0;
+  if (bal >= target) return 0;
+  while (bal < target && k < 12*70) { bal = bal*(1+mr) + monthly; k++; if (monthly <= 0 && mr <= 0) break; }
+  return bal >= target ? k/12 : null;
+}
+function moneyCalc(){
+  const m = M();
+  const assets = m.assets.reduce((a,x) => a + toRub(x.v, x.cur), 0);
+  const liquid = m.assets.filter(x => x.liq).reduce((a,x) => a + toRub(x.v, x.cur), 0);
+  const debts = m.debts.reduce((a,x) => a + toRub(x.v, x.cur), 0);
+  const inc = m.income.reduce((a,x) => a + (+x.v||0), 0), exp = m.expenses.reduce((a,x) => a + (+x.v||0), 0);
+  const nw = assets - debts, monthly = inc - exp, rate = inc ? monthly/inc : 0;
+  const target = exp*12*25;
+  const byType = {};
+  m.assets.forEach(x => { byType[x.type] = (byType[x.type]||0) + toRub(x.v, x.cur); });
+  const passiveGross = m.assets.reduce((a,x) => a + toRub(x.v, x.cur) * (+x.rate||0) / 1200, 0);
+  const depYear = m.assets.filter(x => x.type === "deposit" || x.type === "bank").reduce((a,x) => a + toRub(x.v, x.cur) * (+x.rate||0) / 100, 0);
+  const taxYear = m.resident ? Math.max(0, depYear - 160000) * 0.13 : depYear * 0.15;
+  const passive = passiveGross - taxYear/12;
+  const debtCost = m.debts.reduce((a,x) => a + toRub(x.v, x.cur) * (+x.rate||0) / 1200, 0);
+  return {assets, liquid, debts, inc, exp, nw, monthly, rate, target, years: yearsToFI(nw, monthly, exp, +m.ret||0),
+    emerMonths: exp > 0 ? liquid/exp : null, byType, passiveGross, passive, taxYear, depYear, debtCost, cover: exp > 0 ? passive/exp : 0};
+}
+function moneyKpis(c){
+  return `<div class="kpi"><b>${fmtNum(c.nw)} ₽</b><span>صافي الثروة</span></div>
+    <div class="kpi"><b>${fmtNum(c.assets)} ₽</b><span>مجموع الأصول</span></div>
+    <div class="kpi"><b>${fmtNum(c.liquid)} ₽</b><span>أصول سائلة</span></div>
+    <div class="kpi"><b>${fmtNum(c.debts)} ₽</b><span>الديون</span></div>
+    <div class="kpi"><b>${c.emerMonths == null ? "—" : c.emerMonths.toFixed(1)}</b><span>أشهر تغطّيها السيولة</span></div>
+    <div class="kpi"><b>${Math.round(c.rate*100)}%</b><span>نسبة الادخار</span></div>
+    <div class="kpi"><b>${fmtNum(c.passive)} ₽</b><span>عائد شهري من الأصول (بعد الضريبة)</span></div>
+    <div class="kpi"><b>${Math.round(c.cover*100)}%</b><span>يغطي من مصاريفك</span></div>`;
+}
+function moneyAlloc(c){
+  const keys = Object.keys(c.byType).filter(k => c.byType[k] > 0).sort((a,b) => c.byType[b]-c.byType[a]);
+  if (!keys.length) return '<p class="legend">أدخل قيم أصولك لترى توزيعها.</p>';
+  return `<div class="alloc">${keys.map(k => { const pct = c.byType[k]/c.assets*100;
+    return `<div class="a" style="--cat:var(${ACOL[k]||"--muted"})"><span class="row" style="gap:6px;flex-wrap:nowrap"><span class="dot"></span>${ATYPES[k]||k}</span><span class="track"><i style="width:${pct}%"></i></span><span class="num" style="text-align:left">${Math.round(pct)}%</span></div>`; }).join("")}</div>`;
+}
+function moneyFi(c){
+  return `<div class="kpi"><b>${fmtNum(c.exp*3)} ₽</b><span>صندوق طوارئ 3 أشهر</span></div>
+    <div class="kpi"><b>${fmtNum(c.monthly)} ₽</b><span>فائض شهري</span></div>
+    <div class="kpi"><b>${fmtNum(c.target)} ₽</b><span>رقم الحرية المالية</span></div>
+    <div class="kpi"><b>${c.years == null ? "—" : c.years.toFixed(1)}</b><span>سنوات حتى الحرية المالية</span></div>`;
+}
+function moneyHist(){
+  const h = (M().hist || []).slice(-12);
+  if (!h.length) return '<p class="legend">سجّل لقطة في آخر كل شهر لترى تطوّر صافي ثروتك.</p>';
+  const max = Math.max(1, ...h.map(x => Math.abs(x.nw))), W = 560, H = 150, bw = W / h.length;
+  return `<div style="overflow-x:auto"><svg viewBox="0 0 ${W} ${H+34}" width="100%" style="max-width:${W}px;direction:ltr" role="img" aria-label="صافي الثروة شهرياً">
+    <line x1="0" x2="${W}" y1="${H}" y2="${H}" stroke="var(--line)"/>
+    ${h.map((x,i) => { const bh = Math.max(2, Math.abs(x.nw)/max*(H-24)); const y = H - bh; const neg = x.nw < 0;
+      return `<rect x="${i*bw+bw*0.2}" y="${y}" width="${bw*0.6}" height="${bh}" rx="3" fill="${neg?"var(--bad)":"var(--accent)"}"${i===h.length-1?"":' opacity=".6"'}/>
+      <text x="${i*bw+bw/2}" y="${y-6}" text-anchor="middle" font-size="10" fill="var(--muted)" font-family="IBM Plex Mono,monospace">${Math.round(x.nw/1000)}k</text>
+      <text x="${i*bw+bw/2}" y="${H+16}" text-anchor="middle" font-size="10" fill="var(--muted)" font-family="IBM Plex Mono,monospace">${x.m.slice(2)}</text>`; }).join("")}
+  </svg></div>`;
+}
+function rubNote(a, debt){
+  const r = toRub(a.v, a.cur), mo = r * (+a.rate||0) / 1200, parts = [];
+  if (a.cur !== "RUB") parts.push("≈ " + fmtNum(r) + " ₽");
+  if (mo > 0) parts.push((debt ? "−" : "+") + fmtNum(mo) + " ₽/شهر");
+  return parts.join(" · ");
+}
+function fiRoad(c){
+  const m = M(), exp = c.exp, tgtInc = +m.incomeTarget || 0;
+  const hiDebt = m.debts.filter(x => (+x.rate||0) >= 15 && toRub(x.v, x.cur) > 0).reduce((a,x) => a + toRub(x.v, x.cur), 0);
+  const P = (v, t) => t > 0 ? Math.max(0, Math.min(1, v/t)) : 0;
+  const L = [
+    ["اعرف مصاريفك", "سجّل بنود ميزانيتك الشهرية كاملة.", exp > 0 ? 1 : 0, ""],
+    ["صندوق طوارئ لشهر واحد", "سيولة تكفي شهراً من المصاريف.", P(c.liquid, exp), fmtNum(c.liquid) + " / " + fmtNum(exp) + " ₽"],
+    ["تخلّص من الديون المكلفة", "سدّد كل دين فائدته 15% أو أكثر قبل أي استثمار.", m.debts.length ? (hiDebt > 0 ? 0 : 1) : 1, hiDebt > 0 ? "متبقٍ " + fmtNum(hiDebt) + " ₽" : ""],
+    ["ادّخر 20% من دخلك", "حوّل المبلغ يوم استلام الراتب، قبل الصرف.", P(c.rate, 0.2), Math.round(c.rate*100) + "%"],
+    ["صندوق طوارئ 3 أشهر في وديعة أو حساب ادخار", "المال الراكد يخسر أمام التضخم؛ ضعه بفائدة يمكن سحبها.", P(c.liquid, exp*3), fmtNum(c.liquid) + " / " + fmtNum(exp*3) + " ₽"],
+    ["ارفع دخلك إلى الهدف", "الرافعة الأكبر: وظيفة في البيانات أو ML بدل نوبات 12 ساعة.", P(c.inc, tgtInc), fmtNum(c.inc) + " / " + fmtNum(tgtInc) + " ₽"],
+    ["ادّخر 40% من دخلك", "عند كل زيادة في الدخل ادّخر نصفها على الأقل.", P(c.rate, 0.4), Math.round(c.rate*100) + "%"],
+    ["صافي ثروة = سنة من المصاريف", "أول مستوى أمان حقيقي.", P(c.nw, exp*12), fmtNum(c.nw) + " / " + fmtNum(exp*12) + " ₽"],
+    ["العوائد تغطي 25% من المصاريف", "استثمار شهري منتظم ومتنوّع بعد استشارة مختص.", P(c.cover, 0.25), Math.round(c.cover*100) + "%"],
+    ["العوائد تغطي 50% من المصاريف", "نصف الطريق: العمل يصبح اختياراً جزئياً.", P(c.cover, 0.5), Math.round(c.cover*100) + "%"],
+    ["الحرية المالية", "العوائد تغطي كل المصاريف، أو صافي الثروة = 25 ضعف المصاريف السنوية.", Math.max(P(c.cover, 1), P(c.nw, c.target)), fmtNum(c.nw) + " / " + fmtNum(c.target) + " ₽"]
+  ];
+  const cur = L.findIndex(l => l[2] < 1);
+  return L.map((l, i) => `<div class="lvl${i === cur ? " cur" : ""}${l[2] >= 1 ? " ok" : ""}">
+    <span class="lv num">${i+1}</span>
+    <div style="min-width:0"><div class="row" style="justify-content:space-between;gap:6px"><b>${l[0]}</b><span class="legend num">${l[3]}</span></div>
+      <div class="pbar"><i style="width:${Math.round(l[2]*100)}%"></i></div>
+      ${i === cur ? `<div class="legend" style="margin-top:4px">الخطوة الحالية: ${l[1]}</div>` : ""}</div></div>`).join("");
+}
+function simOut(c){
+  const m = M(), si = m.sim, add = (+si.inc||0) + (+si.exp||0);
+  const base = c.years, sc = yearsToFI(c.nw, c.monthly + add, c.exp - (+si.exp||0), +m.ret||0);
+  const f = y => y == null ? "—" : y.toFixed(1);
+  const rows = [5000, 10000, 20000, 50000].map(x => `<tr><td class="num">+${fmtNum(x)} ₽</td><td class="num">${f(yearsToFI(c.nw, c.monthly + x, c.exp, +m.ret||0))}</td></tr>`).join("");
+  return `<div class="kpis" style="margin-top:0"><div class="kpi"><b>${f(base)}</b><span>سنوات الآن</span></div><div class="kpi"><b>${f(sc)}</b><span>سنوات مع التغيير</span></div>
+    <div class="kpi"><b>${base != null && sc != null ? f(base - sc) : "—"}</b><span>سنوات توفّرها</span></div></div>
+    <table class="simt"><thead><tr><th>ادخار إضافي شهرياً</th><th>سنوات حتى الحرية</th></tr></thead><tbody>${rows}</tbody></table>`;
+}
+function refreshMoney(){
+  const c = moneyCalc();
+  const set = (id, html) => { const el = document.getElementById(id); if (el) el.innerHTML = html; };
+  set("m-kpi", moneyKpis(c)); set("m-alloc", moneyAlloc(c)); set("m-fi", moneyFi(c));
+  set("m-inc", fmtNum(c.inc) + " ₽"); set("m-exp", fmtNum(c.exp) + " ₽"); set("m-net", fmtNum(c.monthly) + " ₽");
+  document.querySelectorAll("[data-rub]").forEach(el => { const a = M().assets.find(x => x.id === el.dataset.rub); const d = M().debts.find(x => x.id === el.dataset.rub); if (a) el.textContent = rubNote(a); else if (d) el.textContent = rubNote(d, true); });
+  set("m-road", fiRoad(c)); set("m-sim", simOut(c));
+}
+function vMoney(){
+  const m = M(), c = moneyCalc();
+  const curOpts = v => CURS.map(k => `<option value="${k}"${k===v?" selected":""}>${k}</option>`).join("");
+  const line = (x, kind) => `<div class="mline" data-id="${x.id}" data-kind="${kind}">
+      <input type="text" id="${kind}n-${x.id}" data-bind="mn" value="${esc(x.n)}" aria-label="البند">
+      <input type="number" id="${kind}v-${x.id}" data-bind="mv" value="${esc(x.v)}" aria-label="المبلغ بالروبل">
+      <button class="btn ghost del" data-act="mdel" aria-label="حذف">✕</button></div>`;
+  return `
+  <h2>المال والأصول</h2>
+  <p class="lead">كل ما تملكه وما عليك في مكان واحد. القيم بالعملات الأجنبية تُحوَّل إلى الروبل بالأسعار التي تكتبها أنت. سجّل لقطة في آخر كل شهر لتتابع التطوّر.</p>
+  <div class="kpis" id="m-kpi" style="margin:0 0 16px">${moneyKpis(c)}</div>
+  <div class="grid2">
+    <section class="panel">
+      <h3>الأصول</h3>
+      <p class="legend" style="margin:2px 0 8px">علّم «سائل» على ما يمكنك استخدامه خلال أيام (نقد، حساب، وديعة قابلة للسحب).</p>
+      ${m.assets.map(a => `<div class="asset" data-id="${a.id}" data-kind="assets">
+        <input type="text" id="an-${a.id}" data-bind="an" value="${esc(a.n)}" aria-label="الأصل">
+        <select id="at-${a.id}" data-bind="at" aria-label="النوع">${Object.keys(ATYPES).map(k => `<option value="${k}"${k===a.type?" selected":""}>${ATYPES[k]}</option>`).join("")}</select>
+        <input type="number" id="av-${a.id}" data-bind="av" value="${esc(a.v)}" aria-label="القيمة">
+        <select id="ac-${a.id}" data-bind="ac" aria-label="العملة">${curOpts(a.cur)}</select>
+        <label class="liq"><input type="number" step="0.1" id="ar-${a.id}" data-bind="ar" value="${esc(a.rate||0)}" aria-label="العائد السنوي" style="width:64px"> %</label>
+        <label class="liq"><input type="checkbox" id="al-${a.id}" data-bind="al"${a.liq?" checked":""}> سائل</label>
+        <span class="num legend" data-rub="${a.id}">${rubNote(a)}</span>
+        <button class="btn ghost del" data-act="adel" aria-label="حذف">✕</button></div>`).join("")}
+      <div class="row" style="margin-top:12px"><button class="btn primary" data-act="aadd">+ إضافة أصل</button></div>
+    </section>
+    <div class="stack">
+      <section class="panel">
+        <h3>الديون والالتزامات</h3>
+        ${m.debts.length ? m.debts.map(a => `<div class="asset debt" data-id="${a.id}" data-kind="debts">
+          <input type="text" id="dn-${a.id}" data-bind="an" value="${esc(a.n)}" aria-label="الدين">
+          <input type="number" id="dv-${a.id}" data-bind="av" value="${esc(a.v)}" aria-label="المبلغ المتبقي">
+          <select id="dc-${a.id}" data-bind="ac" aria-label="العملة">${curOpts(a.cur)}</select>
+          <label class="liq"><input type="number" step="0.1" id="dr-${a.id}" data-bind="ar" value="${esc(a.rate||0)}" aria-label="الفائدة السنوية" style="width:64px"> %</label>
+          <span class="num legend" data-rub="${a.id}">${rubNote(a, true)}</span>
+          <button class="btn ghost del" data-act="adel" aria-label="حذف">✕</button></div>`).join("") : '<p class="legend">لا ديون مسجّلة.</p>'}
+        <div class="row" style="margin-top:12px"><button class="btn" data-act="dadd">+ إضافة دين</button></div>
+      </section>
+      <section class="panel">
+        <h3>توزيع الأصول</h3>
+        <div id="m-alloc" style="margin-top:8px">${moneyAlloc(c)}</div>
+      </section>
+    </div>
+  </div>
+  <div class="grid2" style="margin-top:16px">
+    <section class="panel">
+      <h3>الميزانية الشهرية (₽)</h3>
+      <div class="eyebrow" style="margin-top:10px">الدخل</div>
+      ${m.income.map(x => line(x, "income")).join("")}
+      <button class="btn link" data-act="madd" data-kind="income">+ مصدر دخل</button>
+      <div class="eyebrow" style="margin-top:12px">المصاريف</div>
+      ${m.expenses.map(x => line(x, "expenses")).join("")}
+      <button class="btn link" data-act="madd" data-kind="expenses">+ بند مصروف</button>
+      <div class="kpis"><div class="kpi"><b id="m-inc">${fmtNum(c.inc)} ₽</b><span>الدخل</span></div><div class="kpi"><b id="m-exp">${fmtNum(c.exp)} ₽</b><span>المصاريف</span></div><div class="kpi"><b id="m-net">${fmtNum(c.monthly)} ₽</b><span>الفائض</span></div></div>
+    </section>
+    <div class="stack">
+      <section class="panel">
+        <h3>الطوارئ والحرية المالية</h3>
+        <div class="kpis" id="m-fi">${moneyFi(c)}</div>
+        <div class="fi-in" style="margin-top:12px">
+          <label>العائد الحقيقي السنوي المتوقع %<input type="number" step="0.5" id="m-ret" data-bind="mret" value="${esc(m.ret)}"></label>
+          <label>سعر الدولار ₽<input type="number" step="0.01" id="m-usd" data-bind="rate" data-f="USD" value="${esc(m.rates.USD)}"></label>
+          <label>سعر اليورو ₽<input type="number" step="0.01" id="m-eur" data-bind="rate" data-f="EUR" value="${esc(m.rates.EUR)}"></label>
+        </div>
+        <p class="note">رقم الحرية المالية = المصاريف السنوية × 25. حدّث أسعار الصرف من موقع البنك المركزي cbr.ru. هذه أداة تخطيط تقريبية وليست نصيحة مالية؛ الترتيب الآمن: صندوق طوارئ أولاً، ثم سداد الديون مرتفعة الفائدة، ثم الاستثمار.</p>
+      </section>
+      <section class="panel">
+        <div class="row" style="justify-content:space-between"><h3>تطوّر صافي الثروة</h3><button class="btn" data-act="snap">تسجيل لقطة لهذا الشهر</button></div>
+        <div style="margin-top:8px">${moneyHist()}</div>
+      </section>
+    </div>
+  </div>
+  <h2 style="margin-top:28px">خارطة تسريع الحرية المالية</h2>
+  <p class="lead">11 مستوى بالترتيب. كل مستوى يُحسب تلقائياً من أرقامك، والمستوى المظلَّل هو خطوتك الحالية. لا تقفز للاستثمار قبل الطوارئ والديون.</p>
+  <div class="grid2">
+    <section class="panel"><div id="m-road" class="road">${fiRoad(c)}</div>
+      <div class="fi-in" style="margin-top:12px"><label>هدف الدخل الشهري ₽<input type="number" id="m-it" data-bind="mit" value="${esc(m.incomeTarget)}"></label>
+        <label class="row" style="flex-direction:row;align-items:center;gap:6px;margin-top:18px"><input type="checkbox" id="m-res" data-bind="mres"${m.resident?" checked":""}> مقيم ضريبي في روسيا</label></div>
+    </section>
+    <div class="stack">
+      <section class="panel">
+        <h3>محاكي التسريع</h3>
+        <p class="legend" style="margin:2px 0 10px">جرّب: كم سنة توفّر لو زاد دخلك أو قلّت مصاريفك؟</p>
+        <div class="fi-in"><label>زيادة الدخل الشهري ₽<input type="number" id="s-inc" data-bind="sim" data-f="inc" value="${esc(m.sim.inc)}"></label>
+          <label>تقليل المصاريف الشهرية ₽<input type="number" id="s-exp" data-bind="sim" data-f="exp" value="${esc(m.sim.exp)}"></label></div>
+        <div id="m-sim" style="margin-top:12px">${simOut(c)}</div>
+      </section>
+      <section class="panel">
+        <h3>مسرّعات في روسيا الآن</h3>
+        <ul class="acc">
+          <li><b>الدخل أولاً.</b> الانتقال من النوبات إلى وظيفة مبتدئة في البيانات أو ML يرفع الدخل غالباً أكثر من أي استثمار.</li>
+          <li><b>لا تترك السيولة راكدة.</b> الفائدة الرئيسية للبنك المركزي 14%، ومتوسط أعلى فائدة على الودائع في أكبر 10 بنوك حوالي 13% في بداية أكتوبر 2026. اجتماع البنك القادم في 23 أكتوبر.</li>
+          <li><b>ضريبة الفوائد.</b> لعام 2026 أول 160 ألف ₽ من فوائد الودائع معفاة، وما فوقها 13% للمقيم الضريبي. غير المقيم يدفع 15%.</li>
+          <li><b>استرداد ضريبة الدراسة.</b> إذا كنت مقيماً ضريبياً ولك راتب رسمي تُقتطع منه ضريبة الدخل وتدفع رسوم الماجستير، يمكنك استرداد حتى 19,500 ₽ سنوياً (13% من حد 150 ألف ₽).</li>
+          <li><b>العائد الحقيقي.</b> ما يهم هو الفائدة ناقص التضخم؛ لذلك العائد في الحاسبة «حقيقي» ومنخفض عمداً.</li>
+          <li><b>لاحقاً: ИИС-3.</b> بعد الطوارئ والديون، حساب استثمار بإعفاءات ضريبية. استشر مختصاً وتحقّق من أهليتك.</li>
+        </ul>
+        <p class="note">معلومات عامة وليست نصيحة مالية. تحقّق من الشروط الحالية مع البنك أو مصلحة الضرائب nalog.gov.ru.</p>
+      </section>
+    </div>
+  </div>`;
+}
+function vGoals(){
+  return `
+  <h2>الرؤية والأهداف</h2>
+  <p class="lead">اكتب الرؤية ثم حوّلها إلى أهداف قابلة للقياس. حدّث الرقم الحالي لكل هدف في المراجعة الأسبوعية.</p>
+  <section class="panel vision"><div class="eyebrow">الرؤية الكبرى</div><textarea id="vision" data-bind="vision">${esc(state.vision)}</textarea></section>
+  ${vBig()}
+  <section class="panel" style="margin-top:16px">
+    <h3>الأهداف القابلة للقياس</h3>
+    ${state.goals.map(g => { const p = g.tgt ? Math.min(100, Math.round((+g.cur||0)/(+g.tgt)*100)) : 0;
+      return `<div class="goal" data-id="${g.id}">
+        <div class="row" style="flex-wrap:nowrap"><input class="gt" type="text" id="gt-${g.id}" data-bind="gt" value="${esc(g.t)}" aria-label="الهدف"><button class="btn ghost del" data-act="delg" data-id="${g.id}" aria-label="حذف">✕</button></div>
+        <div class="pbar"><i style="width:${p}%"></i></div>
+        <div class="gfields">الحالي <input type="number" id="gc-${g.id}" data-bind="gc" value="${esc(g.cur)}"> من <input type="number" id="gg-${g.id}" data-bind="gg" value="${esc(g.tgt)}"> <input class="u" type="text" id="gu-${g.id}" data-bind="gu" value="${esc(g.u)}" aria-label="الوحدة"> الموعد <input type="date" id="gd-${g.id}" data-bind="gd" value="${esc(g.d)}"> <b class="num">${p}%</b></div>
+      </div>`; }).join("")}
+    <div class="row" style="margin-top:12px"><button class="btn primary" data-act="addg">+ إضافة هدف</button></div>
+  </section>`;
+}
+
+function vRoadmap(){
+  return `
+  <h2>خارطة الطريق</h2>
+  <p class="lead">من الصفر في البرمجة إلى الحرية المالية. كل المصادر في المراحل الأولى مجانية. ركّز على المرحلة الحالية فقط، وعدّل البنود كما تشاء.</p>
+  <section class="panel">${state.roadmap.map(p => { const dn = p.items.filter(i => i.d).length;
+    return `<div class="phase" data-pid="${p.id}"><div class="when">${esc(p.w)}<small>${esc(p.s)} · <span class="num">${dn}/${p.items.length}</span></small></div>
+      <div>${p.items.map(it => `<div class="item${it.d?" done":""}" data-id="${it.id}">
+        <button class="tick" data-act="ti" data-v="${it.d?1:""}" aria-label="تم">${it.d?"✓":""}</button>
+        <input type="text" id="ri-${it.id}" data-bind="ri" value="${esc(it.t)}" aria-label="بند">
+        <button class="btn ghost del" data-act="deli" aria-label="حذف">✕</button></div>`).join("")}
+        <button class="btn link" data-act="addi">+ إضافة بند</button></div></div>`; }).join("")}</section>`;
+}
+
+const RES = [
+  {s:"ابدأ هنا: البرمجة من الصفر (مجاني)", l:[
+    ["CS50P: Python من Harvard", "https://cs50.harvard.edu/python/", "مجاني بالكامل، 10 دروس بالفيديو مع مسائل. أفضل بداية لمن لا يعرف البرمجة."],
+    ["Kaggle Learn", "https://www.kaggle.com/learn", "دورات قصيرة في Python و Pandas وتعلّم الآلة مع تمارين في المتصفح، بلا تثبيت."],
+    ["3Blue1Brown: جوهر الجبر الخطي", "https://www.3blue1brown.com/topics/linear-algebra", "رياضيات الذكاء الاصطناعي بالرسوم، تساعدك في مواد الماجستير."]]},
+  {s:"الخطوة التالية: تعلّم الآلة", l:[
+    ["Google Machine Learning Crash Course", "https://developers.google.com/machine-learning/crash-course", "حوالي 15 ساعة: الانحدار، التصنيف، الشبكات العصبية، والنماذج اللغوية."],
+    ["Andrej Karpathy: Neural Networks Zero to Hero", "https://karpathy.ai/zero-to-hero.html", "بعد Python: تبني الشبكات العصبية ونموذج GPT بنفسك."],
+    ["Hugging Face LLM Course", "https://huggingface.co/learn", "مجاني، للمرحلة المتقدمة: المحوّلات والنماذج اللغوية."],
+    ["start-ai-engineering", "https://github.com/louisfb01/start-ai-engineering", "خارطة طريق 2026 كاملة بمصادر مجانية ومدفوعة."]]},
+  {s:"اللغة الروسية", l:[
+    ["اختبارات ТРКИ التجريبية: جامعة سانت بطرسبرغ", "https://testingcenter.spbu.ru/en/exam-preparation.html", "نماذج رسمية مجانية لكل مستوى. B2 هو المستوى المطلوب للدراسة بالروسية."],
+    ["Anki", "https://apps.ankiweb.net", "بطاقات مراجعة متباعدة، مثالية لدقائق الاستراحة في الدوام وفي الطريق."],
+    ["Habr: تعلّم الآلة بالروسية", "https://habr.com/ru/hubs/machine_learning/", "عندما تتقدّم: تقرأ عن التقنية والروسية معاً."]]},
+  {s:"المسار المهني في روسيا", l:[
+    ["hh.ru", "https://hh.ru", "أكبر منصة وظائف. ابحث عن «Junior Python» و«аналитик данных» لترى المطلوب."],
+    ["Хабр Карьера", "https://career.habr.com", "وظائف تقنية ورواتب حسب المستوى."],
+    ["ШАД: مدرسة تحليل البيانات (Яндекс)", "https://shad.yandex.ru", "هدف لاحق بعد إتقان الأساسيات: برنامج مجاني قوي ومنافسته عالية."]]},
+  {s:"العادات وإدارة الوقت", l:[
+    ["Atomic Habits: James Clear", "https://jamesclear.com/atomic-habits", "تكديس العادات، قاعدة الدقيقتين، وقاعدة «لا تفوّت مرتين»."],
+    ["Deep Work: Cal Newport", "https://calnewport.com", "تقسيم اليوم إلى كتل لحماية وقت التعلّم العميق."]]},
+  {s:"المال", l:[
+    ["قاعدة 4% ورقم الحرية المالية", "https://projectionlab.com/financial-terms/4-percent-rule", "رقمك = المصاريف السنوية × 25."],
+    ["نسبة الادخار وسنوات الوصول", "https://choosefi.com/fi-fundamentals/how-much-to-save-for-retirement", "ادخار 50% يعني حوالي 17 سنة، و10% حوالي 51 سنة."],
+    ["ИИС-3 (للمستقبل)", "https://t-j.ru/iis-3/", "حساب استثمار بإعفاءات ضريبية. يأتي بعد صندوق الطوارئ؛ تحقق من أهليتك واستشر مختصاً."]]}
+];
+function vResources(){
+  return `<h2>المصادر</h2><p class="lead">مرتّبة من البداية. كل ما في القسمين الأولين مجاني. لا تجمع المصادر؛ أنهِ واحداً ثم انتقل للتالي.</p>
+  <div class="grid2">${RES.map(sec => `<section class="panel"><h3 style="margin-bottom:4px">${sec.s}</h3>${sec.l.map(r => `<div class="res"><a href="${r[1]}" target="_blank" rel="noopener">${esc(r[0])}</a><p>${esc(r[2])}</p></div>`).join("")}</section>`).join("")}</div>`;
+}
+
+const VIEWS = {today:vToday, week:vWeek, habits:vHabits, stats:vStats, app:vApp, goals:vGoals, money:vMoney, roadmap:vRoadmap, resources:vResources};
+function render(){
+  buildPlan(); snapToday();
+  document.querySelectorAll("#tabs button").forEach(b => b.setAttribute("aria-selected", b.dataset.tab === tab));
+  $("#view").innerHTML = VIEWS[tab]();
+}
+function setTab(t){ if (!VIEWS[t]) return; tab = t; try { history.replaceState(null, "", "#" + t); } catch(e) {} render(); window.scrollTo(0,0); }
+
+/* ---------- events ---------- */
+$("#tabs").addEventListener("click", e => { const b = e.target.closest("button[data-tab]"); if (b) setTab(b.dataset.tab); });
+const curWeek = () => keyOf(addDays(weekStart(now()), wOff*7));
+const W = () => state.lectures[curWeek()] || (state.lectures[curWeek()] = {ok:false, items:[]});
+const findItem = (pid, id) => state.roadmap.find(p => p.id === pid).items.find(i => i.id === id);
+const custom = () => (state.days[selDay] && state.days[selDay].custom) || [];
+const dayO = k => state.days[k] || (state.days[k] = {});
+function cleanDay(k){ const o = state.days[k]; if (o && !o.type && !o.custom && !(o.tips && o.tips.length)) delete state.days[k]; }
+
+$("#view").addEventListener("click", e => {
+  const el = e.target.closest("[data-act]"); if (!el || el.disabled) return;
+  const a = el.dataset.act, id = el.dataset.id;
+  if (a === "tb") { const L = log(keyOf(now())); if (L.b[id]) delete L.b[id]; else L.b[id] = 1; }
+  else if (a === "th") { const L = log(el.dataset.k); const v = L.h[id]; if (v === undefined) L.h[id] = 1; else if (v === 1) L.h[id] = "m"; else delete L.h[id]; }
+  else if (a === "goto-lec") { wOff = 0; setTab("week"); return; }
+  else if (a === "goto-day") { selDay = el.dataset.k; wOff = Math.round((dayNum(weekStart(parseKey(selDay))) - dayNum(weekStart(now())))/7); setTab("week"); return; }
+  else if (a === "wprev") { wOff--; selDay = keyOf(addDays(weekStart(now()), wOff*7)); render(); return; }
+  else if (a === "wnext") { wOff++; selDay = keyOf(addDays(weekStart(now()), wOff*7)); render(); return; }
+  else if (a === "wnow") { wOff = 0; selDay = keyOf(now()); render(); return; }
+  else if (a === "addl") { const ws = addDays(weekStart(now()), wOff*7); const firstOff = [0,1,2,3,4,5,6].map(i => addDays(ws,i)).find(d => dayType(d) !== "work") || ws;
+    W().items.push({id:uid(), d:keyOf(firstOff), s:"09:00", e:"10:30", t:""}); W().ok = false; }
+  else if (a === "dell") { W().items = W().items.filter(l => l.id !== id); }
+  else if (a === "copyl") { const ws = addDays(weekStart(now()), wOff*7), p = state.lectures[keyOf(addDays(ws,-7))];
+    if (p) { W().items = p.items.map(l => ({...l, id:uid(), d:keyOf(addDays(parseKey(l.d), 7))})); W().ok = false; toast("تم النسخ، راجعها ثم أكّد"); } }
+  else if (a === "okl") { W().ok = true; W().items = W().items.filter(l => l.s && l.e); toast("تم ترتيب الأسبوع حول المحاضرات"); }
+  else if (a === "sel") { selDay = el.dataset.k; }
+  else if (a === "addu") { const ws = addDays(weekStart(now()), wOff*7); state.uni.tasks.push({id:uid(), course:"", t:"", due:keyOf(addDays(ws, 6)), h:2, done:false}); }
+  else if (a === "tu" || a === "delu") { const rid = el.closest("[data-id]").dataset.id; if (a === "delu") state.uni.tasks = state.uni.tasks.filter(t => t.id !== rid); else { const t = state.uni.tasks.find(t => t.id === rid); t.done = !t.done; } }
+  else if (a === "clearu") { state.uni.tasks = state.uni.tasks.filter(t => !t.done); }
+  else if (a === "flip") { const k = el.dataset.k, d = parseKey(k); const nt = dayType(d) === "work" ? "off" : "work"; const o = dayO(k);
+    if (nt === baseType(d)) delete o.type; else o.type = nt; delete o.custom; cleanDay(k); }
+  else if (a === "unflip") { const o = dayO(selDay); delete o.type; delete o.custom; cleanDay(selDay); }
+  else if (a === "customize") { const g = getDay(parseKey(selDay)); dayO(selDay).custom = g.blocks.map(b => ({id:uid(), s:b.s, e:b.e, t:b.t, c:b.c})); }
+  else if (a === "regen") { const o = dayO(selDay); delete o.custom; cleanDay(selDay); }
+  else if (a === "addb") { const c = custom(); const last = c.slice().sort((x,y)=>toMin(x.s)-toMin(y.s)).pop(); const s = last ? toMin(last.e) : 9*60;
+    c.push({id:uid(), s:fmtT(s), e:fmtT(Math.min(s+60,1440)), t:"نشاط جديد", c:"deep"}); }
+  else if (a === "delb") { state.days[selDay].custom = custom().filter(b => b.id !== id); }
+  else if (a === "tup" || a === "tdel") { const row = el.closest(".task"), list = state.tasks[row.dataset.kind], i = list.findIndex(t => t.id === row.dataset.id);
+    if (a === "tdel") list.splice(i, 1); else if (i > 0) { const [x] = list.splice(i, 1); list.splice(i-1, 0, x); } }
+  else if (a === "tadd") { state.tasks[el.dataset.kind].push({id:uid(), t:"مهمة جديدة", c:"deep", m:30}); }
+  else if (a === "hprev") { hOffset--; }
+  else if (a === "hnext") { hOffset = Math.min(0, hOffset+1); }
+  else if (a === "addh") { state.habits.push({id:"h"+uid(), n:"عادة جديدة", m:"أصغر نسخة منها", c:"routine", on:"all"}); }
+  else if (a === "delh") { state.habits = state.habits.filter(h => h.id !== id); }
+  else if (a === "aadd") { M().assets.push({id:uid(), n:"أصل جديد", type:"deposit", cur:"RUB", v:0, liq:true, rate:13}); }
+  else if (a === "dadd") { M().debts.push({id:uid(), n:"دين جديد", cur:"RUB", v:0, rate:0}); }
+  else if (a === "adel" || a === "mdel") { const row = el.closest("[data-id]"), kd = row.dataset.kind; M()[kd] = M()[kd].filter(x => x.id !== row.dataset.id); }
+  else if (a === "madd") { M()[el.dataset.kind].push({id:uid(), n:"", v:0}); }
+  else if (a === "snap") { const c = moneyCalc(), mk = keyOf(now()).slice(0,7); M().hist = (M().hist || []).filter(x => x.m !== mk); M().hist.push({m:mk, nw:Math.round(c.nw)}); M().hist.sort((x,y) => x.m < y.m ? -1 : 1); toast("تم تسجيل لقطة " + mk); }
+  else if (a === "addg") { state.goals.push({id:uid(), t:"هدف جديد", cur:0, tgt:100, u:"%", d:""}); }
+  else if (a === "delg") { state.goals = state.goals.filter(g => g.id !== id); }
+  else if (a === "ti" || a === "deli") { const it = el.closest(".item"), pid = el.closest(".phase").dataset.pid, p = state.roadmap.find(x => x.id === pid);
+    if (a === "ti") { const x = findItem(pid, it.dataset.id); x.d = !x.d; } else p.items = p.items.filter(x => x.id !== it.dataset.id); }
+  else if (a === "addi") { const pid = el.closest(".phase").dataset.pid; state.roadmap.find(x => x.id === pid).items.push({id:uid(), t:"", d:false}); save(); render();
+    const inp = document.querySelectorAll(`.phase[data-pid="${pid}"] input[type=text]`); if (inp.length) inp[inp.length-1].focus(); return; }
+  else return;
+  save(); render();
+});
+
+$("#view").addEventListener("input", e => {
+  const el = e.target, b = el.dataset.bind; if (!b) return;
+  const host = el.closest("[data-id]"), id = host && host.dataset.id, v = el.value;
+  if (b === "p") { log(keyOf(now())).p[+el.dataset.i] = v; refreshCoach(); }
+  else if (b === "note") { log(keyOf(now())).note = v; refreshCoach(); }
+  else if (b === "ut" || b === "uc") { const t = state.uni.tasks.find(x => x.id === id); if (t) t[b === "ut" ? "t" : "course"] = v; }
+  else if (b === "dtips") { const o = dayO(selDay); o.tips = v.split("\n").map(x => x.trim()).filter(Boolean); if (!o.tips.length) { delete o.tips; cleanDay(selDay); } }
+  else if (b === "lt") { const l = W().items.find(x => x.id === id); if (l) l.t = v; }
+  else if (b === "bt") { const x = custom().find(x => x.id === id); if (x) x.t = v; }
+  else if (b === "tt") { const t = state.tasks[host.dataset.kind].find(t => t.id === id); t.t = v; }
+  else if (b === "hn") state.habits.find(h => h.id === id).n = v;
+  else if (b === "hm") state.habits.find(h => h.id === id).m = v;
+  else if (b === "vision") state.vision = v;
+  else if (b === "gt") state.goals.find(g => g.id === id).t = v;
+  else if (b === "gu") state.goals.find(g => g.id === id).u = v;
+  else if (b === "gc" || b === "gg") { const g = state.goals.find(g => g.id === id); g[b === "gc" ? "cur" : "tgt"] = v === "" ? 0 : +v;
+    const p = g.tgt ? Math.min(100, Math.round((+g.cur||0)/(+g.tgt)*100)) : 0; host.querySelector(".pbar i").style.width = p + "%"; host.querySelector(".gfields b").textContent = p + "%"; }
+  else if (b === "an" || b === "av") { const a = M()[host.dataset.kind].find(x => x.id === id); if (!a) return; if (b === "an") a.n = v; else { a.v = v === "" ? 0 : +v; refreshMoney(); } }
+  else if (b === "mn" || b === "mv") { const x = M()[host.dataset.kind].find(x => x.id === id); if (!x) return; if (b === "mn") x.n = v; else { x.v = v === "" ? 0 : +v; refreshMoney(); } }
+  else if (b === "ar") { const a = M()[host.dataset.kind].find(x => x.id === id); if (!a) return; a.rate = v === "" ? 0 : +v; refreshMoney(); }
+  else if (b === "mit") { M().incomeTarget = v === "" ? 0 : +v; refreshMoney(); }
+  else if (b === "sim") { M().sim[el.dataset.f] = v === "" ? 0 : +v; refreshMoney(); }
+  else if (b === "mret") { M().ret = v === "" ? 0 : +v; refreshMoney(); }
+  else if (b === "rate") { M().rates[el.dataset.f] = v === "" ? 0 : +v; refreshMoney(); }
+  else if (b === "ri") findItem(el.closest(".phase").dataset.pid, id).t = v;
+  else return;
+  save();
+});
+$("#view").addEventListener("change", e => {
+  const el = e.target, b = el.dataset.bind; if (!b) return;
+  const host = el.closest("[data-id]"), id = host && host.dataset.id, v = el.value;
+  if (b === "ld" || b === "ls" || b === "le") { const l = W().items.find(x => x.id === id); if (!l) return; l[{ld:"d", ls:"s", le:"e"}[b]] = v; W().ok = false; }
+  else if (b === "bs" || b === "be" || b === "bc") { const x = custom().find(x => x.id === id); if (!x) return; x[{bs:"s", be:"e", bc:"c"}[b]] = v; }
+  else if (b === "ud" || b === "uh") { const t = state.uni.tasks.find(x => x.id === id); if (!t) return; if (b === "ud") t.due = v; else t.h = v === "" ? 0 : +v; }
+  else if (b === "set") { const f = el.dataset.f; if (!v) return; state.settings[f] = ["commute","uniCommute","sleepH","napH","recNapH","maxTasks","uniPre","uniRec","uniFocus"].includes(f) ? +v : v; }
+  else if (b === "tc" || b === "tm") { const t = state.tasks[host.dataset.kind].find(t => t.id === id); if (b === "tc") t.c = v; else t.m = +v || 0; }
+  else if (b === "mres") { M().resident = el.checked; }
+  else if (b === "at" || b === "ac" || b === "al") { const a = M()[host.dataset.kind].find(x => x.id === id); if (!a) return; if (b === "at") a.type = v; else if (b === "ac") a.cur = v; else a.liq = el.checked; }
+  else if (b === "hc") state.habits.find(h => h.id === id).c = v;
+  else if (b === "ho") state.habits.find(h => h.id === id).on = v;
+  else if (b === "gd") state.goals.find(g => g.id === id).d = v;
+  else return;
+  save(); render();
+});
+
+const APP_VER = "1.0.0";
+
+/* =====================================================================
+   PWA additions: daily snapshots, weekly stats, big goals, reminders,
+   install, backup. Everything stays on this device.
+   ===================================================================== */
+const lsGet = (k, d) => { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch(e) { return d; } };
+const lsSet = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch(e) {} };
+const rub = n => "\u2066" + fmtNum(n) + " ₽\u2069";
+const anyTicks = L => L ? Object.keys(L.b || {}).length + Object.keys(L.h || {}).length : 0;
+
+/* ---------- daily snapshot: what was planned and what was done ---------- */
+function calcSnap(d){
+  const k = keyOf(d), g = getDay(d), L = dayLog(k), isPast = k < keyOf(now());
+  const habits = state.habits.filter(h => applies(h, d));
+  const tick = g.blocks.filter(b => !b.free && b.c !== "move");
+  const c = {}; let bd = 0;
+  tick.forEach(b => { const m = toMin(b.e) - toMin(b.s), dn = L.b && L.b[b.id] ? 1 : 0; bd += dn;
+    const x = c[b.c] || (c[b.c] = [0, 0]); x[1] += m; if (dn) x[0] += m; });
+  let bt = tick.length;
+  // an old day whose plan has changed since: trust the ticks that were recorded
+  if (isPast) { const n = Object.keys(L.b || {}).length; if (n > bd) { bd = n; bt = Math.max(bt, n); } }
+  const hd = habits.reduce((a, h) => a + (L.h && L.h[h.id] === 1 ? 1 : L.h && L.h[h.id] === "m" ? .5 : 0), 0);
+  const tot = bt + habits.length;
+  return {p: tot ? Math.round((bd + hd) / tot * 100) : 0, bt, bd, ht: habits.length, hd, c, sub: g.sub};
+}
+function snapToday(){
+  const k = keyOf(now()), L = state.logs[k];
+  if (!L || (!anyTicks(L) && !L.s)) return;
+  L.s = calcSnap(now());
+}
+function dayStat(d){
+  const k = keyOf(d), tk = keyOf(now()), L = state.logs[k];
+  if (k > tk) return null;
+  if (k === tk) return calcSnap(d);
+  return (L && L.s) || calcSnap(d);
+}
+function firstTracked(){ return Object.keys(state.logs).filter(k => anyTicks(state.logs[k])).sort()[0]; }
+function weekData(ws){
+  const tk = keyOf(now()), first = firstTracked();
+  const days = [0,1,2,3,4,5,6].map(i => { const d = addDays(ws, i), k = keyOf(d);
+    return {d, k, i, fut: k > tk, s: first && k >= first && k <= tk ? dayStat(d) : null}; });
+  const cnt = days.filter(x => x.s), sum = f => cnt.reduce((a, x) => a + f(x.s), 0);
+  return {days, cnt, n: cnt.length, avg: cnt.length ? Math.round(sum(s => s.p) / cnt.length) : null,
+    bd: sum(s => s.bd), bt: sum(s => s.bt), hd: sum(s => s.hd), ht: sum(s => s.ht),
+    good: cnt.filter(x => x.s.p >= 70).length, logged: cnt.filter(x => anyTicks(state.logs[x.k])).length};
+}
+
+/* ---------- weekly stats view ---------- */
+let sOff = 0;
+function vStats(){
+  const ws = addDays(weekStart(now()), sOff * 7), we = addDays(ws, 6), tk = keyOf(now());
+  const W = weekData(ws), P = weekData(addDays(ws, -7));
+  const nav = `<div class="weeknav"><button class="btn" data-act="x-sprev">→</button><span class="lbl">${esc(dLabel(ws))} – ${esc(dLabel(we))}</span><button class="btn" data-act="x-snext"${sOff >= 0 ? " disabled" : ""}>←</button>${sOff ? '<button class="btn link" data-act="x-snow">هذا الأسبوع</button>' : ""}</div>`;
+  const head = `<h2>الإحصائيات الأسبوعية</h2>
+  <p class="lead">نسبة الالتزام لكل يوم = ما علّمته منجزاً من كتل الخطة والعادات ÷ ما كان مخططاً. اليوم الذي لم تسجّل فيه شيئاً يُحسب 0%، لذلك سجّل ولو النسخة المصغّرة.</p>${nav}`;
+  if (!firstTracked()) return head + `<section class="panel"><p class="legend" style="margin:0">لا بيانات بعد. علّم كتل اليوم وعاداتك في صفحة «اليوم» وستظهر الإحصائيات هنا. إن كانت لك بيانات من النسخة السابقة فاستوردها من «الإعدادات».</p></section>`;
+  if (!W.n) return head + `<section class="panel"><p class="legend" style="margin:0">لا أيام مسجّلة في هذا الأسبوع.</p></section>`;
+  const delta = W.avg != null && P.avg != null ? W.avg - P.avg : null;
+  const best = W.cnt.slice().sort((a, b) => b.s.p - a.s.p)[0];
+  const isW = s => s.sub === "w1" || s.sub === "w2" || s.sub === "work";
+  const avgOf = a => a.length ? Math.round(a.reduce((x, y) => x + y.s.p, 0) / a.length) : null;
+  const aw = avgOf(W.cnt.filter(x => isW(x.s))), ao = avgOf(W.cnt.filter(x => !isW(x.s)));
+  // habits this week
+  const hab = state.habits.map(h => { let c = 0, n = 0;
+    const dots = W.days.map(x => { if (!x.s) return ""; if (!applies(h, x.d)) return "x"; n++; const v = hv(x.k, h.id); if (v === 1) c++; else if (v === "m") c += .5; return v === 1 ? "1" : v === "m" ? "m" : "0"; });
+    return {h, dots, n, rate: n ? Math.round(c / n * 100) : null}; });
+  const rated = hab.filter(x => x.rate != null).sort((a, b) => b.rate - a.rate);
+  // hours by category
+  const cats = {}; W.cnt.forEach(x => Object.keys(x.s.c || {}).forEach(k => { const a = cats[k] || (cats[k] = [0, 0]); a[0] += x.s.c[k][0]; a[1] += x.s.c[k][1]; }));
+  const catRows = ["uni","deep","ru","body","money","routine"].filter(k => cats[k] && cats[k][1] > 0).map(k => { const [dn, tt] = cats[k];
+    return `<div class="crow" style="--cat:var(--c-${k})"><span class="row" style="gap:6px;flex-wrap:nowrap"><span class="dot"></span>${CATS[k].n}</span><div class="pbar"><i style="width:${Math.round(dn / tt * 100)}%"></i></div><span class="num legend">${(dn / 60).toFixed(1)} / ${(tt / 60).toFixed(1)} س</span></div>`; }).join("");
+  // insights
+  const ins = [];
+  if (delta != null) ins.push(delta > 0 ? `تحسّن ${delta} نقطة عن الأسبوع السابق (${P.avg}% ← ${W.avg}%).` : delta < 0 ? `تراجع ${-delta} نقطة عن الأسبوع السابق (${P.avg}% ← ${W.avg}%).` : `نفس مستوى الأسبوع السابق (${W.avg}%).`);
+  if (W.logged < W.n) ins.push(`${W.n - W.logged} ${W.n - W.logged === 1 ? "يوم" : "أيام"} بلا أي تسجيل هذا الأسبوع. التسجيل اليومي هو أول ما يرفع النسبة.`);
+  if (aw != null && ao != null) ins.push(`أيام النوبات ${aw}% مقابل أيام العطلة ${ao}%.` + (ao < aw ? " أيام العطلة هي فرصتك الأكبر للتحسّن." : ""));
+  if (rated.length) { const top = rated[0], low = rated[rated.length - 1];
+    if (top.rate > 0) ins.push(`أقوى عادة: «${top.h.n}» (${top.rate}%).`);
+    if (low !== top && low.rate < 50) ins.push(`أضعف عادة: «${low.h.n}» (${low.rate}%). جرّب نسختها المصغّرة: ${low.h.m}.`); }
+  // 8-week trend
+  const tr = []; for (let i = 7; i >= 0; i--) { const s = addDays(ws, -7 * i); tr.push({s, avg: weekData(s).avg, cur: i === 0}); }
+  return head + `
+  <div class="stats">
+    <div class="kpi"><b>${W.avg}%</b><span>متوسط الالتزام</span></div>
+    <div class="kpi"><b class="delta ${delta > 0 ? "up" : delta < 0 ? "down" : ""}">${delta == null ? "—" : (delta > 0 ? "+" : "") + delta}</b><span>عن الأسبوع السابق</span></div>
+    <div class="kpi"><b>${W.good}/${W.n}</b><span>أيام 70% فأكثر</span></div>
+    <div class="kpi"><b>${W.logged}/${W.n}</b><span>أيام مسجّلة</span></div>
+    <div class="kpi"><b>${W.bd}/${W.bt}</b><span>كتل منجزة</span></div>
+    <div class="kpi"><b>${W.hd % 1 ? W.hd.toFixed(1) : W.hd}/${W.ht}</b><span>عادات منجزة</span></div>
+  </div>
+  <div class="grid2">
+    <section class="panel">
+      <div class="row" style="justify-content:space-between"><h3>الالتزام يوماً بيوم</h3><span class="legend"><span class="chip"><i class="dot" style="--cat:var(--c-work)"></i>نوبة</span> <span class="chip"><i class="dot" style="--cat:var(--c-rest)"></i>عطلة</span></span></div>
+      <div class="wbars">${W.days.map(x => { const s = x.s, p = s ? s.p : 0;
+        return `<div class="wbar${!s ? " na" : p >= 70 ? " hi" : p < 40 ? " low" : ""}${x.k === tk ? " today" : ""}">
+          <span class="v">${s ? p + "%" : ""}</span><div class="box"><div class="col" style="height:${s ? Math.max(2, p) : 0}%"></div></div>
+          <span class="k${dayType(x.d) === "work" ? " w" : ""}"></span><span class="n">${DAYS[x.i].ar}<br><span class="num">${x.d.getDate()}</span></span></div>`; }).join("")}</div>
+      ${best && best.s.p > 0 ? `<p class="note">أفضل يوم: ${DAYS[best.i].ar} ${esc(dLabel(best.d))} (${best.s.p}%).</p>` : ""}
+    </section>
+    <div class="stack">
+      <section class="panel tips"><h3 style="margin-bottom:8px">قراءة الأسبوع</h3><ul class="insight">${ins.map(t => `<li>${esc(t)}</li>`).join("") || "<li>سجّل أسبوعاً كاملاً لتظهر المقارنات.</li>"}</ul></section>
+      <section class="panel"><h3>اتجاه آخر 8 أسابيع</h3>
+        <div class="trend">${tr.map(t => `<div class="${t.cur ? "cur" : ""}"><span>${t.avg == null ? "" : t.avg}</span><i style="height:${t.avg == null ? 0 : Math.max(3, t.avg)}%"></i><span>${t.s.getDate()}/${t.s.getMonth() + 1}</span></div>`).join("")}</div>
+        <p class="note">متوسط الالتزام لكل أسبوع (التاريخ = بداية الأسبوع).</p></section>
+    </div>
+  </div>
+  <div class="grid2" style="margin-top:16px">
+    <section class="panel"><h3>العادات هذا الأسبوع</h3>
+      <p class="legend" style="margin:2px 0 6px">من الإثنين إلى الأحد. المربّع المنقّط = العادة لا تنطبق على ذلك اليوم.</p>
+      ${hab.map(x => `<div class="hrow"><span class="row" style="gap:6px;flex-wrap:nowrap;min-width:0"><span class="dot" style="--cat:var(--c-${x.h.c})"></span><span style="min-width:0">${esc(x.h.n)}</span></span>
+        <span class="hdots">${x.dots.map(v => `<i data-v="${v}"></i>`).join("")}</span><b class="num" style="text-align:left">${x.rate == null ? "—" : x.rate + "%"}</b></div>`).join("")}
+    </section>
+    <section class="panel"><h3>الساعات المنجزة حسب المجال</h3>
+      <p class="legend" style="margin:2px 0 6px">المنجز من المخطط، من الكتل التي علّمتها.</p>
+      ${catRows || '<p class="legend">تظهر هنا بعد تعليم كتل الخطة في صفحة «اليوم».</p>'}
+    </section>
+  </div>`;
+}
+
+/* ---------- big goals: house, car, savings ---------- */
+const fmtDur = m => { if (m == null) return "—"; if (m <= 0) return "الآن"; const y = Math.floor(m / 12), r = m % 12;
+  const Y = y === 1 ? "سنة" : y === 2 ? "سنتين" : y <= 10 ? y + " سنوات" : y + " سنة", R = r === 1 ? "شهر" : r === 2 ? "شهرين" : r <= 10 ? r + " أشهر" : r + " شهراً";
+  return (y ? Y : "") + (y && r ? " و" : "") + (r ? R : ""); };
+function bigCalc(g){
+  const cur = g.link ? moneyCalc().liquid : (+g.cur || 0), tgt = +g.tgt || 0, mo = +g.mo || 0;
+  const rem = Math.max(0, tgt - cur), p = tgt > 0 ? Math.min(100, cur / tgt * 100) : 0;
+  const months = tgt <= 0 ? null : rem <= 0 ? 0 : mo > 0 ? Math.ceil(rem / mo) : null;
+  const d = now(); let eta = null, left = null, need = null;
+  if (months != null) eta = new Date(d.getFullYear(), d.getMonth() + months, 1);
+  if (g.d && tgt > 0) { const t = parseKey(g.d); left = (t.getFullYear() - d.getFullYear()) * 12 + t.getMonth() - d.getMonth(); need = rem <= 0 ? 0 : left > 0 ? rem / left : rem; }
+  const mk = keyOf(d).slice(0, 7), month = (g.log || []).filter(x => x.k.slice(0, 7) === mk).reduce((a, x) => a + x.v, 0);
+  return {cur, tgt, mo, rem, p, months, eta, left, need, month};
+}
+function bigOut(g){
+  const c = bigCalc(g), L = [];
+  if (c.tgt <= 0) L.push("اكتب المبلغ المستهدف لتبدأ المتابعة.");
+  else if (c.rem <= 0) L.push('<b class="ok">تحقّق الهدف 🎉</b>');
+  else {
+    L.push(`المتبقي: <b class="num">${rub(c.rem)}</b>`);
+    if (c.months != null) L.push(`بادخارك الشهري الحالي تصل بعد <b>${fmtDur(c.months)}</b> (${esc(c.eta.toLocaleDateString("ar", {month:"long", year:"numeric"}))}).`);
+    else L.push("حدّد مبلغاً شهرياً لترى متى تصل.");
+    if (c.need != null) { const late = c.left <= 0;
+      L.push(late ? '<span class="warn">انتهى الموعد المحدّد. حدّث الموعد أو المبلغ.</span>'
+        : `لتصل في موعدك (بعد ${fmtDur(c.left)}) تحتاج <b class="num">${rub(c.need)}</b> شهرياً` + (c.mo > 0 ? (c.mo >= c.need ? ' <span class="ok">· أنت على المسار</span>' : ` <span class="warn">· ينقصك ${rub(c.need - c.mo)} شهرياً</span>`) : "") + "."); }
+  }
+  const last = (g.log || []).slice(-3).reverse();
+  return `<div class="pbar"><i style="width:${c.p.toFixed(1)}%"></i></div>
+    <div class="pl"><span><b class="num" style="color:var(--ink)">${fmtNum(c.cur)}</b> من <span class="num">${rub(c.tgt)}</span></span><b class="num">${Math.floor(c.p)}%</b></div>
+    <div class="calc">${L.map(x => `<span>${x}</span>`).join("")}</div>
+    ${g.link ? "" : `<div class="hist">${c.month ? `أودعت هذا الشهر: <span class="num">${rub(c.month)}</span>` : (c.mo > 0 && c.rem > 0 ? '<span class="warn">لم تسجّل إيداع هذا الشهر بعد.</span>' : "")}${last.length ? ` · آخر الإيداعات: ${last.map(x => `<span class="num">${x.v > 0 ? "+" : ""}${fmtNum(x.v)}</span> (${x.k.slice(5)})`).join("، ")}` : ""}</div>`}`;
+}
+function bigSummary(){
+  const B = state.big || [], cs = B.map(bigCalc), m = moneyCalc();
+  const saved = cs.reduce((a, c) => a + Math.min(c.cur, c.tgt || c.cur), 0), tgt = cs.reduce((a, c) => a + c.tgt, 0), mo = cs.reduce((a, c, i) => a + (c.rem > 0 ? c.mo : 0), 0);
+  let note = "";
+  if (m.inc > 0 && mo > 0) note = mo > m.monthly
+    ? `<p class="note warn" style="font-weight:600">مجموع ما خصّصته شهرياً (${rub(mo)}) أكبر من فائضك الشهري في صفحة المال (${rub(m.monthly)}). قلّل المبالغ أو مدّد المواعيد.</p>`
+    : `<p class="note">تخصّص ${rub(mo)} من فائض شهري قدره ${rub(m.monthly)} (يبقى ${rub(m.monthly - mo)}).</p>`;
+  else if (!(m.inc > 0)) note = '<p class="note">أدخل دخلك ومصاريفك في صفحة «المال والأصول» لنقارن ما تخصّصه بفائضك الشهري.</p>';
+  return `<div class="stats" style="margin:10px 0 0">
+      <div class="kpi"><b>${rub(saved)}</b><span>مجموع المدّخر للأهداف</span></div>
+      <div class="kpi"><b>${rub(tgt)}</b><span>مجموع المستهدف</span></div>
+      <div class="kpi"><b>${tgt > 0 ? Math.floor(saved / tgt * 100) : 0}%</b><span>التقدّم الكلي</span></div>
+      <div class="kpi"><b>${rub(mo)}</b><span>مخصّص شهرياً</span></div></div>${note}`;
+}
+function vBig(){
+  const B = state.big || [];
+  return `<section class="panel" style="margin-top:16px">
+    <h3>أهدافي الكبرى: المنزل والسيارة والادخار</h3>
+    <p class="legend" style="margin:2px 0 0">لكل هدف: المبلغ المستهدف، ما ادّخرته حتى الآن، وما تضيفه شهرياً. سجّل كل إيداع يوم استلام الراتب.</p>
+    <div id="big-sum">${bigSummary()}</div>
+    <div class="bigs">${B.map(g => `<div class="big" data-id="${g.id}">
+      <div class="bh"><span class="ic">${esc(g.ic || "🎯")}</span><input type="text" id="bn-${g.id}" data-xb="bn" value="${esc(g.n)}" aria-label="اسم الهدف"><button class="btn ghost del" data-act="x-bdel" aria-label="حذف">✕</button></div>
+      <div id="bo-${g.id}" class="stack" style="gap:8px">${bigOut(g)}</div>
+      <div class="f">
+        <label>المبلغ المستهدف ₽<input type="number" inputmode="numeric" id="bt-${g.id}" data-xb="bt" value="${esc(g.tgt || "")}" placeholder="0"></label>
+        <label>المدّخر حتى الآن ₽<input type="number" inputmode="numeric" id="bc-${g.id}" data-xb="bc" value="${esc(g.link ? Math.round(bigCalc(g).cur) : (g.cur || ""))}" placeholder="0"${g.link ? " disabled" : ""}></label>
+        <label>ادخار شهري ₽<input type="number" inputmode="numeric" id="bm-${g.id}" data-xb="bm" value="${esc(g.mo || "")}" placeholder="0"></label>
+        <label>الموعد المستهدف<input type="date" id="bd-${g.id}" data-xb="bd" value="${esc(g.d || "")}"></label>
+      </div>
+      ${g.link ? "" : `<div class="dep"><input type="number" inputmode="numeric" id="bv-${g.id}" placeholder="مبلغ الإيداع ₽" aria-label="مبلغ الإيداع"><button class="btn primary" data-act="x-dep">+ إيداع</button></div>
+      ${(g.log || []).length ? '<button class="btn link" data-act="x-undep" style="align-self:flex-start">تراجع عن آخر إيداع</button>' : ""}`}
+      <label class="row legend" style="gap:6px;flex-wrap:nowrap"><input type="checkbox" id="bl-${g.id}" data-xb="bl"${g.link ? " checked" : ""}> احسب المدّخر تلقائياً من أصولي السائلة في صفحة المال</label>
+    </div>`).join("")}</div>
+    <div class="row" style="margin-top:12px"><button class="btn" data-act="x-badd">+ هدف كبير آخر</button></div>
+    <p class="note">الأرقام بالروبل وتقديرية: لا تحسب التضخم ولا تغيّر الأسعار. راجع المبلغ المستهدف كل بضعة أشهر.</p>
+  </section>`;
+}
+function refreshBig(id){
+  const g = (state.big || []).find(x => x.id === id), el = document.getElementById("bo-" + id);
+  if (g && el) el.innerHTML = bigOut(g);
+  const s = document.getElementById("big-sum"); if (s) s.innerHTML = bigSummary();
+}
+
+/* ---------- reminders ---------- */
+const N = () => state.notif;
+const nSupported = () => "Notification" in window;
+const nGranted = () => nSupported() && Notification.permission === "granted";
+function remindersFor(d){
+  const n = N(), k = keyOf(d), g = getDay(d), out = [], isToday = k === keyOf(now());
+  const base = new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime();
+  const push = (kind, min, title, body) => { if (min < 0) min = 0; out.push({id: k + "-" + kind + "-" + min, kind, at: base + min * 60000, title, body: body || ""}); };
+  const isSleep = b => b.c === "rest" && /نوم|قيلولة/.test(b.t);
+  g.blocks.forEach(b => {
+    const s = toMin(b.s); if (s === 0 || b.free || b.conflict) return;
+    if (b.c === "move") { if (n.leave && !/العودة/.test(b.t)) push("leave", s - (+n.leaveLead || 0), (+n.leaveLead ? "بعد " + n.leaveLead + " دقائق: " : "") + "حان وقت الخروج", b.t); return; }
+    if (isSleep(b)) { if (n.sleep) push("sleep", s - (+n.sleepLead || 0), (+n.sleepLead ? "بعد " + n.sleepLead + " دقيقة: " : "") + (/قيلولة/.test(b.t) ? "قيلولة العصر" : "موعد النوم"), b.t); return; }
+    if (b.c === "work" || b.c === "rest") return;
+    if (n.blocks) push("block", s - (+n.lead || 0), b.t, b.s + "–" + b.e + " · " + ((CATS[b.c] || {}).n || ""));
+  });
+  // bedtime on days that end with a night at home
+  const last = g.blocks[g.blocks.length - 1];
+  if (n.sleep && last && last.c === "routine" && /مراجعة اليوم|تجهيز الدوام/.test(last.t)) push("sleep", toMin(last.e), "موعد النوم الآن", "أطفئ الشاشات ونَم في موعدك لتحافظ على ساعتك البيولوجية.");
+  if (n.habits) {
+    const leave = g.blocks.find(b => b.c === "move" && /العمل/.test(b.t) && !/العودة/.test(b.t));
+    const at = leave ? toMin(leave.s) - 45 : toMin(n.habitT || "21:00");
+    const left = state.habits.filter(h => applies(h, d) && !hv(k, h.id));
+    if (!isToday || left.length) push("habits", at, "سجّل عادات اليوم", isToday ? "بقيت " + left.length + ": " + left.slice(0, 3).map(h => h.n).join("، ") + (left.length > 3 ? "…" : "") + ". النسخة المصغّرة تكفي." : "علّم عاداتك قبل نهاية اليوم. النسخة المصغّرة تكفي.");
+  }
+  if (n.weekly && dayIdx(d) === 6) { const w = weekData(weekStart(d));
+    push("weekly", toMin(n.weeklyT || "18:00"), "المراجعة الأسبوعية", (isToday && w.avg != null ? "التزام هذا الأسبوع " + w.avg + "%. " : "") + "راجع الإحصائيات وأدخل محاضرات الأسبوع القادم وواجباته."); }
+  if (n.due) { const tm = keyOf(addDays(d, 1)), open = (state.uni.tasks || []).filter(t => !t.done && (t.due === k || t.due === tm));
+    if (open.length) push("due", 12 * 60, "تسليم قريب", open.map(t => "«" + (t.t || t.course || "واجب").trim() + "» " + (t.due === k ? "اليوم" : "غداً")).join("، ")); }
+  if (n.money && d.getDate() === 1) push("money", 12 * 60 + 30, "بداية شهر جديد", "سجّل لقطة صافي الثروة وأضف إيداع هذا الشهر لأهداف المنزل والسيارة والادخار.");
+  return out.sort((a, b) => a.at - b.at);
+}
+let swReg = null, swReady = false;
+function inApp(r){
+  if (document.visibilityState !== "visible") return;
+  const el = document.createElement("div"); el.className = "inapp"; el.setAttribute("role", "status"); el.dir = "rtl";
+  el.innerHTML = `<b>${esc(r.title)}</b>${r.body ? `<span>${esc(r.body)}</span>` : ""}`;
+  el.addEventListener("click", () => el.remove());
+  document.body.appendChild(el); setTimeout(() => el.remove(), 9000);
+}
+function fire(r){
+  inApp(r);
+  if (!nGranted()) return;
+  const opt = {body: r.body, tag: r.id, icon: "icon-192.png", badge: "badge-96.png", lang: "ar", dir: "rtl", data: {url: "./#today"}};
+  const plain = () => { try { new Notification(r.title, opt); } catch(e) {} };
+  if (swReg) swReg.showNotification(r.title, opt).catch(plain); else plain();
+}
+function tickReminders(){
+  if (!N().on) return;
+  const t = Date.now(), f = lsGet(LS + "-fired", {}); let ch = false;
+  remindersFor(addDays(now(), -1)).concat(remindersFor(now())).forEach(r => {
+    if (t >= r.at && t - r.at < 20 * 60000 && !f[r.id]) { f[r.id] = t; ch = true; fire(r); } });
+  if (ch) { Object.keys(f).forEach(k => { if (t - f[k] > 3 * 864e5) delete f[k]; }); lsSet(LS + "-fired", f); markShown(f); }
+}
+// hand the next days' reminders to the service worker for its best-effort catch-up
+let planTimer = null;
+function planReminders(){
+  clearTimeout(planTimer);
+  planTimer = setTimeout(() => {
+    if (!("caches" in window) || !N().on || !nGranted()) return;
+    const t = Date.now(), list = [];
+    for (let i = 0; i < 3; i++) remindersFor(addDays(now(), i)).forEach(r => { if (r.at > t) list.push(r); });
+    caches.open("tatawwur-data").then(c => c.put("schedule.json", new Response(JSON.stringify(list), {headers: {"content-type": "application/json"}}))).catch(() => {});
+  }, 1500);
+}
+function markShown(f){
+  if (!("caches" in window)) return;
+  caches.open("tatawwur-data").then(c => c.put("shown.json", new Response(JSON.stringify(f), {headers: {"content-type": "application/json"}}))).catch(() => {});
+}
+function regPeriodic(){
+  if (!swReg || !swReg.periodicSync || !N().on || !nGranted()) return;
+  swReg.periodicSync.register("reminders", {minInterval: 60 * 60 * 1000}).catch(() => {});
+}
+function enableNotif(){
+  if (!nSupported()) { toast("هذا المتصفح لا يدعم الإشعارات"); return; }
+  Promise.resolve(Notification.requestPermission()).then(p => {
+    N().on = p === "granted"; save(); render();
+    if (p === "granted") { fire({id: "hello", title: "التذكيرات مفعّلة ✓", body: "ستصلك تنبيهات النوم والخروج والعادات من هنا."}); regPeriodic(); }
+    else toast(p === "denied" ? "الإشعارات محظورة: اسمح بها من إعدادات الموقع في المتصفح" : "لم يُمنح الإذن");
+  });
+}
+function download(name, text, type){
+  const url = URL.createObjectURL(new Blob([text], {type}));
+  const a = document.createElement("a"); a.href = url; a.download = name; document.body.appendChild(a); a.click();
+  setTimeout(() => { a.remove(); URL.revokeObjectURL(url); }, 1500);
+}
+function icsExport(){
+  const f = t => { const d = new Date(t); return d.getFullYear() + pad(d.getMonth() + 1) + pad(d.getDate()) + "T" + pad(d.getHours()) + pad(d.getMinutes()) + "00"; };
+  const e = s => String(s || "").replace(/\\/g, "\\\\").replace(/([,;])/g, "\\$1").replace(/\r?\n/g, "\\n");
+  const stamp = new Date().toISOString().replace(/[-:]/g, "").replace(/\.\d+/, ""), t = Date.now(), ev = [];
+  for (let i = 0; i < 7; i++) remindersFor(addDays(now(), i)).forEach(r => { if (r.at > t && r.kind !== "block") ev.push(r); });
+  if (!ev.length) { toast("لا تذكيرات قادمة للتصدير"); return; }
+  const L = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//tatawwur//daily-system//AR", "CALSCALE:GREGORIAN", "METHOD:PUBLISH"];
+  ev.forEach(r => L.push("BEGIN:VEVENT", "UID:" + r.id + "@tatawwur", "DTSTAMP:" + stamp, "DTSTART:" + f(r.at), "DTEND:" + f(r.at + 10 * 60000),
+    "SUMMARY:" + e(r.title), "DESCRIPTION:" + e(r.body), "BEGIN:VALARM", "ACTION:DISPLAY", "DESCRIPTION:" + e(r.title), "TRIGGER:PT0M", "END:VALARM", "END:VEVENT"));
+  L.push("END:VCALENDAR");
+  download("tatawwur-reminders-" + keyOf(now()) + ".ics", L.join("\r\n"), "text/calendar");
+  toast("تم تصدير " + ev.length + " تذكيراً: افتح الملف بتطبيق التقويم");
+}
+
+/* ---------- install, offline, backup ---------- */
+let deferred = null, persisted = null;
+const standalone = () => (window.matchMedia && matchMedia("(display-mode: standalone)").matches) || navigator.standalone === true;
+window.addEventListener("beforeinstallprompt", e => { e.preventDefault(); deferred = e; if (tab === "app" || tab === "today") softRender(); });
+window.addEventListener("appinstalled", () => { deferred = null; toast("تم تثبيت التطبيق"); softRender(); });
+function softRender(){ const a = document.activeElement; if (!(a && a.matches("input,textarea,select"))) render(); }
+function exportBackup(){
+  download("tatawwur-backup-" + keyOf(now()) + ".json", JSON.stringify({app: "tatawwur", exported: new Date().toISOString(), state}, null, 1), "application/json");
+  lsSet(LS + "-backup", keyOf(now())); toast("تم حفظ النسخة الاحتياطية في التنزيلات"); render();
+}
+function importBackup(file){
+  const rd = new FileReader();
+  rd.onload = () => {
+    let o; try { o = JSON.parse(rd.result); } catch(e) { toast("الملف ليس نسخة احتياطية صالحة"); return; }
+    const s = o && o.state ? o.state : o;
+    if (!s || typeof s !== "object" || !(s.settings || s.habits || s.logs)) { toast("الملف ليس نسخة احتياطية صالحة"); return; }
+    const n = Object.keys(s.logs || {}).length;
+    if (!window.confirm("سيُستبدل كل ما في التطبيق بمحتوى النسخة الاحتياطية (" + n + " يوماً مسجّلاً). هل تتابع؟")) return;
+    state = norm(JSON.parse(JSON.stringify(s))); save(); render(); toast("تم استيراد بياناتك");
+  };
+  rd.readAsText(file);
+}
+const dismissed = () => lsGet(LS + "-dis", {});
+function pwaBanner(){
+  const dis = dismissed();
+  const B = (w, html, act, lbl) => `<div class="banner"><div>${html}</div><div class="row"><button class="btn primary" data-act="${act}">${lbl}</button><button class="btn ghost" data-act="x-dismiss" data-w="${w}" aria-label="إخفاء">✕</button></div></div>`;
+  if (!Object.keys(state.logs).length && !dis.imp) return B("imp", "<b>أول تشغيل:</b> إن كانت لك بيانات من النسخة السابقة فاستوردها من ملف النسخة الاحتياطية.", "x-goapp", "استيراد البيانات");
+  if (deferred && !standalone() && !dis.inst) return B("inst", "<b>ثبّت التطبيق</b> على الشاشة الرئيسية ليعمل بدون إنترنت ويفتح كأي تطبيق.", "x-install", "تثبيت");
+  if (nSupported() && !(N().on && nGranted()) && !dis.ntf) return B("ntf", "<b>التذكيرات متوقفة.</b> فعّلها لتصلك تنبيهات النوم والخروج والعادات.", "x-non", "تفعيل");
+  return "";
+}
+function vApp(){
+  const n = N(), on = n.on && nGranted(), tk = Date.now();
+  const list = remindersFor(now());
+  const sw = (f, t, d, extra) => `<label class="sw"><span>${t}${d ? `<small>${d}</small>` : ""}</span><span class="row" style="flex-wrap:nowrap">${extra || ""}<input type="checkbox" data-xb="nf" data-f="${f}"${n[f] ? " checked" : ""}></span></label>`;
+  const num = (f, lbl) => `<input type="number" min="0" max="120" inputmode="numeric" data-xb="nf" data-f="${f}" value="${esc(n[f])}" aria-label="${lbl}"><span class="legend">د</span>`;
+  const tm = (f, lbl) => `<input type="time" data-xb="nf" data-f="${f}" value="${esc(n[f])}" aria-label="${lbl}">`;
+  const bk = lsGet(LS + "-backup", null), days = Object.keys(state.logs).length;
+  return `
+  <h2>الإعدادات والتذكيرات</h2>
+  <p class="lead">التطبيق يعمل كاملاً على هاتفك بدون إنترنت، وكل بياناتك محفوظة على هذا الجهاز فقط. خذ نسخة احتياطية بانتظام.</p>
+  <div class="grid2">
+    <div class="stack">
+      <section class="panel"><h3>التطبيق</h3>
+        <div class="sw"><span>التثبيت<small>${standalone() ? "يعمل كتطبيق مثبّت." : "أضِفه إلى الشاشة الرئيسية ليفتح كأي تطبيق."}</small></span>
+          ${standalone() ? '<span class="ok">مثبّت ✓</span>' : deferred ? '<button class="btn primary" data-act="x-install">تثبيت التطبيق</button>' : '<span class="legend">من قائمة Chrome ⋮</span>'}</div>
+        ${!standalone() && !deferred ? '<ol class="steps"><li>افتح هذه الصفحة في Chrome على الهاتف.</li><li>اضغط القائمة ⋮ أعلى الشاشة.</li><li>اختر «إضافة إلى الشاشة الرئيسية» ثم «تثبيت».</li></ol>' : ""}
+        <div class="sw"><span>العمل بدون إنترنت<small>${swReady ? "كل الصفحات محفوظة على الجهاز." : location.protocol === "file:" ? "يحتاج فتح التطبيق من رابط https." : "يُجهَّز عند أول فتح مع اتصال."}</small></span><span class="${swReady ? "ok" : "legend"}">${swReady ? "جاهز ✓" : "…"}</span></div>
+        <div class="sw"><span>إعدادات الدوام والنوم<small>مواعيد النوبة، القيلولة، نوم التعافي، الطريق.</small></span><button class="btn" data-act="x-goweek">فتح</button></div>
+        <div class="sw"><span>تحديث التطبيق<small>الإصدار ${APP_VER}</small></span><button class="btn" data-act="x-update">تحقّق من تحديث</button></div>
+      </section>
+      <section class="panel"><h3>النسخ الاحتياطي</h3>
+        <p class="legend" style="margin:2px 0 8px">${days} يوماً مسجّلاً على هذا الجهاز. ${bk ? "آخر نسخة احتياطية: <span class='num'>" + esc(bk) + "</span>." : '<span class="warn">لم تأخذ نسخة احتياطية بعد.</span>'} ${persisted === true ? "التخزين محمي من الحذف التلقائي." : ""}</p>
+        <div class="row"><button class="btn primary" data-act="x-export">تصدير نسخة احتياطية</button><button class="btn" data-act="x-import">استيراد نسخة</button></div>
+        <input type="file" id="imp" accept=".json,application/json" hidden>
+        <p class="note">مسح بيانات المتصفح أو حذف التطبيق يحذف بياناتك. احفظ ملف النسخة في مكان آمن (Google Drive مثلاً) مرة كل أسبوع.</p>
+      </section>
+    </div>
+    <div class="stack">
+      <section class="panel"><h3>التذكيرات</h3>
+        <div class="sw"><span>حالة الإشعارات<small>${!nSupported() ? "غير مدعومة في هذا المتصفح." : Notification.permission === "denied" ? "محظورة: اسمح بها من إعدادات الموقع في Chrome." : on ? "مفعّلة على هذا الهاتف." : "متوقفة."}</small></span>
+          ${on ? '<span class="row" style="flex-wrap:nowrap"><button class="btn" data-act="x-ntest">تجربة</button><button class="btn ghost" data-act="x-noff">إيقاف</button></span>' : '<button class="btn primary" data-act="x-non">تفعيل التذكيرات</button>'}</div>
+        ${sw("sleep", "النوم والقيلولة", "قبل النوم الرئيسي، قيلولة العصر، نوم التعافي، وموعد نوم الليل.", num("sleepLead", "دقائق قبل النوم"))}
+        ${sw("leave", "الخروج إلى العمل والجامعة", "قبل موعد الانطلاق.", num("leaveLead", "دقائق قبل الخروج"))}
+        ${sw("blocks", "بداية كل كتلة في الخطة", "الدراسة، البرمجة، الروسية، الرياضة.", num("lead", "دقائق قبل الكتلة"))}
+        ${sw("habits", "تسجيل العادات", "في أيام العطلة بهذا الوقت، وفي أيام النوبة قبل الخروج بـ45 دقيقة.", tm("habitT", "وقت تذكير العادات"))}
+        ${sw("weekly", "المراجعة الأسبوعية", "كل أحد: نسبة الالتزام وإدخال محاضرات الأسبوع القادم.", tm("weeklyT", "وقت المراجعة"))}
+        ${sw("due", "واجبات الجامعة", "ظهر يوم التسليم واليوم الذي قبله.")}
+        ${sw("money", "الادخار الشهري", "أول كل شهر: لقطة صافي الثروة وإيداع الأهداف.")}
+        <p class="note">التذكيرات تصل والتطبيق مفتوح أو في الخلفية. إذا أغلقه Android تماماً فقد يتأخر التنبيه حتى تفتحه، لأن تطبيقات الويب لا تملك منبّهاً يعمل وهي مغلقة. للتنبيهات التي لا تحتمل التأخير (النوم والخروج للعمل) صدّرها إلى تقويم الهاتف:</p>
+        <div class="row" style="margin-top:8px"><button class="btn" data-act="x-ics">تصدير تذكيرات 7 أيام إلى التقويم</button></div>
+      </section>
+      <section class="panel"><h3>تذكيرات اليوم</h3>
+        <div style="margin-top:6px">${list.length ? list.map(r => `<div class="rem${r.at < tk ? " past" : ""}"><span class="t">${fmtT(Math.round((r.at - new Date(now().getFullYear(), now().getMonth(), now().getDate()).getTime()) / 60000) % 1440)}</span><span>${esc(r.title)}${r.body ? `<small style="display:block;color:var(--muted)">${esc(r.body)}</small>` : ""}</span></div>`).join("") : '<p class="legend">لا تذكيرات مفعّلة لهذا اليوم.</p>'}</div>
+      </section>
+    </div>
+  </div>`;
+}
+
+/* ---------- events for the additions ---------- */
+$("#view").addEventListener("click", e => {
+  const el = e.target.closest("[data-act]"); if (!el || el.disabled) return;
+  const a = el.dataset.act; if (a.slice(0, 2) !== "x-") return;
+  const host = el.closest(".big"), g = host && (state.big || []).find(x => x.id === host.dataset.id);
+  if (a === "x-sprev") sOff--;
+  else if (a === "x-snext") sOff = Math.min(0, sOff + 1);
+  else if (a === "x-snow") sOff = 0;
+  else if (a === "x-goapp") { setTab("app"); return; }
+  else if (a === "x-goweek") { setTab("week"); const d = document.querySelector("details.cfg"); if (d) { d.open = true; d.scrollIntoView({block: "start"}); } return; }
+  else if (a === "x-dismiss") { const d = dismissed(); d[el.dataset.w] = 1; lsSet(LS + "-dis", d); }
+  else if (a === "x-install") { if (deferred) { const p = deferred; deferred = null; p.prompt(); Promise.resolve(p.userChoice).then(() => render()).catch(() => {}); } return; }
+  else if (a === "x-non") { enableNotif(); return; }
+  else if (a === "x-noff") { N().on = false; save(); }
+  else if (a === "x-ntest") { fire({id: "test-" + Date.now(), title: "تجربة التذكير", body: "هكذا ستظهر تذكيراتك."}); return; }
+  else if (a === "x-ics") { icsExport(); return; }
+  else if (a === "x-export") { exportBackup(); return; }
+  else if (a === "x-import") { const i = document.getElementById("imp"); if (i) i.click(); return; }
+  else if (a === "x-update") { if (swReg) swReg.update().then(() => setTimeout(() => location.reload(), 800)).catch(() => toast("لا اتصال بالإنترنت الآن")); else location.reload(); return; }
+  else if (a === "x-badd") { state.big.push({id: "g" + uid(), n: "هدف جديد", ic: "🎯", tgt: 0, cur: 0, mo: 0, d: "", link: false, log: []}); save(); }
+  else if (a === "x-bdel" && g) { if (!window.confirm("حذف هدف «" + g.n + "» وسجلّ إيداعاته؟")) return; state.big = state.big.filter(x => x !== g); save(); }
+  else if (a === "x-dep" && g) { const i = document.getElementById("bv-" + g.id), v = i ? +i.value : 0; if (!v) { toast("اكتب مبلغ الإيداع"); return; }
+    g.cur = (+g.cur || 0) + v; (g.log || (g.log = [])).push({k: keyOf(now()), v}); if (g.log.length > 200) g.log = g.log.slice(-200); save(); toast("أُضيف " + rub(v) + " إلى " + g.n); }
+  else if (a === "x-undep" && g) { const x = (g.log || []).pop(); if (x) g.cur = Math.max(0, (+g.cur || 0) - x.v); save(); }
+  else return;
+  render();
+});
+$("#view").addEventListener("input", e => {
+  const el = e.target, b = el.dataset.xb; if (!b || b === "nf" || b === "bd" || b === "bl") return;
+  const host = el.closest(".big"), g = host && (state.big || []).find(x => x.id === host.dataset.id); if (!g) return;
+  const v = el.value;
+  if (b === "bn") g.n = v; else g[{bt: "tgt", bc: "cur", bm: "mo"}[b]] = v === "" ? 0 : Math.max(0, +v || 0);
+  save(); refreshBig(g.id);
+});
+$("#view").addEventListener("change", e => {
+  const el = e.target;
+  if (el.id === "imp") { if (el.files && el.files[0]) importBackup(el.files[0]); el.value = ""; return; }
+  const b = el.dataset.xb; if (!b) return;
+  if (b === "nf") { const f = el.dataset.f; N()[f] = el.type === "checkbox" ? el.checked : el.type === "number" ? Math.max(0, +el.value || 0) : (el.value || N()[f]); }
+  else if (b === "bd" || b === "bl") { const host = el.closest(".big"), g = host && state.big.find(x => x.id === host.dataset.id); if (!g) return;
+    if (b === "bd") g.d = el.value; else g.link = el.checked; }
+  else return;
+  save(); render();
+});
+
+/* ---------- boot ---------- */
+if ("serviceWorker" in navigator && location.protocol !== "file:") {
+  navigator.serviceWorker.register("sw.js").then(reg => { swReg = reg; return navigator.serviceWorker.ready; })
+    .then(reg => { swReg = reg; swReady = true; regPeriodic(); planReminders(); if (tab === "app") softRender(); }).catch(() => {});
+  navigator.serviceWorker.addEventListener("message", e => { const g = e.data && e.data.goto; if (g) { const h = String(g).split("#")[1] || "today"; if (VIEWS[h]) setTab(h); } });
+}
+if (navigator.storage && navigator.storage.persist) navigator.storage.persist().then(ok => { persisted = ok; if (tab === "app") softRender(); }).catch(() => {});
+setSync(navigator.onLine === false ? "بدون إنترنت · محفوظ على هذا الجهاز" : "محفوظ على هذا الجهاز", "on");
+setInterval(tickReminders, 20000);
+document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") { tickReminders(); if (tab === "today" || tab === "stats") softRender(); } });
+setTimeout(tickReminders, 1500);
+
+const h = (location.hash || "").slice(1); if (VIEWS[h]) tab = h;
+render();
+setInterval(() => { const a = document.activeElement; if (tab === "today" && !(a && a.matches("input,textarea,select"))) render(); }, 60000);
+planReminders();
+})();
+</script>
+
+</body>
+</html>
