@@ -1,6 +1,6 @@
 /* نظام التطوّر اليومي — service worker: يعمل التطبيق كاملاً بدون إنترنت */
 const FONT_CSS = "https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Reem+Kufi:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap";
-const VERSION = "tatawwur-pwa-v6";
+const VERSION = "tatawwur-pwa-v7";
 const DATA = "tatawwur-data";
 const SHELL = ["./", "./index.html", "./manifest.webmanifest",
   "./icon-192.png", "./icon-512.png", "./maskable-512.png", "./badge-96.png", "./apple-180.png"];
@@ -54,6 +54,7 @@ async function writeJSON(name, v){
 }
 /* best effort when the app is closed: Android may wake this a few times a day at most */
 async function catchUp(){
+  if (self.Notification && "showTrigger" in Notification.prototype) return;   // the system already holds the schedule
   const list = await readJSON("schedule.json", []), shown = await readJSON("shown.json", {});
   const t = Date.now(), due = list.filter(r => r.at <= t && t - r.at < 3 * 3600e3 && !shown[r.id]);
   if (!due.length) return;
