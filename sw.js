@@ -1,6 +1,6 @@
 /* نظام التطوّر اليومي — service worker: يعمل التطبيق كاملاً بدون إنترنت */
-const FONT_CSS = "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Reem+Kufi:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap";
-const VERSION = "tatawwur-pwa-v5";
+const FONT_CSS = "https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Reem+Kufi:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap";
+const VERSION = "tatawwur-pwa-v6";
 const DATA = "tatawwur-data";
 const SHELL = ["./", "./index.html", "./manifest.webmanifest",
   "./icon-192.png", "./icon-512.png", "./maskable-512.png", "./badge-96.png", "./apple-180.png"];
